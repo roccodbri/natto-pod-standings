@@ -14,6 +14,15 @@
   assign fb5 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260708_005146_a373486f-5728-4345-bef3-e9921f2ba859.png?v=1783998646&width=900'
 -%}
 
+{%- comment -%}LCP preload: start the first gallery image download during the
+  document head scan, before CSS and fonts resolve.{%- endcomment -%}
+{%- if use_product_images -%}
+  {%- assign lcp_img = hero_product.images.first -%}
+  <link rel="preload" as="image" fetchpriority="high" href="{{ lcp_img | image_url: width: 900 }}">
+{%- else -%}
+  <link rel="preload" as="image" fetchpriority="high" href="{{ fb1 }}">
+{%- endif -%}
+
 <section class="lhr" id="lp-hero">
   <div class="v3-wrap">
 
