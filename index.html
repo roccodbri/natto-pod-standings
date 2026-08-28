@@ -107,11 +107,24 @@ body{
   font-size:16px; font-weight:500; text-align:right; white-space:nowrap;}
 .row.is-lead .val{color:var(--gold); font-weight:600}
 
-.zero{background:var(--crit-bg); border:1px solid var(--crit);
-  border-radius:3px; padding:14px 16px; margin-bottom:12px;}
-.zero-title{margin:0 0 4px; font-family:Archivo,sans-serif; font-weight:700; font-size:15px;
-  color:var(--crit);}
-.zero-body{margin:0; font-size:14px; color:var(--ink-2)}
+.zero{background:var(--panel-2); border:1px solid var(--line-2);
+  border-radius:3px; padding:13px 16px; margin-bottom:12px;}
+.zero-title{margin:0 0 3px; font-family:Archivo,sans-serif; font-weight:700; font-size:14px;
+  color:var(--ink-2);}
+.zero-body{margin:0; font-size:13.5px; color:var(--ink-3)}
+
+.pill{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+  letter-spacing:.11em; text-transform:uppercase; padding:3px 9px; border-radius:99px;
+  border:1px solid currentColor; white-space:nowrap;}
+.pill-pre{color:var(--warn)}
+.pill-live{color:var(--good)}
+
+.intro{border:1px solid var(--line); border-left:3px solid var(--warn);
+  background:var(--panel); border-radius:3px; padding:18px 20px; margin:0 0 40px;}
+.intro h2{font-family:Archivo,sans-serif; font-weight:700; font-size:19px; margin:0 0 8px;
+  letter-spacing:-.012em;}
+.intro p{margin:0 0 9px; font-size:14.5px; max-width:82ch; color:var(--ink-2)}
+.intro p:last-child{margin-bottom:0}
 
 /* ---------- tables ---------- */
 .scroll{overflow-x:auto; border:1px solid var(--line); border-radius:3px; background:var(--panel)}
@@ -185,43 +198,68 @@ footer .mono{font-size:12px}
       <h1>Pod Standings</h1>
     </div>
     <div class="stamp">
-      <span class="t">Aug 28, 2026 at 12:57 PM CEST</span>
+      <span class="pill pill-pre">Pre-season</span>
+      <span class="t">Aug 28, 2026 at 1:19 PM CEST</span>
       <span class="cad">Refreshes twice daily &middot; 8am &amp; 8pm</span>
     </div>
   </header>
 
   <dl class="figs">
     <div class="fig"><dt>Natto spend</dt><dd>$2,721.00<span class="hint">Last 7 days</span></dd></div>
-    <div class="fig"><dt>Ads live now</dt><dd>10<span class="hint">across all pods</span></dd></div>
-    <div class="fig"><dt>Attributed to a pod</dt><dd class="crit">30%<span class="hint">of natto spend</span></dd></div>
+    <div class="fig"><dt>Ads live now</dt><dd>10<span class="hint">across the product</span></dd></div>
+    <div class="fig"><dt>Scoring starts</dt><dd class="warn">Aug 28, 2026<span class="hint">first pod batch onward</span></dd></div>
   </dl>
 
+  <div class="intro"><h2>The season hasn&rsquo;t started</h2><p>Everything running on nattokinase right now was built before the pods existed &mdash; the <span class="mono">N-Batch#</span> sets are Rocco&rsquo;s own, launched without an editor, and the paused <span class="mono">CBO | Natto Videos</span> batches pair him with editors who have since left the team.</p><p>None of it is scored. Crediting a pod for work it didn&rsquo;t do would hand somebody a lead before the first whistle. The four pods stay on zero until a batch launches that a pod actually made &mdash; expected mid-September &mdash; and the board switches itself to <strong>Season live</strong> the moment one does. No renaming, no setup, nothing to remember.</p></div>
+
   <section class="board">
-<div class="board-head"><h2>Top spending pod</h2><p class="sub">Nattokinase spend attributed to each pod, last 7 days.</p></div>
+<div class="board-head"><h2>Top spending pod</h2><p class="sub">Nattokinase spend built by each pod, last 7 days.</p></div>
+<div class="zero"><p class="zero-title">No scored spend yet</p><p class="zero-body">Fills in with the first batch a pod builds.</p></div>
 <ol class="rank">
-<li class="row is-lead"><span class="pos">1st</span><span class="who"><span class="pod">Harris &amp; John-Paul</span><span class="members">Harris <span class="role">strategist</span> &middot; John-Paul <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:100.00%"></span></div></span><span class="val">$625.38</span></li>
-<li class="row"><span class="pos">2nd</span><span class="who"><span class="pod">Rocco &amp; Shad</span><span class="members">Rocco <span class="role">strategist</span> &middot; Shad <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:29.59%"></span></div></span><span class="val">$185.02</span></li>
-<li class="row"><span class="pos">3rd</span><span class="who"><span class="pod">Yeshua &amp; Sonny</span><span class="members">Yeshua <span class="role">strategist</span> &middot; Sonny <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:2.68%"></span></div></span><span class="val">$16.73</span></li>
-<li class="row is-zero"><span class="pos">4th</span><span class="who"><span class="pod">Max</span><span class="members">Max <span class="role">solo</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">$0.00</span></li>
+<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Harris &amp; John-Paul</span><span class="members">Harris <span class="role">strategist</span> &middot; John-Paul <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">$0.00</span></li>
+<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Max</span><span class="members">Max <span class="role">solo</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">$0.00</span></li>
+<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Rocco &amp; Shad</span><span class="members">Rocco <span class="role">strategist</span> &middot; Shad <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">$0.00</span></li>
+<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Yeshua &amp; Sonny</span><span class="members">Yeshua <span class="role">strategist</span> &middot; Sonny <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">$0.00</span></li>
 </ol></section>
 
   <section class="board">
 <div class="board-head"><h2>Most ads up</h2><p class="sub">Ads live in the account at this moment, not over a window.</p></div>
-<div class="zero"><p class="zero-title">No pod is on the board yet</p><p class="zero-body">All 10 nattokinase ads running right now live in the <span class='mono'>N-Batch#</span> ad sets, whose names carry no strategist or editor. Until those ad sets are renamed to the <span class='mono'>batch#N-strategist_editor</span> convention, no pod can be credited for a live ad.</p></div>
+<div class="zero"><p class="zero-title">No pod has an ad up yet</p><p class="zero-body">All 10 ads running right now pre-date the pods, so none of them counts for anyone yet.</p></div>
 <ol class="rank">
 <li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Harris &amp; John-Paul</span><span class="members">Harris <span class="role">strategist</span> &middot; John-Paul <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">0</span></li>
+<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Max</span><span class="members">Max <span class="role">solo</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">0</span></li>
 <li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Rocco &amp; Shad</span><span class="members">Rocco <span class="role">strategist</span> &middot; Shad <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">0</span></li>
 <li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Yeshua &amp; Sonny</span><span class="members">Yeshua <span class="role">strategist</span> &middot; Sonny <span class="role">editor</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">0</span></li>
-<li class="row is-zero"><span class="pos">&mdash;</span><span class="who"><span class="pod">Max</span><span class="members">Max <span class="role">solo</span></span></span><span class="viz"><div class="bar"><span class="bar-fill t-accent" style="width:0.00%"></span></div></span><span class="val">0</span></li>
 </ol></section>
 
   <section class="sec">
-    <h2>Spend by window</h2>
-    <p class="sub">Same pods, three horizons. Useful for spotting a pod that just started scaling.</p>
+    <h2>Running now, not scored</h2>
+    <p class="sub">Everything live or recently spending on nattokinase that pre-dates the pods.</p>
+    <div class="callout">
+      <p><strong>$2,721.00</strong> over the last 7 days, <strong>10</strong> ads live,
+      27 purchases at $100.78 &mdash; 0.62x return. Real money and real results,
+      but none of it belongs to a pod, so none of it appears in the table above.</p>
+      <p>The <span class="mono">N-Batch#</span> sets are Rocco&rsquo;s, run without an editor.
+      The <span class="mono">batch#N-rocco_&hellip;</span> sets pair him with editors who have left
+      the six. Both pre-date the pod format, so both sit out the season.</p>
+    </div>
     <div class="scroll">
       <table>
-        <thead><tr><th scope="col">Window</th><th scope="col">Harris &amp; John-Paul</th><th scope="col">Rocco &amp; Shad</th><th scope="col">Yeshua &amp; Sonny</th><th scope="col">Max</th><th scope="col" class="num">Unattributed</th></tr></thead>
-        <tbody><tr><th scope="row">Today</th><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num muted">$50.11</td></tr><tr><th scope="row">Last 7 days</th><td class="num">$625.38</td><td class="num">$185.02</td><td class="num">$16.73</td><td class="num">$0.00</td><td class="num muted">$1,885.31</td></tr><tr><th scope="row">Last 30 days</th><td class="num">$634.69</td><td class="num">$193.17</td><td class="num">$17.89</td><td class="num">$0.00</td><td class="num muted">$2,588.76</td></tr></tbody>
+        <thead><tr><th scope="col">Ad set</th><th scope="col">Built by</th>
+        <th scope="col" class="num">Spend 7d</th><th scope="col" class="num">Purchases</th>
+        <th scope="col" class="num">Ads up</th></tr></thead>
+        <tbody><tr><td class="mono">N-Batch#1</td><td>Rocco (no editor)</td><td class="num">$745.32</td><td class="num">8</td><td class="num">3</td></tr><tr><td class="mono">N-Batch#2</td><td>Rocco (no editor)</td><td class="num">$731.10</td><td class="num">9</td><td class="num">3</td></tr><tr><td class="mono">batch#4-rocco_john_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$453.12</td><td class="num">5</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#8</td><td>Rocco (no editor)</td><td class="num">$349.31</td><td class="num">4</td><td class="num">4</td></tr><tr><td class="mono">batch#___-rocco_john_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$109.82</td><td class="num">1</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#___-rocco_shadrach_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$56.63</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#5</td><td><span class="muted">no name recorded</span></td><td class="num">$51.09</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_jethro_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$50.13</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_shadrach_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$40.39</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#___-rocco_john_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$20.05</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_john_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$13.72</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_oğuz_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$11.84</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_john_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$10.50</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#1-tbd_sylvester_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$8.56</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_john_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$7.14</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#19-jared_sonny_curiositytomechanism-Imitation</td><td><span class="muted">legacy pairing</span></td><td class="num">$6.69</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_john_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$5.17</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#___-rocco_sylvester_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$5.11</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#21-jared_john_visualofmechanism-Imitation</td><td><span class="muted">legacy pairing</span></td><td class="num">$4.92</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_sylvester_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$4.87</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#4</td><td><span class="muted">no name recorded</span></td><td class="num">$4.70</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_davellavore_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$4.23</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_davellavore_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$3.98</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#___-rocco_shadrach_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$2.83</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_shadrach_concept-Imitation - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$2.69</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#6</td><td><span class="muted">no name recorded</span></td><td class="num">$2.23</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_sylvester_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$2.07</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_jethro_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$1.88</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_jethro_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$1.65</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_sylvester_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$1.46</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#3</td><td><span class="muted">no name recorded</span></td><td class="num">$1.39</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_shadrach_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$1.03</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_davellavore_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.99</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#12-rocco_john_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.88</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_davellavore_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.74</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_shadrach_concept-Imitation</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.61</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_jethro_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.44</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#11-rocco_sylvester_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.43</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#4-rocco_jethro_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.30</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_oğuz_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.23</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_oğuz_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.20</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#7</td><td><span class="muted">no name recorded</span></td><td class="num">$0.17</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_sylvester_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.13</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_davellavore_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.07</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_oğuz_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.07</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_john_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.06</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#6-rocco_jethro_concept-AdType</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.03</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">batch#5-rocco_davellavore_concept-AdType - Copy</td><td><span class="muted">legacy pairing</span></td><td class="num">$0.03</td><td class="num">0</td><td class="num">&mdash;</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Spend by window</h2>
+    <p class="sub">Same pods, three horizons. The last column is everything sitting out the season.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Window</th><th scope="col">Harris &amp; John-Paul</th><th scope="col">Max</th><th scope="col">Rocco &amp; Shad</th><th scope="col">Yeshua &amp; Sonny</th><th scope="col" class="num">Not scored</th></tr></thead>
+        <tbody><tr><th scope="row">Today</th><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num muted">$53.07</td></tr><tr><th scope="row">Last 7 days</th><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num muted">$2,721.00</td></tr><tr><th scope="row">Last 30 days</th><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num">$0.00</td><td class="num muted">$3,443.07</td></tr></tbody>
       </table>
     </div>
   </section>
@@ -232,44 +270,15 @@ footer .mono{font-size:12px}
     <div class="cards"><article class="card">
 <header><h3>Harris &amp; John-Paul</h3><p class="card-sub">Harris <span class="role">strategist</span> &middot; John-Paul <span class="role">editor</span></p></header>
 <dl class="stats">
-<div><dt>Spend</dt><dd class="num">$625.38</dd></div>
+<div><dt>Spend</dt><dd class="num">$0.00</dd></div>
 <div><dt>Ads up</dt><dd class="num">0</dd></div>
-<div><dt>Ads that spent</dt><dd class="num">25</dd></div>
-<div><dt>Purchases</dt><dd class="num">6</dd></div>
-<div><dt>CPA</dt><dd class="num">$104.23</dd></div>
-<div><dt>ROAS</dt><dd class="num">0.57x</dd></div>
-</dl>
-<ul class="people"><li><span>Harris</span><span class="num">$0.00</span></li><li><span>John-Paul</span><span class="num">$625.38</span></li></ul>
-<p class="how"><span class="k">How it scored</span>$620.46 cross-pod (credited to editor), $4.92 editor named only</p>
-<p class="how"><span class="k">Worked with</span>Rocco $620.46</p>
-<p class="how"><span class="k">Batches</span>#4, #5, #6, #12, #21</p>
-</article><article class="card">
-<header><h3>Rocco &amp; Shad</h3><p class="card-sub">Rocco <span class="role">strategist</span> &middot; Shad <span class="role">editor</span></p></header>
-<dl class="stats">
-<div><dt>Spend</dt><dd class="num">$185.02</dd></div>
-<div><dt>Ads up</dt><dd class="num">0</dd></div>
-<div><dt>Ads that spent</dt><dd class="num">60</dd></div>
+<div><dt>Ads that spent</dt><dd class="num">0</dd></div>
 <div><dt>Purchases</dt><dd class="num">0</dd></div>
 <div><dt>CPA</dt><dd class="num">&mdash;</dd></div>
 <div><dt>ROAS</dt><dd class="num">&mdash;</dd></div>
 </dl>
-<ul class="people"><li><span>Rocco</span><span class="num">$132.93</span></li><li><span>Shad</span><span class="num">$52.09</span></li></ul>
-<p class="how"><span class="k">How it scored</span>$104.18 pod pair, $80.84 strategist named only</p>
-<p class="how"><span class="k">Batches</span>#4, #5, #6, #11</p>
-</article><article class="card">
-<header><h3>Yeshua &amp; Sonny</h3><p class="card-sub">Yeshua <span class="role">strategist</span> &middot; Sonny <span class="role">editor</span></p></header>
-<dl class="stats">
-<div><dt>Spend</dt><dd class="num">$16.73</dd></div>
-<div><dt>Ads up</dt><dd class="num">0</dd></div>
-<div><dt>Ads that spent</dt><dd class="num">16</dd></div>
-<div><dt>Purchases</dt><dd class="num">0</dd></div>
-<div><dt>CPA</dt><dd class="num">&mdash;</dd></div>
-<div><dt>ROAS</dt><dd class="num">&mdash;</dd></div>
-</dl>
-<ul class="people"><li><span>Yeshua</span><span class="num">$0.00</span></li><li><span>Sonny</span><span class="num">$16.73</span></li></ul>
-<p class="how"><span class="k">How it scored</span>$10.04 cross-pod (credited to editor), $6.69 editor named only</p>
-<p class="how"><span class="k">Worked with</span>Rocco $10.04</p>
-<p class="how"><span class="k">Batches</span>#4, #5, #6, #19</p>
+<ul class="people"><li><span>Harris</span><span class="num">$0.00</span></li><li><span>John-Paul</span><span class="num">$0.00</span></li></ul>
+<p class="how"><span class="k">How it scored</span>nothing scored yet</p>
 </article><article class="card">
 <header><h3>Max</h3><p class="card-sub">Max <span class="role">solo</span></p></header>
 <dl class="stats">
@@ -281,49 +290,53 @@ footer .mono{font-size:12px}
 <div><dt>ROAS</dt><dd class="num">&mdash;</dd></div>
 </dl>
 <ul class="people"><li><span>Max</span><span class="num">$0.00</span></li></ul>
-<p class="how"><span class="k">How it scored</span>no attributed spend</p>
+<p class="how"><span class="k">How it scored</span>nothing scored yet</p>
+</article><article class="card">
+<header><h3>Rocco &amp; Shad</h3><p class="card-sub">Rocco <span class="role">strategist</span> &middot; Shad <span class="role">editor</span></p></header>
+<dl class="stats">
+<div><dt>Spend</dt><dd class="num">$0.00</dd></div>
+<div><dt>Ads up</dt><dd class="num">0</dd></div>
+<div><dt>Ads that spent</dt><dd class="num">0</dd></div>
+<div><dt>Purchases</dt><dd class="num">0</dd></div>
+<div><dt>CPA</dt><dd class="num">&mdash;</dd></div>
+<div><dt>ROAS</dt><dd class="num">&mdash;</dd></div>
+</dl>
+<ul class="people"><li><span>Rocco</span><span class="num">$0.00</span></li><li><span>Shad</span><span class="num">$0.00</span></li></ul>
+<p class="how"><span class="k">How it scored</span>nothing scored yet</p>
+</article><article class="card">
+<header><h3>Yeshua &amp; Sonny</h3><p class="card-sub">Yeshua <span class="role">strategist</span> &middot; Sonny <span class="role">editor</span></p></header>
+<dl class="stats">
+<div><dt>Spend</dt><dd class="num">$0.00</dd></div>
+<div><dt>Ads up</dt><dd class="num">0</dd></div>
+<div><dt>Ads that spent</dt><dd class="num">0</dd></div>
+<div><dt>Purchases</dt><dd class="num">0</dd></div>
+<div><dt>CPA</dt><dd class="num">&mdash;</dd></div>
+<div><dt>ROAS</dt><dd class="num">&mdash;</dd></div>
+</dl>
+<ul class="people"><li><span>Yeshua</span><span class="num">$0.00</span></li><li><span>Sonny</span><span class="num">$0.00</span></li></ul>
+<p class="how"><span class="k">How it scored</span>nothing scored yet</p>
 </article></div>
   </section>
 
   <section class="sec">
-    <h2>What the board can&rsquo;t see</h2>
-    <p class="sub">The honest gap, so no standing is read as more settled than it is.</p>
-    <div class="callout">
-      <p><strong>$1,885.31</strong> of nattokinase spend &mdash; 70% of the total &mdash; and
-      <strong>10</strong> of the live ads sit in ad sets whose names contain no person, so they
-      belong to no pod. These are the <span class="mono">N-Batch#</span> sets.</p>
-      <p>Notion can&rsquo;t settle it either: <span class="mono">N-Batch#1/2/3</span> have no editor
-      recorded, and <span class="mono">N-Batch#4/5/6</span> are each duplicated across five or six
-      different editors. Assigning them would be a guess, so the board leaves them out rather than
-      handing a pod points it may not have earned.</p>
-      <p class="fix">Fix &mdash; rename the ad set to
-      <b>batch#8-harris_jp_concept-Native</b> and the next refresh picks it up automatically.</p>
-      <p class="foot-note">A further <strong>$8.56</strong> sits with people who have left the six: TBD $8.56, Sylvester $8.56. It is held out of every pod score.</p>
-    </div>
-    <div class="scroll">
-      <table>
-        <thead><tr><th scope="col">Ad set</th><th scope="col" class="num">Spend</th>
-        <th scope="col" class="num">Purchases</th><th scope="col" class="num">Ads up</th></tr></thead>
-        <tbody><tr><td class="mono">N-Batch#1</td><td class="num">$745.32</td><td class="num">8</td><td class="num">3</td></tr><tr><td class="mono">N-Batch#2</td><td class="num">$731.10</td><td class="num">9</td><td class="num">3</td></tr><tr><td class="mono">N-Batch#8</td><td class="num">$349.31</td><td class="num">4</td><td class="num">4</td></tr><tr><td class="mono">N-Batch#5</td><td class="num">$51.09</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#4</td><td class="num">$4.70</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#6</td><td class="num">$2.23</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#3</td><td class="num">$1.39</td><td class="num">0</td><td class="num">&mdash;</td></tr><tr><td class="mono">N-Batch#7</td><td class="num">$0.17</td><td class="num">0</td><td class="num">&mdash;</td></tr></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="sec">
     <h2>How a pod scores</h2>
-    <p class="sub">One rule, applied the same way every refresh.</p>
+    <p class="sub">One rule set, applied the same way every refresh.</p>
     <div class="scroll">
       <table>
-        <thead><tr><th scope="col">Ad set names</th><th scope="col">Credited to</th></tr></thead>
+        <thead><tr><th scope="col">Ad set</th><th scope="col">Credited to</th></tr></thead>
         <tbody>
+          <tr><td>Created before Aug 28, 2026</td><td><strong>Nobody</strong> &mdash; pre-dates the pods, sits out the season</td></tr>
           <tr><td>Both people in the same pod</td><td>That pod</td></tr>
           <tr><td>People from two different pods</td><td>The <strong>editor&rsquo;s</strong> pod &mdash; their work is what is running</td></tr>
           <tr><td>Only one current team member named</td><td>That member&rsquo;s pod</td></tr>
-          <tr><td>Only people who have left the six</td><td>Held out, shown as former team</td></tr>
-          <tr><td>No person in the name</td><td>Unattributed &mdash; counted for nobody</td></tr>
+          <tr><td>No current team member in the name</td><td>Nobody</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="foot-note">Name an ad set
+    <span class="mono">batch#12-harris_jp_concept-Native</span> and it scores on the next refresh.
+    Nothing needs renaming for the board to work &mdash; only new batches count, and they carry the
+    names already.</p>
   </section>
 
   <footer>
