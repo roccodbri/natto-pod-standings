@@ -1,0 +1,119 @@
+<section class="bdu hs-sec" id="benefits">
+  <span class="wr-deco wr-deco--bl" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="bdu__head">
+      <h2 class="hs-h">{{ section.settings.heading }}</h2>
+      <p class="hs-sub">{{ section.settings.sub }}</p>
+    </div>
+
+    <div class="bdu__grid">
+      <div class="bdu__media">
+        <img src="{%- render 'pm-img-src', src: section.settings.image -%}" alt="{{ section.settings.image_alt | escape }}"
+             width="900" height="900" loading="lazy" decoding="async">
+      </div>
+
+      <div class="bdu__col">
+        <ul class="bdu__list">
+          {% for n in (1..6) %}
+            {% assign k = 'benefit_' | append: n %}
+            {% if section.settings[k] != blank %}
+              <li><span class="hs-tick" aria-hidden="true"></span><span>{{ section.settings[k] }}</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <div class="bdu__cta">
+          <a class="hs-btn" href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2">{{ section.settings.cta }}</a>
+          <p class="bdu__proof">
+            <span class="stars" aria-hidden="true">{% for s in (1..5) %}<svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg>{% endfor %}</span>
+            {{ section.settings.proof }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits Of Daily Use",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Benefits Of Daily Use"
+    },
+    {
+      "type": "textarea",
+      "id": "sub",
+      "label": "Sub",
+      "default": "Set yourself up for the season by never being the one who ran out in July."
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Benefit 1",
+      "default": "Changes the scent your skin gives off, so a tick stops reading you as a host.*"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Benefit 2",
+      "default": "Covers all of you — scalp, waistband, behind the knee — not only where a spray landed.*"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Benefit 3",
+      "default": "One dropper in the morning holds through a full day in the grass and timber.*"
+    },
+    {
+      "type": "text",
+      "id": "benefit_4",
+      "label": "Benefit 4",
+      "default": "Nothing greasy on your hands, your gun stock, your line or your kids’ clothes."
+    },
+    {
+      "type": "text",
+      "id": "benefit_5",
+      "label": "Benefit 5",
+      "default": "One bottle the whole family takes from, in a maple syrup base nobody argues about."
+    },
+    {
+      "type": "text",
+      "id": "benefit_6",
+      "label": "Benefit 6"
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": "Button",
+      "default": "Try Pinemoor Today"
+    },
+    {
+      "type": "text",
+      "id": "proof",
+      "label": "Proof line",
+      "default": "1,206+ 5-Star Reviews"
+    },
+    {
+      "type": "text",
+      "id": "image",
+      "label": "Image URL",
+      "default": "pm-shot-held.webp"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt",
+      "default": "A bottle of Pinemoor Tick Protection Drops held in hand"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Of Daily Use"
+    }
+  ]
+}
+{% endschema %}

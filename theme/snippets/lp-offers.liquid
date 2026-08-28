@@ -1,0 +1,96 @@
+{%- comment -%}
+  Bundle offer cards + delivery row + Add-To-Cart. Rendered twice (hero and
+  final CTA) — pass a unique `uid` so ids never collide. One-time purchase
+  only: no subscribe & save UI anywhere. Selection + totals handled by the
+  shared script in lp-hero.liquid via [data-lp-offers].
+  Params: uid, variant_1/2/3.
+{%- endcomment -%}
+{%- assign img1 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260713_233510_2fd30a75-bcc7-4fe8-a2b9-d92c9085bdba.png?v=1783998610&width=240' -%}
+{%- assign img3 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260708_005146_a373486f-5728-4345-bef3-e9921f2ba859.png?v=1783998646&width=240' -%}
+{%- assign img6 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260714_025548_3e90ab15-b2fa-44f2-9aff-b461f6071bc9.png?v=1783998595&width=240' -%}
+
+<div class="lpo" data-lp-offers>
+
+  <label class="lpo-card" data-variant="{{ variant_1 }}" data-total="44.99" data-strike="49.99">
+    <input type="radio" name="lpo-{{ uid }}" class="lpo-radio" aria-label="Buy One">
+    <div class="lpo-row">
+      <span class="lpo-img"><img src="{{ img1 }}" alt="Pinemoor single bottle" loading="lazy" decoding="async" width="96" height="96"></span>
+      <div class="lpo-main">
+        <span class="lpo-title">Buy One</span>
+        <span class="lpo-per">$44.99 per Bottle</span>
+      </div>
+      <div class="lpo-right">
+        <span class="lpo-price">$44.99</span>
+        <span class="lpo-strike">$49.99</span>
+      </div>
+    </div>
+  </label>
+
+  <label class="lpo-card is-active" data-variant="{{ variant_2 }}" data-total="99.99" data-strike="134.99">
+    <span class="lpo-badge">Most Popular</span>
+    <input type="radio" name="lpo-{{ uid }}" class="lpo-radio" checked aria-label="Buy 2, Get 1 FREE">
+    <div class="lpo-row">
+      <span class="lpo-img"><img src="{{ img3 }}" alt="Pinemoor 3 bottles" loading="lazy" decoding="async" width="96" height="96"></span>
+      <div class="lpo-main">
+        <span class="lpo-title">Buy 2, Get 1 FREE</span>
+        <span class="lpo-per">$33.33 per Bottle</span>
+      </div>
+      <div class="lpo-right">
+        <span class="lpo-price">$99.99</span>
+        <span class="lpo-strike">$134.99</span>
+      </div>
+    </div>
+  </label>
+
+  <label class="lpo-card" data-variant="{{ variant_3 }}" data-total="129.99" data-strike="269.99">
+    <span class="lpo-badge">Free Shipping</span>
+    <input type="radio" name="lpo-{{ uid }}" class="lpo-radio" aria-label="Buy 3, Get 3 FREE">
+    <div class="lpo-row">
+      <span class="lpo-img"><img src="{{ img6 }}" alt="Pinemoor 6 bottle family bundle" loading="lazy" decoding="async" width="96" height="96"></span>
+      <div class="lpo-main">
+        <span class="lpo-title">Buy 3, Get 3 FREE</span>
+        <span class="lpo-per">$21.66 per Bottle</span>
+      </div>
+      <div class="lpo-right">
+        <span class="lpo-price">$129.99</span>
+        <span class="lpo-strike">$269.99</span>
+      </div>
+    </div>
+  </label>
+
+  <div class="lpo-ship"><span class="lpo-dot" aria-hidden="true"></span> Ready to ship &ndash; arrives by&nbsp;<u class="lpo-date" data-lp-delivery>&mdash;</u></div>
+
+  <button type="button" class="lp-cta lpo-atc" data-lp-atc>
+    <span class="lp-cta-main">Add To Cart &ndash; <span data-lp-atc-price>$99.99</span> <span class="lp-cta-strike" data-lp-atc-strike>$134.99</span></span>
+    <span class="lp-cta-sub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.7l2.2 1.6 2.7-.4 1 2.5 2.5 1-.4 2.7 1.6 2.2-1.6 2.2.4 2.7-2.5 1-1 2.5-2.7-.4-2.2 1.6-2.2-1.6-2.7.4-1-2.5-2.5-1 .4-2.7L2.4 12 4 9.8l-.4-2.7 2.5-1 1-2.5 2.7.4zM10.9 14.2l5-5-1.1-1.1-3.9 3.9-1.7-1.7-1.1 1.1z"/></svg> Lifetime Money Back Guarantee</span>
+  </button>
+
+  <div class="lpo-note">One-Time Purchase &nbsp;|&nbsp; No Subscription</div>
+</div>
+
+<style>
+.lpo{display:flex;flex-direction:column;}
+.lpo-radio{position:absolute;opacity:0;pointer-events:none;}
+.lpo-card{position:relative;display:block;background:#fff;border:1.6px solid #BFE3D2;border-radius:12px;
+  padding:6px 16px;margin-top:22px;cursor:pointer;transition:border-color .15s, background .15s;}
+.lpo-card:first-child{margin-top:0;}
+.lpo-card.is-active{background:var(--lp-mint);border-color:var(--lpg-dark);border-width:2px;}
+.lpo-badge{position:absolute;top:-19px;right:-2px;background:var(--lpg-dark);color:#fff;border-radius:50px;
+  padding:9px 22px;font-family:var(--lp-body);font-size:15px;font-weight:500;line-height:1;z-index:1;}
+.lpo-row{display:flex;align-items:center;gap:12px;min-height:84px;}
+.lpo-img{flex:none;width:88px;display:flex;align-items:center;justify-content:center;}
+.lpo-img img{max-height:96px;width:auto;object-fit:contain;mix-blend-mode:multiply;}
+.lpo-main{flex:1;min-width:0;}
+.lpo-title{display:block;font-family:var(--lp-head);font-weight:600;font-size:19.5px;color:var(--lp-ink);line-height:1.15;}
+.lpo-per{display:block;font-family:var(--lp-body);font-style:italic;font-size:15.5px;color:var(--lpg-deep);margin-top:5px;}
+.lpo-right{flex:none;text-align:right;}
+.lpo-price{display:block;font-family:var(--lp-head);font-weight:600;font-size:21px;color:var(--lp-ink);line-height:1;}
+.lpo-strike{display:block;font-size:16px;color:#9AA6A0;text-decoration:line-through;margin-top:5px;}
+.lpo-ship{display:flex;align-items:center;justify-content:center;margin:22px 0 14px;
+  font-family:var(--lp-body);font-size:16.5px;font-weight:500;color:var(--lp-ink);}
+.lpo-dot{width:13px;height:13px;border-radius:50%;background:var(--lpg);margin-right:11px;
+  box-shadow:0 0 0 5px rgba(25,155,98,.22);animation:lpoPulse 1.6s ease-out infinite;}
+@keyframes lpoPulse{0%{box-shadow:0 0 0 3px rgba(25,155,98,.30);}70%{box-shadow:0 0 0 8px rgba(25,155,98,0);}100%{box-shadow:0 0 0 3px rgba(25,155,98,0);}}
+.lpo-date{text-underline-offset:3px;font-weight:700;}
+.lpo-note{text-align:center;font-family:var(--lp-body);font-size:15px;color:var(--lp-ink);margin-top:14px;}
+</style>

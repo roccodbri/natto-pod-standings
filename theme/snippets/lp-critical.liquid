@@ -1,0 +1,73 @@
+{%- comment -%}
+  Mobile-LP design system (product template only).
+  Tokens + shared helpers used by every lp-* section. Mobile-first at 390px,
+  centered single column on desktop. Headings: Clash Grotesk. Body: Satoshi.
+{%- endcomment -%}
+<style>
+:root{
+  --lpg:#199B62;            /* bright green accent */
+  --lpg-deep:#085431;       /* darkest green (bars, text) */
+  --lpg-dark:#124B32;       /* dark section background */
+  --lpg-mid:#2A664B;        /* mid green panel */
+  --lpg-row:rgba(255,255,255,.10);
+  --lp-mint:#F2FFFA;        /* light mint wash */
+  --lp-mint-2:#EAF7F0;      /* card mint */
+  --lp-ink:#0D0D0D;
+  --lp-muted:#5C6660;
+  --lp-line:#DCE7E0;
+  --lp-red:#B91414;
+  --lp-radius:14px;
+  --lp-head:'Clash Grotesk','Satoshi',sans-serif;
+  --lp-body:'Satoshi',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+.lp-wrap{max-width:640px;margin:0 auto;padding:0 18px;}
+.lp-h2{font-family:var(--lp-head);font-weight:500;font-size:clamp(30px,8.2vw,40px);line-height:1.08;letter-spacing:-.01em;color:var(--lp-ink);}
+.lp-h2--c{text-align:center;}
+.lp-h2--w{color:#fff;}
+.lp-sub{font-family:var(--lp-body);font-size:16px;line-height:1.5;color:var(--lp-muted);margin-top:12px;}
+.lp-sub--c{text-align:center;}
+/* circular arrow nav (outlined, side by side, centered) */
+.lp-arrows{display:flex;align-items:center;justify-content:center;gap:44px;margin-top:22px;}
+.lp-arrow{width:52px;height:52px;border-radius:50%;background:transparent;border:1.6px solid var(--lpg);color:var(--lpg-deep);
+  display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.lp-arrow svg{width:18px;height:18px;}
+.lp-arrow:active{background:rgba(25,155,98,.12);}
+.lp-arrows--w .lp-arrow{border-color:rgba(255,255,255,.85);color:#fff;}
+/* horizontal snap rail */
+.lp-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.lp-rail::-webkit-scrollbar{display:none;}
+.lp-rail>*{scroll-snap-align:center;flex:none;}
+/* check badge rows */
+.lp-check{display:flex;align-items:flex-start;gap:12px;font-family:var(--lp-body);font-size:17px;font-weight:500;color:var(--lp-ink);line-height:1.35;}
+.lp-badgeic{flex:none;width:22px;height:22px;margin-top:1px;}
+/* big pill CTA */
+.lp-cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:100%;
+  background:var(--lpg-dark);color:#fff;border-radius:16px;padding:18px 20px;cursor:pointer;border:none;
+  font-family:var(--lp-body);transition:filter .15s, transform .1s;}
+.lp-cta:hover{filter:brightness(1.08);}
+.lp-cta:active{transform:scale(.99);}
+.lp-cta-main{font-size:22px;font-weight:500;line-height:1.1;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;justify-content:center;}
+.lp-cta-strike{font-size:19px;color:rgba(255,255,255,.55);text-decoration:line-through;font-weight:400;}
+.lp-cta-sub{display:flex;align-items:center;gap:7px;font-size:14.5px;color:rgba(255,255,255,.85);font-weight:400;}
+.lp-cta-sub svg{width:15px;height:15px;flex:none;}
+@media(min-width:760px){ .lp-wrap{max-width:680px;} }
+</style>
+<script>
+/* shared snap-rail carousel: wires prev/next arrows + optional dots */
+function lpRail(railId,prevId,nextId){
+  var rail=document.getElementById(railId); if(!rail)return;
+  var cards=[].slice.call(rail.children), cur=0;
+  function go(i){cur=Math.max(0,Math.min(cards.length-1,i));
+    rail.scrollTo({left:cards[cur].offsetLeft-rail.offsetLeft-((rail.clientWidth-cards[cur].clientWidth)/2),behavior:'smooth'});}
+  var p=document.getElementById(prevId), n=document.getElementById(nextId);
+  if(p)p.addEventListener('click',function(){go(cur-1);});
+  if(n)n.addEventListener('click',function(){go(cur+1);});
+  var raf;
+  rail.addEventListener('scroll',function(){
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){
+      cur=Math.max(0,Math.min(cards.length-1,Math.round(rail.scrollLeft/(rail.scrollWidth/cards.length))));
+    });
+  },{passive:true});
+}
+</script>

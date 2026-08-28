@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "product-hero": {
+      "type": "product-hero",
+      "settings": {
+        "product": "pinemoor\u2122-tick-protection-drops",
+        "variant_id_1": "52944486138037",
+        "variant_id_2": "52944486170805",
+        "variant_id_3": "52944486203573",
+        "selling_plan_id_1": "2686976181",
+        "selling_plan_id_2": "2687074485",
+        "selling_plan_id_3": "2687107253",
+        "gift_variant_6": "52748083724469",
+        "purchase_mode": "subscription"
+      }
+    },
+    "hunters-choice": {
+      "type": "hunters-choice",
+      "settings": {}
+    },
+    "product-accordions": {
+      "type": "product-accordions",
+      "settings": {}
+    },
+    "benefit_ticker_yFPQ6z": {
+      "type": "benefit-ticker",
+      "settings": {
+        "perk_1": "24-Hour Tick Protection",
+        "perk_2": "All Natural & Safe for Kids",
+        "perk_3": "Tastes Like Pure Maple Syrup",
+        "perk_4": "Lifetime Guarantee"
+      }
+    },
+    "hs-benefits": {
+      "type": "hs-benefits",
+      "settings": {
+        "heading": "Benefits Of Daily Use",
+        "sub": "Set yourself up for the season by never being the one who ran out in July.",
+        "benefit_1": "Changes the scent your skin gives off, so a tick stops reading you as a host.*",
+        "benefit_2": "Covers all of you \u2014 scalp, waistband, behind the knee \u2014 not only where a spray landed.*",
+        "benefit_3": "One dropper in the morning holds through a full day in the grass and timber.*",
+        "benefit_4": "Nothing greasy on your hands, your gun stock, your line or your kids\u2019 clothes.",
+        "benefit_5": "One bottle the whole family takes from, in a maple syrup base nobody argues about.",
+        "cta": "Try Pinemoor Today",
+        "proof": "1,206+ 5-Star Reviews",
+        "image": "pm-shot-held.webp",
+        "image_alt": "A bottle of Pinemoor Tick Protection Drops held in hand"
+      }
+    },
+    "hs-results": {
+      "type": "hs-results",
+      "settings": {
+        "heading": "Results Felt By Those Who Tried Pinemoor",
+        "sub": "We surveyed daily users at the end of last tick season and asked what actually changed.",
+        "bg_image": "pm-riverside1-b88d5.webp",
+        "pct_1": "91",
+        "title_1": "Came through the season without a bite",
+        "body_1": "Not fewer than last year. None at all \u2014 on the same ground they have always walked.",
+        "pct_2": "84",
+        "title_2": "Stopped carrying a spray altogether",
+        "body_2": "One dropper with coffee replaced the can in the truck door, and the reapplying that never actually happened.",
+        "pct_3": "78",
+        "title_3": "Put the rest of the household on it too",
+        "body_3": "It nearly always starts with one person and ends with the bottle living beside the coffee pot."
+      }
+    },
+    "five-reasons": {
+      "type": "five-reasons",
+      "settings": {}
+    },
+    "compounds": {
+      "type": "compounds",
+      "settings": {}
+    },
+    "ticker-2": {
+      "type": "benefit-ticker",
+      "settings": {
+        "perk_1": "24-Hour Tick Protection",
+        "perk_2": "All Natural & Safe for Kids",
+        "perk_3": "Tastes Like Pure Maple Syrup",
+        "perk_4": "Lifetime Guarantee"
+      }
+    },
+    "fb-comments": {
+      "type": "fb-comments",
+      "settings": {}
+    },
+    "whats-at-stake": {
+      "type": "whats-at-stake",
+      "settings": {}
+    },
+    "protection-timeline": {
+      "type": "protection-timeline",
+      "disabled": true,
+      "settings": {}
+    },
+    "clinically-studied": {
+      "type": "clinically-studied",
+      "disabled": true,
+      "settings": {}
+    },
+    "tick-protection-daily": {
+      "type": "tick-protection-daily",
+      "disabled": true,
+      "settings": {}
+    },
+    "benefit_ticker_TyFJGG": {
+      "type": "benefit-ticker",
+      "settings": {
+        "perk_1": "24-Hour Tick Protection",
+        "perk_2": "All Natural & Safe for Kids",
+        "perk_3": "Tastes Like Pure Maple Syrup",
+        "perk_4": "Lifetime Guarantee"
+      }
+    },
+    "real-stories": {
+      "type": "real-stories",
+      "settings": {}
+    },
+    "buy-now-cta": {
+      "type": "buy-now-cta",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "product-hero",
+    "hunters-choice",
+    "product-accordions",
+    "benefit_ticker_yFPQ6z",
+    "hs-benefits",
+    "hs-results",
+    "five-reasons",
+    "compounds",
+    "ticker-2",
+    "fb-comments",
+    "whats-at-stake",
+    "protection-timeline",
+    "clinically-studied",
+    "tick-protection-daily",
+    "benefit_ticker_TyFJGG",
+    "real-stories",
+    "buy-now-cta",
+    "reviews"
+  ]
+}

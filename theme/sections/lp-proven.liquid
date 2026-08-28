@@ -1,0 +1,41 @@
+{%- comment -%}
+  Light section: headline, survey stat cards, then a photo + pull-quote pair.
+{%- endcomment -%}
+<section class="lpv">
+  <div class="lp-wrap">
+    <h2 class="lp-h2">Proven Protection. Backed by Results.</h2>
+    <p class="lp-sub">We surveyed daily users at the end of last tick season and asked what actually changed.</p>
+
+    <div class="lpv-stats">
+      <div class="lpv-stat"><b>91%</b><span>came through the season without a single bite</span></div>
+      <div class="lpv-stat"><b>84%</b><span>stopped carrying a spray altogether</span></div>
+      <div class="lpv-stat"><b>78%</b><span>put the rest of the household on it too</span></div>
+      <div class="lpv-stat"><b>4.9&#9733;</b><span>average rating across 1,206+ reviews</span></div>
+    </div>
+
+    <div class="lpv-quote">
+      <div class="lpv-photo"><img src="{{ 'pm-220629195922-mananddog-f6cd0.webp' | asset_url }}" alt="Pinemoor customer outdoors with his dog" loading="lazy" decoding="async" width="760" height="428"></div>
+      <div class="lpv-qcol">
+        <p class="lpv-qtxt">&ldquo;After a week, the tick checks started coming up empty &mdash; and they stayed that way.&rdquo;</p>
+        <span class="lpv-qname"><svg viewBox="0 0 24 24" fill="#199B62" aria-hidden="true"><path d="M12 1.7l2.2 1.6 2.7-.4 1 2.5 2.5 1-.4 2.7 1.6 2.2-1.6 2.2.4 2.7-2.5 1-1 2.5-2.7-.4-2.2 1.6-2.2-1.6-2.7.4-1-2.5-2.5-1 .4-2.7L2.4 12 4 9.8l-.4-2.7 2.5-1 1-2.5 2.7.4zM10.9 14.2l5-5-1.1-1.1-3.9 3.9-1.7-1.7-1.1 1.1z"/></svg> Marcus D., 44 years</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 880px;}
+.lpv{background:#fff;padding:44px 0 48px;}
+.lpv-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;}
+.lpv-stat{background:var(--lp-mint);border:1.4px solid #BFE3D2;border-radius:12px;padding:20px 16px;}
+.lpv-stat b{display:block;font-family:var(--lp-head);font-weight:500;font-size:34px;color:var(--lpg-deep);line-height:1;}
+.lpv-stat span{display:block;font-family:var(--lp-body);font-size:14.5px;line-height:1.4;color:var(--lp-muted);margin-top:8px;}
+.lpv-quote{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;margin-top:30px;}
+.lpv-photo{border-radius:12px;overflow:hidden;}
+.lpv-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.lpv-qtxt{font-family:var(--lp-body);font-style:italic;font-size:17.5px;line-height:1.45;color:var(--lp-ink);}
+.lpv-qname{display:flex;align-items:center;gap:8px;font-family:var(--lp-body);font-weight:700;font-size:15.5px;color:var(--lp-ink);margin-top:14px;}
+.lpv-qname svg{width:20px;height:20px;flex:none;}
+</style>
+
+{% schema %}{"name":"LP Proven Results","settings":[]}{% endschema %}

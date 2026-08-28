@@ -1,0 +1,19 @@
+{%- comment -%}
+  Self-hosted, latin-subset webfonts — the original Pinemoor type system.
+
+  Clash Grotesk sets every heading, Satoshi sets body copy, and Tenor Sans is
+  used for one thing only: the Pinemoor wordmark, so the header matches the
+  lettering on the bottle label. All are variable fonts, so a single file covers
+  every weight the theme uses.
+
+  Serving them as theme assets keeps type on a connection the page already has
+  open — no third-party font origins, nothing render-blocking.
+{%- endcomment -%}
+<link rel="preload" as="font" type="font/woff2" href="{{ 'pm-satoshi.woff2' | asset_url }}" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{{ 'pm-clash-grotesk.woff2' | asset_url }}" crossorigin>
+<style>
+@font-face{font-family:'Satoshi';src:url('{{ 'pm-satoshi.woff2' | asset_url }}') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
+@font-face{font-family:'Clash Grotesk';src:url('{{ 'pm-clash-grotesk.woff2' | asset_url }}') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Tenor Sans';src:url('{{ 'pm-tenor-sans-400.woff2' | asset_url }}') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Outfit';src:url('{{ 'pm-outfit.woff2' | asset_url }}') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+</style>

@@ -1,0 +1,69 @@
+{%- comment -%}
+  Stars + rating line, huge headline, then a carousel of big review cards:
+  photo top with fade, stars, bold title, quote, name + VERIFIED CUSTOMER.
+{%- endcomment -%}
+<section class="lpz">
+  <div class="lp-wrap">
+    <p class="lpz-kicker"><span class="lpz-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Rated 4.9 / 5 | Trusted By 47,000+ Families</p>
+    <h2 class="lp-h2 lp-h2--c">Real Protection Starts Here</h2>
+  </div>
+
+  <div class="lpz-rail lp-rail" id="lpzRail">
+    <article class="lpz-card">
+      <div class="lpz-img"><img src="{{ 'pm-amy-quinn-and-dogs-on-white-rocks--21315.webp' | asset_url }}" alt="Rachel hiking with her dogs" loading="lazy" decoding="async" width="800" height="531"></div>
+      <div class="lpz-body">
+        <div class="lpz-cstars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>Clean Checks and Real Peace of Mind</h3>
+        <p>&ldquo;We hike with the dogs every weekend, and I never wanted to coat my kids in synthetic chemicals that half the time do nothing. This actually works &mdash; clean checks all season, and I stopped worrying.&rdquo;</p>
+        <div class="lpz-foot"><span class="lpz-name">Rachel M., 38 years</span><span class="lpz-vf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.3 2.3 4.7-4.7"/></svg> VERIFIED CUSTOMER</span></div>
+      </div>
+    </article>
+    <article class="lpz-card">
+      <div class="lpz-img"><img src="{{ 'pm-hnd24-hunt-1-40128.webp' | asset_url }}" alt="Wade in the field during bow season" loading="lazy" decoding="async" width="800" height="600"></div>
+      <div class="lpz-body">
+        <div class="lpz-cstars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>A Full Season Without One Bite</h3>
+        <p>&ldquo;Two guys in my hunting club got Lyme last season. I was done with sprays that wash off by noon. Started Pinemoor before the opener and the whole family&rsquo;s been on it since &mdash; not one bite.&rdquo;</p>
+        <div class="lpz-foot"><span class="lpz-name">Wade K., 47 years</span><span class="lpz-vf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.3 2.3 4.7-4.7"/></svg> VERIFIED CUSTOMER</span></div>
+      </div>
+    </article>
+    <article class="lpz-card">
+      <div class="lpz-img"><img src="{{ 'pm-whitlock-wetfly-hero-1200-5b8ff.webp' | asset_url }}" alt="Greg fly fishing in tall bank grass" loading="lazy" decoding="async" width="800" height="533"></div>
+      <div class="lpz-body">
+        <div class="lpz-cstars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>From Every Trip to Never</h3>
+        <p>&ldquo;I&rsquo;m in the water and the tall grass on the bank every weekend from April to October. Used to pull a tick off somewhere almost every trip. Since I started the drops? Nothing. Made my wife order a bottle too.&rdquo;</p>
+        <div class="lpz-foot"><span class="lpz-name">Greg H., 52 years</span><span class="lpz-vf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.3 2.3 4.7-4.7"/></svg> VERIFIED CUSTOMER</span></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="lp-arrows">
+    <button class="lp-arrow" id="lpzPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="lp-arrow" id="lpzNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 1100px;}
+.lpz{background:#fff;padding:44px 0 50px;}
+.lpz-kicker{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--lp-body);font-size:16.5px;font-weight:600;color:var(--lp-ink);margin-bottom:12px;flex-wrap:wrap;}
+.lpz-stars{color:var(--lpg);font-size:19px;letter-spacing:3px;}
+.lpz-rail{margin-top:26px;padding:0 18px 4px;}
+.lpz-card{width:88%;max-width:380px;background:var(--lp-mint);border:1.6px solid var(--lpg);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;}
+.lpz-img{position:relative;}
+.lpz-img img{width:100%;aspect-ratio:5/4;object-fit:cover;display:block;}
+.lpz-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(242,255,250,0) 70%,var(--lp-mint) 100%);}
+.lpz-body{padding:6px 20px 24px;display:flex;flex-direction:column;flex:1;}
+.lpz-cstars{color:var(--lpg-deep);font-size:20px;letter-spacing:4px;}
+.lpz-body h3{font-family:var(--lp-body);font-weight:700;font-size:22px;line-height:1.2;color:var(--lp-ink);margin-top:12px;}
+.lpz-body p{font-family:var(--lp-body);font-size:16.5px;line-height:1.55;color:var(--lp-ink);margin-top:12px;flex:1;}
+.lpz-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.lpz-name{font-family:var(--lp-body);font-weight:600;font-size:16px;color:var(--lp-ink);}
+.lpz-vf{display:inline-flex;align-items:center;gap:6px;font-family:var(--lp-body);font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--lpg-deep);}
+.lpz-vf svg{width:17px;height:17px;}
+</style>
+
+<script>lpRail('lpzRail','lpzPrev','lpzNext');</script>
+
+{% schema %}{"name":"LP Transformations","settings":[]}{% endschema %}

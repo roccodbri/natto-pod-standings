@@ -1,0 +1,55 @@
+{%- comment -%}
+  Dark green "how to" carousel: big white headline, then paired slides —
+  photo card on top, dark rounded copy card underneath — with outline arrows.
+{%- endcomment -%}
+<section class="lps">
+  <div class="lp-wrap">
+    <h2 class="lp-h2 lp-h2--c lp-h2--w">The 30-Second Morning Ritual</h2>
+
+    <div class="lps-rail lp-rail" id="lpsRail">
+      <div class="lps-slide">
+        <div class="lps-img"><img src="{{ 'pm-shot-dropper.webp' | asset_url }}" alt="Filling the Pinemoor dropper" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="lps-card">
+          <h3>Fill the Dropper</h3>
+          <p>Squeeze the bulb to draw <strong>one full dropper</strong> of the herbal blend. That&rsquo;s the exact daily serving that keeps the <strong>scent shield</strong> running for 24 hours.</p>
+        </div>
+      </div>
+      <div class="lps-slide">
+        <div class="lps-img"><img src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Pinemoor with morning coffee" loading="lazy" decoding="async" width="600" height="600"></div>
+        <div class="lps-card">
+          <h3>Take It With Coffee</h3>
+          <p>Drop it into <strong>water, coffee, or juice</strong> &mdash; or straight under the tongue. The <strong>maple syrup base</strong> means nobody in the house argues about it.</p>
+        </div>
+      </div>
+      <div class="lps-slide">
+        <div class="lps-img"><img src="{{ 'pm-hnd24-hunt-1-40128.webp' | asset_url }}" alt="Heading outdoors protected" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="lps-card">
+          <h3>Head Out Protected</h3>
+          <p>Within the hour the botanicals are working through your skin. <strong>No sprays, no reapplying, no missed spots</strong> &mdash; just walk out the door.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-arrows lp-arrows--w">
+      <button class="lp-arrow" id="lpsPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lp-arrow" id="lpsNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 980px;}
+.lps{background:var(--lpg-dark);padding:46px 0 50px;}
+.lps-rail{margin-top:28px;padding-bottom:4px;}
+.lps-slide{width:92%;max-width:400px;}
+.lps-img{border-radius:14px;overflow:hidden;}
+.lps-img img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.lps-card{background:rgba(255,255,255,.10);border-radius:16px;padding:24px 22px 26px;margin-top:18px;}
+.lps-card h3{font-family:var(--lp-head);font-weight:500;font-size:30px;color:#fff;line-height:1.1;}
+.lps-card p{font-family:var(--lp-body);font-size:17px;line-height:1.55;color:rgba(255,255,255,.88);margin-top:14px;}
+.lps-card strong{color:#fff;font-weight:700;}
+</style>
+
+<script>lpRail('lpsRail','lpsPrev','lpsNext');</script>
+
+{% schema %}{"name":"LP Ritual Steps","settings":[]}{% endschema %}

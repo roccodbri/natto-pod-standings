@@ -1,0 +1,52 @@
+{%- comment -%}
+  Top announcement bar: sale text left, countdown chips right. Static (scrolls
+  away); the sticky element is the header below it.
+{%- endcomment -%}
+<div class="lpa">
+  <div class="lpa-inner">
+    <span class="lpa-title">{{ section.settings.sale_title | default: 'Summer Sale, 40% Off' }}</span>
+    <div class="lpa-timer" aria-hidden="true">
+      <span class="lpa-chip"><b id="lpaH">00</b><i>HRS</i></span>
+      <span class="lpa-chip"><b id="lpaM">00</b><i>MIN</i></span>
+      <span class="lpa-chip"><b id="lpaS">00</b><i>SEC</i></span>
+    </div>
+  </div>
+</div>
+
+<style>
+.lpa{background:var(--lpg-dark);color:#fff;}
+.lpa-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;}
+.lpa-title{font-family:var(--lp-body);font-weight:700;font-size:15px;letter-spacing:.01em;white-space:nowrap;}
+.lpa-timer{display:flex;align-items:center;gap:6px;}
+.lpa-chip{display:inline-flex;align-items:baseline;gap:5px;background:rgba(255,255,255,.12);border-radius:6px;padding:5px 8px;}
+.lpa-chip b{font-family:var(--lp-body);font-weight:700;font-size:15px;line-height:1;}
+.lpa-chip i{font-style:normal;font-size:10px;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.05em;}
+@media(max-width:360px){ .lpa-title{font-size:13px;} .lpa-chip{padding:4px 6px;} }
+@media(min-width:680px){ .lpa-inner{justify-content:center;gap:22px;} }
+</style>
+
+<script>
+(function(){
+  var FLOOR=3600000, MIN=7200000, MAX=9000000;
+  function fresh(){return Date.now()+MIN+Math.floor(Math.random()*(MAX-MIN));}
+  var end=parseInt(localStorage.getItem('lp_timer_end')||'0',10);
+  if(!(end-Date.now()>FLOOR)){end=fresh();localStorage.setItem('lp_timer_end',end);}
+  function tick(){
+    var d=end-Date.now();
+    if(d<FLOOR){end=fresh();localStorage.setItem('lp_timer_end',end);d=end-Date.now();}
+    var h=Math.floor(d/3600000),m=Math.floor(d%3600000/60000),s=Math.floor(d%60000/1000);
+    var H=document.getElementById('lpaH'),M=document.getElementById('lpaM'),S=document.getElementById('lpaS');
+    if(H){H.textContent=String(h).padStart(2,'0');M.textContent=String(m).padStart(2,'0');S.textContent=String(s).padStart(2,'0');}
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "LP Announcement",
+  "settings": [
+    {"type":"text","id":"sale_title","label":"Sale title","default":"Summer Sale, 40% Off"}
+  ]
+}
+{% endschema %}

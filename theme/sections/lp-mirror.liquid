@@ -1,0 +1,48 @@
+{%- comment -%}
+  Stars line + centered headline + carousel of tall outlined review cards
+  (italic body, name + age, verified badge), arrows below.
+{%- endcomment -%}
+<section class="lpm">
+  <div class="lp-wrap">
+    <p class="lpm-kicker"><span class="lpm-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Trusted by thousands of families</p>
+    <h2 class="lp-h2 lp-h2--c">Results You Can Count On Every Trail</h2>
+
+    <div class="lpm-rail lp-rail" id="lpmRail">
+      <article class="lpm-card">
+        <p class="lpm-txt">&ldquo;We had a brutal tick year here and two people from our church got diagnosed with Lyme. That was enough for me to stop messing around with sprays. Whole family&rsquo;s on it now, smoother mornings, and clean tick checks every single weekend. I feel lighter about letting the kids roam.&rdquo;</p>
+        <div class="lpm-who"><span class="lpm-name">Mallory K., 35 years</span><span class="lpm-vf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.7l2.2 1.6 2.7-.4 1 2.5 2.5 1-.4 2.7 1.6 2.2-1.6 2.2.4 2.7-2.5 1-1 2.5-2.7-.4-2.2 1.6-2.2-1.6-2.7.4-1-2.5-2.5-1 .4-2.7L2.4 12 4 9.8l-.4-2.7 2.5-1 1-2.5 2.7.4zM10.9 14.2l5-5-1.1-1.1-3.9 3.9-1.7-1.7-1.1 1.1z"/></svg> Verified Buyer</span></div>
+      </article>
+      <article class="lpm-card">
+        <p class="lpm-txt">&ldquo;Honestly wasn&rsquo;t sure about drinking something for bug protection, but I&rsquo;m noticing the difference already and I&rsquo;m sure it will get better. I&rsquo;ve noticed a lot in just the few days since I started taking it and I&rsquo;m very satisfied &mdash; if it&rsquo;s working like this in such a short time I can just imagine a full season. Thank you and I will keep in touch.&rdquo;</p>
+        <div class="lpm-who"><span class="lpm-name">Pancho P., 39 years</span><span class="lpm-vf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.7l2.2 1.6 2.7-.4 1 2.5 2.5 1-.4 2.7 1.6 2.2-1.6 2.2.4 2.7-2.5 1-1 2.5-2.7-.4-2.2 1.6-2.2-1.6-2.7.4-1-2.5-2.5-1 .4-2.7L2.4 12 4 9.8l-.4-2.7 2.5-1 1-2.5 2.7.4zM10.9 14.2l5-5-1.1-1.1-3.9 3.9-1.7-1.7-1.1 1.1z"/></svg> Verified Buyer</span></div>
+      </article>
+      <article class="lpm-card">
+        <p class="lpm-txt">&ldquo;Within 2 weeks the tick checks stopped turning anything up &mdash; walking the same 40 acres I always have. I&rsquo;ve been sleeping better knowing the boys are covered. Delivery was around 7 days from ordering, not terrible. I actually like the maple taste just to cap things off.&rdquo;</p>
+        <div class="lpm-who"><span class="lpm-name">Daniel B., 48 years</span><span class="lpm-vf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.7l2.2 1.6 2.7-.4 1 2.5 2.5 1-.4 2.7 1.6 2.2-1.6 2.2.4 2.7-2.5 1-1 2.5-2.7-.4-2.2 1.6-2.2-1.6-2.7.4-1-2.5-2.5-1 .4-2.7L2.4 12 4 9.8l-.4-2.7 2.5-1 1-2.5 2.7.4zM10.9 14.2l5-5-1.1-1.1-3.9 3.9-1.7-1.7-1.1 1.1z"/></svg> Verified Buyer</span></div>
+      </article>
+    </div>
+    <div class="lp-arrows">
+      <button class="lp-arrow" id="lpmPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lp-arrow" id="lpmNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 900px;}
+.lpm{background:var(--lp-mint);padding:44px 0 48px;}
+.lpm-kicker{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--lp-body);font-size:17px;font-weight:500;color:var(--lp-ink);margin-bottom:14px;}
+.lpm-stars{color:var(--lpg);font-size:19px;letter-spacing:3px;}
+.lpm-rail{margin-top:26px;padding-bottom:4px;}
+.lpm-card{width:78%;max-width:340px;background:var(--lp-mint);border:1.6px solid var(--lpg);border-radius:0 0 22px 22px;
+  border-top:2.5px solid var(--lpg-deep);padding:22px 18px 24px;display:flex;flex-direction:column;}
+.lpm-txt{font-family:var(--lp-body);font-style:italic;font-size:17px;line-height:1.55;color:var(--lp-ink);flex:1;}
+.lpm-who{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap;}
+.lpm-name{font-family:var(--lp-body);font-weight:700;font-size:16px;color:var(--lp-ink);}
+.lpm-vf{display:inline-flex;align-items:center;gap:6px;font-family:var(--lp-body);font-size:13px;font-weight:600;color:var(--lpg-deep);}
+.lpm-vf svg{width:16px;height:16px;color:var(--lpg);}
+</style>
+
+<script>lpRail('lpmRail','lpmPrev','lpmNext');</script>
+
+{% schema %}{"name":"LP Trail Reviews","settings":[]}{% endschema %}

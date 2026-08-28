@@ -1,0 +1,27 @@
+{%- comment -%}
+  Full-bleed image banner with a gradient into dark green and a big headline
+  sitting over the lower third.
+{%- endcomment -%}
+<section class="lpd">
+  <div class="lpd-media">
+    <img src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Pinemoor Tick Protection Drops held in hand" loading="lazy" decoding="async" width="800" height="800">
+    <div class="lpd-fade" aria-hidden="true"></div>
+  </div>
+  <div class="lpd-txt">
+    <h2 class="lpd-h">Feel the Difference on Every Walk Outside</h2>
+    <p class="lpd-sub">One dropper a day quietly rewrites the scent ticks hunt by &mdash; so the woods feel like yours again.</p>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 620px;}
+.lpd{position:relative;background:var(--lpg-dark);}
+.lpd-media{position:relative;}
+.lpd-media img{width:100%;aspect-ratio:5/4;object-fit:cover;display:block;}
+.lpd-fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,75,50,0) 40%,var(--lpg-dark) 96%);}
+.lpd-txt{position:relative;margin-top:-70px;padding:0 18px 44px;max-width:640px;margin-left:auto;margin-right:auto;}
+.lpd-h{font-family:var(--lp-head);font-weight:500;font-size:clamp(32px,9vw,42px);line-height:1.08;color:#fff;letter-spacing:-.01em;}
+.lpd-sub{font-family:var(--lp-body);font-size:17px;line-height:1.5;color:rgba(255,255,255,.85);margin-top:14px;}
+</style>
+
+{% schema %}{"name":"LP Difference Banner","settings":[]}{% endschema %}

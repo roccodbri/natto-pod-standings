@@ -1,0 +1,59 @@
+{%- comment -%}
+  Mint section, centered headline, three expandable cards: image tile left,
+  title + green subtitle, plus toggle on the right, dashed bottom edge.
+{%- endcomment -%}
+<section class="lpr">
+  <div class="lp-wrap">
+    <h2 class="lp-h2 lp-h2--c">The Natural Way to Stay Bite-Free</h2>
+
+    <details class="lpr-card">
+      <summary>
+        <span class="lpr-img"><img src="{{ 'pm-shot-dropper.webp' | asset_url }}" alt="Taking Pinemoor drops" loading="lazy" decoding="async" width="300" height="300"></span>
+        <span class="lpr-titles"><b>Shift</b><i>Change The Scent You Give Off</i></span>
+        <span class="lpr-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="lpr-body"><p>Six botanicals absorb and exit through your skin, quietly rewriting the odor cues a tick locks onto. You smell the same to people &mdash; and all wrong to a tick.</p></div>
+    </details>
+
+    <details class="lpr-card">
+      <summary>
+        <span class="lpr-img"><img src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Pinemoor bottle held in hand" loading="lazy" decoding="async" width="300" height="300"></span>
+        <span class="lpr-titles"><b>Shield</b><i>24-Hour, Whole-Body Coverage</i></span>
+        <span class="lpr-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="lpr-body"><p>One morning dropper holds through a full day in the grass and timber &mdash; scalp, waistband, behind the knee. Not only where a spray happened to land.</p></div>
+    </details>
+
+    <details class="lpr-card">
+      <summary>
+        <span class="lpr-img"><img src="{{ 'pm-camping2-1-62a88.webp' | asset_url }}" alt="Family outdoors protected" loading="lazy" decoding="async" width="300" height="300"></span>
+        <span class="lpr-titles"><b>Protect</b><i>The Whole Family, One Bottle</i></span>
+        <span class="lpr-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="lpr-body"><p>A maple syrup base nobody argues about &mdash; kids included. One bottle on the counter covers everyone before they head out the door.</p></div>
+    </details>
+
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 1100px;}
+.lpr{background:var(--lp-mint);border-top:2px solid var(--lpg-deep);border-bottom:2px solid var(--lpg-deep);padding:44px 0 50px;}
+.lpr-card{background:#fff;border:1.6px solid var(--lpg);border-radius:12px;margin-top:26px;overflow:hidden;}
+.lpr-card summary{list-style:none;cursor:pointer;display:flex;align-items:stretch;gap:0;}
+.lpr-card summary::-webkit-details-marker{display:none;}
+.lpr-img{flex:none;width:118px;overflow:hidden;}
+.lpr-img img{width:100%;height:100%;min-height:120px;object-fit:cover;display:block;}
+.lpr-titles{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:24px 6px 24px 22px;}
+.lpr-titles b{font-family:var(--lp-head);font-weight:500;font-size:27px;color:var(--lp-ink);line-height:1.1;}
+.lpr-titles i{font-style:normal;font-family:var(--lp-body);font-weight:600;font-size:17.5px;color:var(--lpg);line-height:1.25;}
+.lpr-plus{flex:none;align-self:center;width:22px;height:22px;position:relative;margin:0 20px;}
+.lpr-plus::before,.lpr-plus::after{content:"";position:absolute;background:var(--lp-ink);border-radius:2px;transition:opacity .2s;}
+.lpr-plus::before{left:50%;top:0;width:2.4px;height:22px;transform:translateX(-50%);}
+.lpr-plus::after{top:50%;left:0;height:2.4px;width:22px;transform:translateY(-50%);}
+.lpr-card[open] .lpr-plus::before{opacity:0;}
+.lpr-body{border-top:1.6px dashed #BFE3D2;padding:16px 20px 18px;}
+.lpr-body p{font-family:var(--lp-body);font-size:15.5px;line-height:1.55;color:var(--lp-muted);}
+</style>
+
+{% schema %}{"name":"LP Natural Way Cards","settings":[]}{% endschema %}

@@ -1,0 +1,133 @@
+<section class="fr" id="pm-hunters">
+  <div class="fr-wrap">
+    <div class="fr-head">
+      <span class="fr-badge">Hunter &amp; Outdoorsman Recommended</span>
+      <h2 class="fr-h">The People Who Live In Tick Country <span class="accent">Take Pinemoor</span></h2>
+      <p class="fr-sub">Recommended by names you&rsquo;ve seen in <em>Gray&rsquo;s Sporting Journal</em>, <em>Field &amp; Stream</em>, <em>Outdoor Life</em>, <em>Bassmaster</em> and the <em>Chicago Times</em> outdoors pages.</p>
+    </div>
+
+    <div class="fr-rail" id="frRail">
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-samanthamorgan-89531.webp' | asset_url }}" alt="Savannah Brooks, whitetail hunter" loading="lazy" decoding="async" width="760" height="428"></div>
+        <div class="fr-body">
+          <span class="fr-num">Whitetail Hunter</span>
+          <h3 class="fr-title">Savannah Brooks</h3>
+          <span class="fr-cred">Contributor &middot; <em>Field &amp; Stream</em></span>
+          <p class="fr-text">&ldquo;I walk in through waist-high grass before first light all deer season. Ten years of hunting and I&rsquo;ve never gone a full season without pulling a tick off after a sit &mdash; until Pinemoor. Not one this year.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-images-37cea.webp' | asset_url }}" alt="Merle Hastings, upland bird guide" loading="lazy" decoding="async" width="743" height="413"></div>
+        <div class="fr-body">
+          <span class="fr-num">Upland Bird Guide</span>
+          <h3 class="fr-title">Merle Hastings</h3>
+          <span class="fr-cred">Featured in <em>Gray&rsquo;s Sporting Journal</em></span>
+          <p class="fr-text">&ldquo;My dogs and I push brush from first light to last. Sprays quit by nine o&rsquo;clock &mdash; this doesn&rsquo;t. Everyone who hunts out of my camp takes it now.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-images-917bc.webp' | asset_url }}" alt="Curt Ballard, public-land elk hunter" loading="lazy" decoding="async" width="516" height="387"></div>
+        <div class="fr-body">
+          <span class="fr-num">Public-Land Elk Hunter</span>
+          <h3 class="fr-title">Curt Ballard</h3>
+          <span class="fr-cred">As seen in <em>Outdoor Life</em></span>
+          <p class="fr-text">&ldquo;September in the timber used to mean a tick check every night in the tent. Now it&rsquo;s one dropper with breakfast and I don&rsquo;t think about them again. That&rsquo;s worth more than any call in my pack.&rdquo;</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-image-9e508.webp' | asset_url }}" alt="Tommy Reyes, tournament angler" loading="lazy" decoding="async" width="720" height="360"></div>
+        <div class="fr-body">
+          <span class="fr-num">Tournament Angler</span>
+          <h3 class="fr-title">Tommy Reyes</h3>
+          <span class="fr-cred"><em>Bassmaster</em> &amp; <em>Chicago Times</em> outdoors columns</span>
+          <p class="fr-text">&ldquo;Bank fishing means walking through everything a tick loves. The whole crew went on Pinemoor in May and nobody&rsquo;s been bit all season. It rides in the boat next to the sunscreen now.&rdquo;</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="fr-nav">
+      <button class="fr-arrow" id="frPrev" aria-label="Previous">&#8249;</button>
+      <div class="fr-dots" id="frDots"></div>
+      <button class="fr-arrow" id="frNext" aria-label="Next">&#8250;</button>
+    </div>
+
+    <div class="fr-cta">
+      <button type="button" class="btn-primary" onclick="pmScrollTop(event)">Try Pinemoor Today</button>
+      <p class="guarantee-line"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime money-back guarantee</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 820px;}
+
+  .fr{background:#fff;padding:34px 0 38px;}
+  .fr-wrap{max-width:1180px;margin:0 auto;}
+  .fr-head{text-align:center;margin-bottom:22px;padding:0 18px;}
+  .fr-badge{display:inline-block;background:transparent;color:var(--green-bright);font-family:var(--font-head);font-weight:500;
+    font-size:16px;padding:0;border-radius:0;margin-bottom:10px;letter-spacing:.02em;}
+  .fr-h{font-family:var(--font-head);font-weight:500;font-size:26px;line-height:1.2;color:#000;max-width:680px;margin:0 auto;letter-spacing:normal;}
+  .fr-sub{font-family:var(--font-body);font-size:13.5px;line-height:1.55;color:var(--muted);max-width:560px;margin:10px auto 0;}
+  .fr-sub em{font-style:italic;}
+  .fr-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 16px 4px;}
+  .fr-rail::-webkit-scrollbar{display:none;}
+  .fr-card{flex:0 0 85%;max-width:360px;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+  .fr-img{width:100%;height:210px;overflow:hidden;background:var(--tint);}
+  .fr-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .fr-body{padding:16px 18px 20px;}
+  .fr-num{display:inline-block;background:var(--green-deep);color:#fff;font-family:var(--font-body);font-weight:700;font-size:11px;padding:4px 10px;border-radius:5px;margin-bottom:11px;}
+  .fr-title{font-family:var(--font-head);font-weight:500;font-size:19px;color:#000;margin-bottom:3px;line-height:1.2;}
+  .fr-cred{display:block;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:var(--green-deep);margin-bottom:9px;}
+  .fr-cred em{font-style:italic;}
+  .fr-text{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--muted);}
+  .fr-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;}
+  .fr-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--green-deep);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+  .fr-dots{display:flex;gap:7px;}
+  .fr-dots button{width:8px;height:8px;border-radius:50%;background:#cfd6cb;transition:.2s;}
+  .fr-dots button.active{background:var(--green-bright);transform:scale(1.3);}
+  .fr-cta{margin-top:26px;max-width:430px;margin-left:auto;margin-right:auto;text-align:center;padding:0 18px;}
+
+  @media (min-width:760px){
+    .fr-h{font-size:34px;}
+    .fr-rail{justify-content:center;overflow-x:visible;flex-wrap:wrap;}
+    .fr-card{flex:0 0 270px;}
+    .fr-nav{display:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var rail=document.getElementById('frRail'); if(!rail)return;
+  var cards=[].slice.call(rail.querySelectorAll('.fr-card'));
+  var dotsWrap=document.getElementById('frDots');
+  var cur=0;
+  cards.forEach(function(_,i){
+    var b=document.createElement('button');b.setAttribute('aria-label','Card '+(i+1));
+    if(i===0)b.classList.add('active');
+    b.addEventListener('click',function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function go(i){cur=Math.max(0,Math.min(cards.length-1,i));cards[cur].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}
+  document.getElementById('frPrev').addEventListener('click',function(){go(cur-1);});
+  document.getElementById('frNext').addEventListener('click',function(){go(cur+1);});
+  var raf;
+  rail.addEventListener('scroll',function(){
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){
+      var i=Math.round(rail.scrollLeft/(rail.scrollWidth/cards.length));
+      cur=Math.max(0,Math.min(cards.length-1,i));
+      dots.forEach(function(d,idx){d.classList.toggle('active',idx===cur);});
+    });
+  },{passive:true});
+})();
+</script>
+
+{% schema %}{"name":"Outdoorsmen Recommend V2","settings":[]}{% endschema %}
