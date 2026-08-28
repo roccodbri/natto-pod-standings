@@ -8,7 +8,11 @@
 {%- comment -%}Mobile-LP PDP: the default product template renders its own
   announcement/header/footer chrome (lp-*), everything else is untouched.{%- endcomment -%}
 {%- assign pm_lp = false -%}
-{%- if template.name == 'product' and template.suffix == blank -%}{%- assign pm_lp = true -%}{%- endif -%}
+{%- if template.name == 'product' -%}
+  {%- if template.suffix == blank or template.suffix == 'tyler-pdp' or template.suffix == 'pinemoor-v2' -%}{%- assign pm_lp = true -%}{%- endif -%}
+{%- endif -%}
+{%- comment -%}lp takes over the pinemoor-v2 product template entirely{%- endcomment -%}
+{%- if pm_lp -%}{%- assign pm_v2 = false -%}{%- endif -%}
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
 <head>

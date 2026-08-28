@@ -1,1 +1,100 @@
-{"sections":{"product-hero":{"type":"product-hero-v2","settings":{"product":"pinemoor®-tick-protection-drops","variant_id_1":"52810262577333","variant_id_2":"52810262610101","variant_id_3":"52810262642869","selling_plan_id_1":"2686976181","selling_plan_id_2":"2687074485","selling_plan_id_3":"2687107253","gift_variant_6":"52748083724469"}},"hunters-choice":{"type":"hunters-choice-v2","settings":{}},"product-accordions":{"type":"product-accordions-v2","settings":{}},"benefit_ticker_yFPQ6z":{"type":"benefit-ticker-v2","settings":{"perk_1":"24-Hour Tick Protection","perk_2":"All Natural & Safe for Kids","perk_3":"Tastes Like Pure Maple Syrup","perk_4":"Lifetime Guarantee"}},"five-reasons":{"type":"five-reasons-v2","settings":{}},"compounds":{"type":"compounds-v2","settings":{}},"ticker-2":{"type":"benefit-ticker-v2","settings":{"perk_1":"24-Hour Tick Protection","perk_2":"All Natural & Safe for Kids","perk_3":"Tastes Like Pure Maple Syrup","perk_4":"Lifetime Guarantee"}},"fb-comments":{"type":"fb-comments-v2","settings":{}},"whats-at-stake":{"type":"whats-at-stake-v2","settings":{}},"protection-timeline":{"type":"protection-timeline-v2","disabled":true,"settings":{}},"clinically-studied":{"type":"clinically-studied-v2","disabled":true,"settings":{}},"tick-protection-daily":{"type":"tick-protection-daily-v2","disabled":true,"settings":{}},"benefit_ticker_TyFJGG":{"type":"benefit-ticker-v2","settings":{"perk_1":"24-Hour Tick Protection","perk_2":"All Natural & Safe for Kids","perk_3":"Tastes Like Pure Maple Syrup","perk_4":"Lifetime Guarantee"}},"real-stories":{"type":"real-stories-v2","settings":{}},"buy-now-cta":{"type":"buy-now-cta-v2","settings":{}},"reviews":{"type":"reviews-v2","disabled":true,"settings":{}}},"order":["product-hero","hunters-choice","product-accordions","benefit_ticker_yFPQ6z","five-reasons","compounds","ticker-2","fb-comments","whats-at-stake","protection-timeline","clinically-studied","tick-protection-daily","benefit_ticker_TyFJGG","real-stories","buy-now-cta","reviews"]}
+{
+  "sections": {
+    "lp-hero": {
+      "type": "lp-hero",
+      "settings": {
+        "product": "pinemoor\u00ae-tick-protection-drops",
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    },
+    "lp-ugc": {
+      "type": "lp-ugc",
+      "settings": {}
+    },
+    "lp-tabs": {
+      "type": "lp-tabs",
+      "settings": {}
+    },
+    "lp-difference-hero": {
+      "type": "lp-difference-hero",
+      "settings": {}
+    },
+    "lp-restore": {
+      "type": "lp-restore",
+      "settings": {}
+    },
+    "lp-mirror": {
+      "type": "lp-mirror",
+      "settings": {}
+    },
+    "lp-steps": {
+      "type": "lp-steps",
+      "settings": {}
+    },
+    "lp-problems": {
+      "type": "lp-problems",
+      "settings": {}
+    },
+    "lp-why-trust": {
+      "type": "lp-why-trust",
+      "settings": {}
+    },
+    "lp-proven": {
+      "type": "lp-proven",
+      "settings": {}
+    },
+    "lp-journey": {
+      "type": "lp-journey",
+      "settings": {}
+    },
+    "lp-five-reasons": {
+      "type": "lp-five-reasons",
+      "settings": {}
+    },
+    "lp-comparison": {
+      "type": "lp-comparison",
+      "settings": {}
+    },
+    "lp-faq": {
+      "type": "lp-faq",
+      "settings": {}
+    },
+    "lp-guarantee": {
+      "type": "lp-guarantee",
+      "settings": {}
+    },
+    "lp-transformations": {
+      "type": "lp-transformations",
+      "settings": {}
+    },
+    "lp-final-cta": {
+      "type": "lp-final-cta",
+      "settings": {
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    }
+  },
+  "order": [
+    "lp-hero",
+    "lp-ugc",
+    "lp-tabs",
+    "lp-difference-hero",
+    "lp-restore",
+    "lp-mirror",
+    "lp-steps",
+    "lp-problems",
+    "lp-why-trust",
+    "lp-proven",
+    "lp-journey",
+    "lp-five-reasons",
+    "lp-comparison",
+    "lp-faq",
+    "lp-guarantee",
+    "lp-transformations",
+    "lp-final-cta"
+  ]
+}
