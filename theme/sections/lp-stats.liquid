@@ -1,0 +1,76 @@
+{%- comment -%}
+  Pale-mint section: left heading, 2x2 area — two outlined stat cards with
+  animated percentage counters and a corner arrow chip, then a photo beside a
+  third stat card, and an italic quote with attribution.
+{%- endcomment -%}
+
+<section class="lst">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 lst-h">Proven Protection.<br>Backed by Results.</h2>
+    <div class="lst-grid">
+      <div class="lst-card">
+        <div class="lst-top"><b class="lst-num" data-n="93">0%</b><span class="lst-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
+        <p>reported zero ticks on themselves within the first weeks</p>
+        <svg class="lst-sprig" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M8 34C14 28 18 20 32 8"/><path d="M14 26c4 1 7 0 9-3M20 20c3 1 6 0 8-3"/></svg>
+      </div>
+      <div class="lst-card">
+        <div class="lst-top"><b class="lst-num" data-n="91">0%</b><span class="lst-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
+        <p>said tick checks came back clean all season long</p>
+        <svg class="lst-sprig" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M8 34C14 28 18 20 32 8"/><path d="M14 26c4 1 7 0 9-3M20 20c3 1 6 0 8-3"/></svg>
+      </div>
+      <img class="lst-photo" src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Pinemoor customer at home" loading="lazy" decoding="async">
+      <div class="lst-side">
+        <div class="lst-card lst-card--tall">
+          <div class="lst-top"><b class="lst-num" data-n="95">0%</b><span class="lst-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
+          <p>felt confident skipping sprays with consistent daily use</p>
+          <svg class="lst-sprig" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M8 34C14 28 18 20 32 8"/><path d="M14 26c4 1 7 0 9-3M20 20c3 1 6 0 8-3"/></svg>
+        </div>
+        <p class="lst-quote">&ldquo;After a full season in the timber, nobody in my camp pulled a single tick.&rdquo;</p>
+        <div class="lst-who"><i>&#10004;</i> Merle H., 52 years</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lst{background:var(--v3-tint);padding:32px 0 34px;}
+  .lst-h{margin-bottom:20px;}
+  .lst-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+  .lst-card{position:relative;background:#fff;border:1.4px solid var(--v3-green);border-radius:12px;padding:14px 13px 16px;overflow:hidden;}
+  .lst-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;}
+  .lst-num{font-family:var(--v3-head);font-weight:500;font-size:33px;line-height:1;color:var(--v3-green);}
+  .lst-up{flex:none;width:28px;height:28px;border:1.3px solid var(--v3-green);border-radius:50%;color:var(--v3-green);
+    display:flex;align-items:center;justify-content:center;}
+  .lst-up svg{width:13px;height:13px;transform:rotate(35deg);}
+  .lst-card p{font-size:12px;line-height:1.45;color:var(--v3-darker);}
+  .lst-sprig{position:absolute;right:6px;bottom:4px;width:26px;height:26px;color:var(--v3-green);opacity:.35;}
+  .lst-photo{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:12px;}
+  .lst-side{display:flex;flex-direction:column;gap:12px;}
+  .lst-quote{font-size:12.5px;font-style:italic;line-height:1.5;color:var(--v3-ink);}
+  .lst-who{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;}
+  .lst-who i{font-style:normal;flex:none;width:15px;height:15px;border-radius:50%;background:var(--v3-green);color:#fff;
+    font-size:8.5px;display:flex;align-items:center;justify-content:center;}
+</style>
+
+<script>
+(function(){
+  /* count-up when the cards scroll into view */
+  var nums=[].slice.call(document.querySelectorAll('.lst-num'));
+  if(!('IntersectionObserver' in window)){nums.forEach(function(n){n.textContent=n.getAttribute('data-n')+'%';});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target, target=parseInt(el.getAttribute('data-n'),10), t0=null;
+      io.unobserve(el);
+      function step(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/900);
+        el.textContent=Math.round(target*p)+'%'; if(p<1)requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    });
+  },{threshold:.4});
+  nums.forEach(function(n){io.observe(n);});
+})();
+</script>
+
+{% schema %}
+{ "name": "LP Stats", "settings": [] }
+{% endschema %}

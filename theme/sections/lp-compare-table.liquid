@@ -1,0 +1,60 @@
+{%- comment -%}
+  White section: left heading, then a comparison table. The Pinemoor column is
+  a raised dark-green pillar with the bottle image overlapping its top; rows
+  are pale-mint bands with mint check chips in our column and red X circles in
+  the "Other brands" column.
+{%- endcomment -%}
+
+<section class="lct">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 lct-h">See the Difference for Yourself</h2>
+    <div class="lct-table">
+      <div class="lct-colhead">
+        <div class="lct-pillar">
+          <img src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoorproduct1_1highquality.png?v=1780285911&width=240" alt="Pinemoor bottle" loading="lazy" decoding="async">
+          <span>Pinemoor</span>
+        </div>
+        <div class="lct-other">Other<br>brands</div>
+      </div>
+      <div class="lct-row"><span>Repels Ticks From Within</span><i class="lct-yes">&#10004;</i><i class="lct-no">&#10005;</i></div>
+      <div class="lct-row"><span>24-Hour, Whole-Body Cover</span><i class="lct-yes">&#10004;</i><i class="lct-no">&#10005;</i></div>
+      <div class="lct-row"><span>No DEET or Synthetic Pesticides</span><i class="lct-yes">&#10004;</i><i class="lct-no">&#10005;</i></div>
+      <div class="lct-row"><span>Kid-Approved Maple Flavor</span><i class="lct-yes">&#10004;</i><i class="lct-no">&#10005;</i></div>
+      <div class="lct-row"><span>Lifetime Money-Back Guarantee</span><i class="lct-yes">&#10004;</i><i class="lct-no">&#10005;</i></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lct{background:#fff;padding:34px 0 36px;}
+  .lct-h{margin-bottom:8px;}
+  .lct-table{position:relative;padding-top:56px;}
+  .lct-colhead{position:absolute;top:0;right:0;left:0;height:56px;pointer-events:none;}
+  .lct-pillar{position:absolute;right:88px;top:-6px;bottom:auto;width:82px;height:62px;
+    display:flex;align-items:flex-end;justify-content:center;z-index:2;}
+  .lct-pillar img{position:absolute;top:-28px;left:50%;transform:translateX(-50%);width:52px;height:auto;z-index:3;}
+  .lct-pillar span{font-size:11px;font-weight:600;color:#fff;padding-bottom:6px;position:relative;z-index:2;}
+  .lct-other{position:absolute;right:8px;top:14px;width:70px;text-align:center;font-size:11.5px;color:var(--v3-ink);line-height:1.25;}
+  /* dark pillar runs OVER the row backgrounds but UNDER text and icons, so it
+     reads as one continuous column like the reference */
+  .lct-table::before{content:"";position:absolute;top:-6px;bottom:0;right:88px;width:82px;background:var(--v3-dark);
+    border-radius:10px 10px 6px 6px;z-index:2;}
+  .lct-row{position:relative;display:flex;align-items:center;background:var(--v3-tint);border-radius:10px;
+    margin-bottom:8px;padding:17px 12px;}
+  .lct-row span,.lct-row i{position:relative;z-index:3;}
+  .lct-row span{flex:1;font-size:13px;font-weight:600;color:var(--v3-ink);padding-right:6px;}
+  .lct-row i{font-style:normal;flex:none;width:82px;margin-right:6px;display:flex;align-items:center;justify-content:center;}
+  .lct-yes{color:var(--v3-dark);}
+  .lct-yes::before{content:"";}
+  .lct-row .lct-yes{width:82px;margin-right:6px;}
+  .lct-row .lct-yes{font-size:0;}
+  .lct-row .lct-yes::after{content:"\2714";font-size:11px;width:22px;height:22px;border-radius:50%;background:var(--v3-mint);
+    color:var(--v3-dark);display:flex;align-items:center;justify-content:center;}
+  .lct-row .lct-no{width:70px;margin-right:0;font-size:0;}
+  .lct-row .lct-no::after{content:"\2715";font-size:10px;width:20px;height:20px;border-radius:50%;border:1.4px solid var(--v3-red);
+    color:var(--v3-red);display:flex;align-items:center;justify-content:center;background:#fff;}
+</style>
+
+{% schema %}
+{ "name": "LP Compare Table", "settings": [] }
+{% endschema %}

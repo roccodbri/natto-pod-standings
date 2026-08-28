@@ -1,0 +1,105 @@
+<section class="ws" id="pm-stake">
+  <div class="ws-wrap">
+    <div class="ws-head">
+      <h2 class="sec-h"><span class="accent">What&rsquo;s at Stake.</span> What Pinemoor Protects Your Dog From:</h2>
+      <p class="sec-sub">The most common tick-borne diseases spreading through dogs right now &mdash; and what just one bite could mean. Tap any to expand.</p>
+    </div>
+
+    <div class="ws-list">
+
+      <details class="ws-item" open>
+        <summary class="ws-sum">
+          <span class="ws-titles"><span class="ws-name">Lyme Disease</span><span class="ws-tag">Most common</span></span>
+          <span class="ws-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="ws-body">
+          <ul class="ws-points">
+            <li><strong>Painful, shifting-leg lameness</strong> &amp; swollen joints</li>
+            <li>Fever, fatigue &amp; loss of appetite</li>
+            <li>Can progress to <strong>fatal kidney failure</strong> (Lyme nephritis)</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ws-item">
+        <summary class="ws-sum">
+          <span class="ws-titles"><span class="ws-name">Anaplasmosis</span><span class="ws-tag">Often missed</span></span>
+          <span class="ws-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="ws-body">
+          <ul class="ws-points">
+            <li>High fever, lethargy &amp; joint pain</li>
+            <li>Drops blood platelets &mdash; <strong>bruising &amp; bleeding</strong></li>
+            <li>Easily mistaken for a simple &ldquo;off&rdquo; day</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ws-item">
+        <summary class="ws-sum">
+          <span class="ws-titles"><span class="ws-name">Ehrlichiosis</span><span class="ws-tag ws-tag--alarm">Can turn chronic</span></span>
+          <span class="ws-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="ws-body">
+          <ul class="ws-points">
+            <li>Fever, swollen lymph nodes &amp; nosebleeds</li>
+            <li>Can <strong>hide for months</strong>, then resurface</li>
+            <li>Severe cases damage bone marrow &amp; organs</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ws-item">
+        <summary class="ws-sum">
+          <span class="ws-titles"><span class="ws-name">Rocky Mtn. Spotted Fever</span><span class="ws-tag ws-tag--alarm">Fast-moving</span></span>
+          <span class="ws-plus" aria-hidden="true"></span>
+        </summary>
+        <div class="ws-body">
+          <ul class="ws-points">
+            <li>Spread by the common <strong>dog tick</strong></li>
+            <li>Rapid fever, swelling &amp; joint pain</li>
+            <li><strong>Organ damage within days</strong> if untreated</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="ws-cta">
+      <a class="btn-primary" href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2">Try Pinemoor Today</a>
+      <p class="guarantee-line"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime money-back guarantee</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 700px;}
+
+  .ws{background:var(--bg);padding:34px 16px 38px;}
+  .ws-wrap{max-width:620px;margin:0 auto;}
+  .ws-head{margin-bottom:22px;}
+  .ws-list{display:flex;flex-direction:column;gap:12px;}
+  .ws-item{background:#fff;border:1.4px solid var(--line);border-radius:6px;overflow:hidden;}
+  .ws-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px;}
+  .ws-sum::-webkit-details-marker{display:none;}
+  .ws-titles{flex:1;min-width:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .ws-name{font-family:var(--font-head);font-weight:500;letter-spacing:normal;font-size:18px;color:#000;line-height:1.15;}
+  .ws-tag{font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
+    color:var(--green-deep);background:var(--green-bright-soft);padding:3px 9px;border-radius:50px;}
+  .ws-tag--alarm{color:#9a3b22;background:rgba(154,59,34,.10);}
+  .ws-plus{flex:none;width:16px;height:16px;position:relative;}
+  .ws-plus::before,.ws-plus::after{content:"";position:absolute;background:var(--green-deep);border-radius:2px;transition:opacity .2s;}
+  .ws-plus::before{left:50%;top:0;width:2px;height:16px;transform:translateX(-50%);}
+  .ws-plus::after{top:50%;left:0;height:2px;width:16px;transform:translateY(-50%);}
+  .ws-item[open] .ws-plus::before{opacity:0;}
+  .ws-body{padding:0 16px 16px;}
+  .ws-points{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .ws-points li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.5;color:var(--muted);}
+  .ws-points li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--green-bright);}
+  .ws-points strong{color:var(--ink);font-weight:700;}
+  .ws-cta{margin-top:24px;max-width:430px;margin-left:auto;margin-right:auto;text-align:center;}
+</style>
+
+{% schema %}{"name":"Whats At Stake (Dog)","settings":[]}{% endschema %}

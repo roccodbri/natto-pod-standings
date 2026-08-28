@@ -1,0 +1,98 @@
+{%- comment -%}
+  Sticky bottom bar: slides up after the hero buy box scrolls out of view.
+  Bottle thumb, product name + price row, compact ATC button. Also hosts the
+  rotating "recently bought" toast that pops from the bottom-left.
+{%- endcomment -%}
+
+<div class="lsk" id="lpSticky" aria-hidden="true">
+  <img class="lsk-img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoorproduct1_1highquality.png?v=1780285911&width=160" alt="" loading="lazy" decoding="async">
+  <div class="lsk-txt">
+    <b>Pinemoor&reg; Tick Protection Drops</b>
+    <span><em id="lskPrice">$99.99</em> <s id="lskStrike">$134.97</s></span>
+  </div>
+  <button type="button" class="lsk-btn" onclick="lskAtc()">Add To Cart</button>
+</div>
+
+<div class="lbp" id="lpBought" aria-hidden="true">
+  <img class="lbp-img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoorproduct1_1highquality.png?v=1780285911&width=120" alt="" loading="lazy" decoding="async">
+  <div class="lbp-txt">
+    <b id="lbpName">Someone</b>
+    <span>just bought Pinemoor Tick Protection Drops</span>
+    <i id="lbpAgo">2 minutes ago</i>
+  </div>
+  <button type="button" class="lbp-x" onclick="lbpHide(true)" aria-label="Dismiss">&#10005;</button>
+</div>
+
+<style>
+  .lsk{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid rgba(17,17,17,.12);
+    box-shadow:0 -4px 16px rgba(17,17,17,.1);display:flex;align-items:center;gap:10px;padding:10px 14px;
+    transform:translateY(110%);transition:transform .3s ease;}
+  .lsk.show{transform:translateY(0);}
+  .lsk-img{flex:none;width:38px;height:46px;object-fit:contain;}
+  .lsk-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;}
+  .lsk-txt b{font-size:12.5px;font-weight:700;color:var(--v3-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .lsk-txt em{font-style:normal;font-size:13.5px;font-weight:700;color:var(--v3-darker);}
+  .lsk-txt s{font-size:11.5px;color:var(--v3-mut);}
+  .lsk-btn{flex:none;background:var(--v3-dark);color:#fff;border-radius:9px;padding:12px 18px;
+    font-size:13px;font-weight:600;}
+
+  .lbp{position:fixed;left:12px;bottom:76px;z-index:59;background:#fff;border:1px solid var(--v3-line-soft);
+    border-radius:12px;box-shadow:0 6px 20px rgba(17,17,17,.16);display:flex;align-items:center;gap:10px;
+    padding:10px 30px 10px 10px;max-width:290px;opacity:0;transform:translateY(14px);pointer-events:none;
+    transition:opacity .3s,transform .3s;}
+  .lbp.show{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .lbp-img{flex:none;width:34px;height:42px;object-fit:contain;}
+  .lbp-txt{display:flex;flex-direction:column;gap:1px;min-width:0;}
+  .lbp-txt b{font-size:12px;font-weight:700;color:var(--v3-ink);}
+  .lbp-txt span{font-size:11.5px;color:var(--v3-body);line-height:1.3;}
+  .lbp-txt i{font-style:normal;font-size:10.5px;color:var(--v3-mut);}
+  .lbp-x{position:absolute;top:7px;right:9px;font-size:11px;color:var(--v3-mut);}
+</style>
+
+<script>
+(function(){
+  /* sticky bar visibility: show once the hero buy button passes out of view */
+  var bar=document.getElementById('lpSticky');
+  var hero=document.getElementById('lp-hero');
+  var stockup=document.getElementById('lp-stockup');
+  function onScroll(){
+    if(!bar)return;
+    var show=false;
+    if(hero){var r=hero.getBoundingClientRect(); show=r.bottom<0;}
+    if(show&&stockup){var s=stockup.getBoundingClientRect(); if(s.top<window.innerHeight&&s.bottom>0)show=false;}
+    bar.classList.toggle('show',show);
+    bar.setAttribute('aria-hidden',show?'false':'true');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* keep sticky price in sync with the hero's selected bundle */
+  window.lpSyncSticky=function(total,strike,variant){
+    var p=document.getElementById('lskPrice'); if(p)p.textContent='$'+Number(total).toFixed(2);
+    var s=document.getElementById('lskStrike'); if(s)s.textContent='$'+Number(strike).toFixed(2);
+    if(bar)bar.setAttribute('data-variant',variant);
+  };
+  window.lskAtc=function(){
+    if(window.lhrAtc)return window.lhrAtc();
+    var v=bar&&bar.getAttribute('data-variant'); if(v)addToCart(parseInt(v),1,null,'');
+  };
+
+  /* rotating recently-bought toast */
+  var names=['Wade from Missouri','Mallory from Ohio','Greg from Vermont','Diane from Michigan','Cole from Arkansas','Rachel from Wisconsin','Robert from Pennsylvania','Steph from Minnesota'];
+  var agos=['2 minutes ago','8 minutes ago','14 minutes ago','23 minutes ago','31 minutes ago'];
+  var toast=document.getElementById('lpBought'); var idx=0; var dismissed=false; var timer=null;
+  window.lbpHide=function(user){ if(toast)toast.classList.remove('show'); if(user){dismissed=true; if(timer)clearTimeout(timer);} };
+  function cycle(){
+    if(dismissed||!toast)return;
+    document.getElementById('lbpName').textContent=names[idx%names.length];
+    document.getElementById('lbpAgo').textContent=agos[Math.floor(Math.random()*agos.length)];
+    idx++;
+    toast.classList.add('show'); toast.setAttribute('aria-hidden','false');
+    timer=setTimeout(function(){ lbpHide(false); timer=setTimeout(cycle,14000); },5000);
+  }
+  timer=setTimeout(cycle,9000);
+})();
+</script>
+
+{% schema %}
+{ "name": "LP Sticky ATC", "settings": [] }
+{% endschema %}

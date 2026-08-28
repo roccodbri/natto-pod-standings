@@ -1,0 +1,42 @@
+{%- comment -%}
+  Guarantee card: rounded green photo card with the bottle overlapping its
+  left edge, a handshake medallion floating above, bold white heading and one
+  supporting line.
+{%- endcomment -%}
+
+<section class="lgt">
+  <div class="v3-wrap">
+    <div class="lgt-card">
+      <span class="lgt-medal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l4-3 4 3 4-3 4 3"/><path d="M8 6L4 9v3c2.5 3 5 4.5 8 6 3-1.5 5.5-3 8-6V9l-4-3"/><path d="M9.5 12.5l2.5 2 2.5-2"/></svg>
+      </span>
+      <img class="lgt-bg" src="{{ 'lp-guarantee.webp' | asset_url }}" alt="" loading="lazy" decoding="async">
+      <img class="lgt-bottle" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoorproduct1_1highquality.png?v=1780285911&width=420" alt="Pinemoor Tick Protection Drops bottle" loading="lazy" decoding="async">
+      <div class="lgt-txt">
+        <h2>Lifetime Money Back Guarantee</h2>
+        <p>Feel the difference this season or we&rsquo;ll make it right &mdash; no deadlines, no questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lgt{background:#fff;padding:44px 0 26px;}
+  .lgt-card{position:relative;border-radius:16px;overflow:visible;background:var(--v3-green);min-height:210px;
+    display:flex;align-items:center;}
+  .lgt-medal{position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:66px;height:66px;border-radius:50%;
+    background:var(--v3-tint-2);border:5px solid #fff;color:var(--v3-dark);display:flex;align-items:center;justify-content:center;z-index:3;}
+  .lgt-medal svg{width:30px;height:30px;}
+  .lgt-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;opacity:.5;
+    mix-blend-mode:luminosity;}
+  .lgt-card::after{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(90deg,rgba(25,155,98,.9) 0%,rgba(25,155,98,.55) 100%);}
+  .lgt-bottle{position:relative;z-index:2;flex:none;width:34%;max-width:130px;margin:-16px 0 -6px -2px;
+    filter:drop-shadow(0 8px 14px rgba(0,40,20,.35));}
+  .lgt-txt{position:relative;z-index:2;padding:24px 18px 24px 6px;}
+  .lgt-txt h2{font-family:var(--v3-head);font-weight:600;font-size:24px;line-height:1.18;color:#fff;margin-bottom:9px;}
+  .lgt-txt p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.92);}
+</style>
+
+{% schema %}
+{ "name": "LP Guarantee", "settings": [] }
+{% endschema %}

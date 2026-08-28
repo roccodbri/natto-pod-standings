@@ -1,0 +1,27 @@
+<section class="bn" id="pm-buynow">
+  <div class="bn-wrap">
+    <h2 class="bn-h">Don&rsquo;t Wait For The First Bite.</h2>
+    <p class="bn-sub">One dropper a day. Up to <strong>35% off per bottle</strong> and free shipping on bundles &mdash; backed for life.</p>
+    <a class="btn-primary bn-btn" href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2">Buy Now &amp; Save
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
+    <p class="guarantee-line"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime money-back guarantee &middot; Cancel anytime</p>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 320px;}
+
+  .bn{background:var(--bg);padding:38px 16px 42px;}
+  .bn-wrap{max-width:480px;margin:0 auto;text-align:center;}
+  .bn-h{font-family:var(--font-head);font-weight:500;font-size:clamp(28px,6.6vw,40px);line-height:1.14;color:#000;margin-bottom:9px;letter-spacing:normal;}
+  .bn-sub{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--muted);margin-bottom:12px;}
+  .bn-sub strong{color:#000;font-weight:700;}
+  .bn-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;max-width:430px;}
+
+  @media (min-width:760px){ .bn-h{font-size:clamp(28px,6.6vw,40px);} }
+</style>
+
+{% schema %}{"name":"Buy Now CTA","settings":[]}{% endschema %}

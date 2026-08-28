@@ -1,0 +1,124 @@
+<section class="fr" id="pm-reasons">
+  <div class="fr-wrap">
+    <div class="fr-head">
+      <span class="fr-badge">4 Reasons Why</span>
+      <h2 class="fr-h">Pinemoor&reg; is Different From Everything You&rsquo;ve Tried</h2>
+    </div>
+
+    <div class="fr-rail" id="frRail">
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-image-7-36d8c.webp' | asset_url }}" alt="Six full-strength herbal extracts" loading="lazy" decoding="async" width="760" height="461"></div>
+        <div class="fr-body">
+          <span class="fr-num">Reason 1</span>
+          <h3 class="fr-title">Clinically-Dosed, Not Underdosed</h3>
+          <p class="fr-text">No trendy blends or sprinkled-in ingredients. Six full-strength herbal extracts at the kind of dose that actually changes how a tick reads your dog &mdash; not a token amount that looks good on a label and does nothing in the field.</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-australian-shepherd-dfbe0.webp' | asset_url }}" alt="Dog protected outdoors all day" loading="lazy" decoding="async" width="747" height="467"></div>
+        <div class="fr-body">
+          <span class="fr-num">Reason 2</span>
+          <h3 class="fr-title">24-Hour Protection</h3>
+          <p class="fr-text">One dose in their food or water each morning and your dog is covered all day. No messy collars, no greasy spot-ons, no spots you missed &mdash; just steady, head-to-tail protection from sunrise to last light.</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-frame-9-ae784b81-f42f-4a37-a029-81-ae72b.webp' | asset_url }}" alt="Clean, verified ingredients" loading="lazy" decoding="async" width="760" height="461"></div>
+        <div class="fr-body">
+          <span class="fr-num">Reason 3</span>
+          <h3 class="fr-title">Clean, Verified Ingredients</h3>
+          <p class="fr-text">No DEET, no permethrin, no harsh pesticides sitting on your dog&rsquo;s skin. Just clean botanical extracts &mdash; non-GMO and free from fillers, with every batch third-party tested for purity and potency.</p>
+        </div>
+      </article>
+
+      <article class="fr-card">
+        <div class="fr-img"><img src="{{ 'pm-goldenpuppy185743593-56a9c1f23df78-602c5.webp' | asset_url }}" alt="Puppy protected with daily drops" loading="lazy" decoding="async" width="760" height="506"></div>
+        <div class="fr-body">
+          <span class="fr-num">Reason 4</span>
+          <h3 class="fr-title">Built for Daily Use, Not Quick Fixes</h3>
+          <p class="fr-text">Pinemoor isn&rsquo;t something you scramble for after you find a tick on your dog &mdash; it&rsquo;s daily protection that keeps ticks and fleas off before they ever latch on. Protect your dog every single day instead of reacting once it&rsquo;s already too late.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="fr-nav">
+      <button class="fr-arrow" id="frPrev" aria-label="Previous">&#8249;</button>
+      <div class="fr-dots" id="frDots"></div>
+      <button class="fr-arrow" id="frNext" aria-label="Next">&#8250;</button>
+    </div>
+
+    <div class="fr-cta">
+      <a class="btn-primary" href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2">Try Pinemoor Today</a>
+      <p class="guarantee-line"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime money-back guarantee</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 820px;}
+
+  .fr{background:var(--bg);padding:34px 0 38px;}
+  .fr-wrap{max-width:1180px;margin:0 auto;}
+  .fr-head{text-align:center;margin-bottom:22px;padding:0 18px;}
+  .fr-badge{display:inline-block;background:transparent;color:var(--green-bright);font-family:var(--font-body);font-weight:700;
+    font-size:16px;padding:0;border-radius:0;margin-bottom:10px;letter-spacing:.02em;}
+  .fr-h{font-family:var(--font-head);font-weight:500;font-size:clamp(28px,6.6vw,40px);line-height:1.14;color:#000;max-width:680px;margin:0 auto;letter-spacing:normal}
+  .fr-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 16px 4px;}
+  .fr-rail::-webkit-scrollbar{display:none;}
+  .fr-card{flex:0 0 85%;max-width:360px;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+  .fr-img{width:100%;height:210px;overflow:hidden;background:var(--tint);}
+  .fr-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .fr-body{padding:16px 18px 20px;}
+  .fr-num{display:inline-block;background:var(--green-deep);color:#fff;font-family:var(--font-body);font-weight:700;font-size:11px;padding:4px 10px;border-radius:5px;margin-bottom:11px;}
+  .fr-title{font-family:var(--font-head);font-weight:500;letter-spacing:normal;font-size:19px;color:#000;margin-bottom:9px;line-height:1.2;}
+  .fr-text{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--muted);}
+  .fr-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;}
+  .fr-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--green-deep);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+  .fr-dots{display:flex;gap:7px;}
+  .fr-dots button{width:8px;height:8px;border-radius:50%;background:#E4EDE6;transition:.2s;}
+  .fr-dots button.active{background:var(--green-bright);transform:scale(1.3);}
+  .fr-cta{margin-top:26px;max-width:430px;margin-left:auto;margin-right:auto;text-align:center;padding:0 18px;}
+
+  @media (min-width:760px){
+    .fr-h{font-size:clamp(28px,6.6vw,40px);}
+    .fr-rail{justify-content:center;overflow-x:visible;flex-wrap:wrap;}
+    .fr-card{flex:0 0 270px;}
+    .fr-nav{display:none;}
+  }
+</style>
+
+<script>
+(function(){
+  var rail=document.getElementById('frRail'); if(!rail)return;
+  var cards=[].slice.call(rail.querySelectorAll('.fr-card'));
+  var dotsWrap=document.getElementById('frDots');
+  var cur=0;
+  cards.forEach(function(_,i){
+    var b=document.createElement('button');b.setAttribute('aria-label','Reason '+(i+1));
+    if(i===0)b.classList.add('active');
+    b.addEventListener('click',function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function go(i){cur=Math.max(0,Math.min(cards.length-1,i));cards[cur].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}
+  document.getElementById('frPrev').addEventListener('click',function(){go(cur-1);});
+  document.getElementById('frNext').addEventListener('click',function(){go(cur+1);});
+  var raf;
+  rail.addEventListener('scroll',function(){
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){
+      var i=Math.round(rail.scrollLeft/(rail.scrollWidth/cards.length));
+      cur=Math.max(0,Math.min(cards.length-1,i));
+      dots.forEach(function(d,idx){d.classList.toggle('active',idx===cur);});
+    });
+  },{passive:true});
+})();
+</script>
+
+{% schema %}{"name":"Reasons Why (Dog)","settings":[]}{% endschema %}

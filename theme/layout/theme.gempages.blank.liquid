@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123F27">
+  <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% endif %}</title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% render 'pm-fonts' %}
+  {{ content_for_header }}
+  {% render 'pm-critical-css' %}
+  <link rel="preload" as="style" href="{{ 'pm-deferred.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'pm-deferred.css' | asset_url }}"></noscript>
+</head>
+<body class="page-{{ template | handle }}"><main>
+      {{ content_for_layout }}
+    </main></body>
+</html>

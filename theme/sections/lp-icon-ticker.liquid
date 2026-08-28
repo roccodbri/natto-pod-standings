@@ -1,0 +1,27 @@
+{%- comment -%}
+  Scrolling marquee strip: mint icon + label pairs looping horizontally on a
+  white band between the lifestyle photo and the next section.
+{%- endcomment -%}
+
+<section class="lit" aria-hidden="true">
+  <div class="lit-track">
+    {%- for i in (1..2) -%}
+    <span class="lit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> 24-Hour Protection</span>
+    <span class="lit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/></svg> One Dropper A Day</span>
+    <span class="lit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg> No DEET, No Chemicals</span>
+    <span class="lit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.2-9C1.2 8.7 3 5.5 6.4 5.5c2 0 3.4 1.1 4.1 2.2.3.4.7.4 1 0 .7-1.1 2.1-2.2 4.1-2.2 3.4 0 5.2 3.2 3.6 6.5C19 16.4 12 21 12 21z"/></svg> Safe For The Family</span>
+    {%- endfor -%}
+  </div>
+</section>
+
+<style>
+  .lit{background:#fff;overflow:hidden;padding:26px 0;}
+  .lit-track{display:flex;gap:44px;width:max-content;animation:lit-scroll 22s linear infinite;}
+  .lit-item{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--v3-green);white-space:nowrap;}
+  .lit-item svg{width:30px;height:30px;color:var(--v3-mint);filter:drop-shadow(0 0 1px rgba(25,155,98,.5));}
+  @keyframes lit-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+</style>
+
+{% schema %}
+{ "name": "LP Icon Ticker", "settings": [] }
+{% endschema %}

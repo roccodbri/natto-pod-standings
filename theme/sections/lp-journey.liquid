@@ -1,0 +1,97 @@
+{%- comment -%}
+  Deep-green panel: rounded photo at top, white heading + light subline, then
+  a left-rail timeline of four milestones. Each milestone: translucent header
+  pill with circled up-arrow + bold label, mint checkmark bullets, and a
+  darker inset stat card with a mint highlight span.
+{%- endcomment -%}
+
+<section class="ljn">
+  <div class="v3-wrap">
+    <img class="ljn-photo" src="{{ 'lp-journey.webp' | asset_url }}" alt="Out on the trail, protected" loading="lazy" decoding="async">
+    <h2 class="v3-h2 v3-h2--light ljn-h">Tick-Proof Journey</h2>
+    <p class="ljn-sub">Real, daily protection &mdash; not quick fixes.</p>
+
+    <div class="ljn-line">
+
+      <div class="ljn-node">
+        <div class="ljn-nodehead">
+          <span class="ljn-uparrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+          <b>Day 1:</b>&nbsp;The Botanicals Go To Work
+        </div>
+        <ul class="ljn-list">
+          <li><i>&#10004;</i> Your first dropper absorbs within the hour</li>
+          <li><i>&#10004;</i> The scent your skin gives off starts to shift</li>
+        </ul>
+        <div class="ljn-stat"><span>93% of customers</span> started their new morning routine in under a minute a day</div>
+      </div>
+
+      <div class="ljn-node">
+        <div class="ljn-nodehead">
+          <span class="ljn-uparrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+          <b>Days 3&ndash;5:</b>&nbsp;&ldquo;Wrong Host&rdquo;
+        </div>
+        <ul class="ljn-list">
+          <li><i>&#10004;</i> Ticks climb on, get confused, climb off</li>
+          <li><i>&#10004;</i> The window most customers report complete repellence</li>
+        </ul>
+        <div class="ljn-stat"><span>91% of customers</span> reported clean tick checks by the end of week one</div>
+      </div>
+
+      <div class="ljn-node">
+        <div class="ljn-nodehead">
+          <span class="ljn-uparrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+          <b>Week 2:</b>&nbsp;All-Day Confidence
+        </div>
+        <ul class="ljn-list">
+          <li><i>&#10004;</i> Stand, creek bottom, tall grass &mdash; one dose covers up to 24 hours</li>
+          <li><i>&#10004;</i> Nothing to spray, nothing to reapply</li>
+        </ul>
+        <div class="ljn-stat"><span>91% of customers</span> stopped carrying spray on day trips by week two</div>
+      </div>
+
+      <div class="ljn-node">
+        <div class="ljn-nodehead">
+          <span class="ljn-uparrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+          <b>Day 30+:</b>&nbsp;Season-Long Armor
+        </div>
+        <ul class="ljn-list">
+          <li><i>&#10004;</i> Coffee, drops, out the door</li>
+          <li><i>&#10004;</i> The whole family protected from the inside out</li>
+        </ul>
+        <div class="ljn-stat"><span>95% of customers</span> stayed on Pinemoor for the full season with consistent use</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ljn{background:var(--v3-forest);padding:30px 0 36px;}
+  .ljn-photo{width:100%;aspect-ratio:1/0.5;object-fit:cover;border-radius:14px;margin-bottom:22px;}
+  .ljn-h{margin-bottom:9px;}
+  .ljn-sub{font-size:14px;color:rgba(255,255,255,.72);margin-bottom:24px;}
+  .ljn-line{position:relative;padding-left:20px;}
+  .ljn-line::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1.6px;background:rgba(95,255,185,.4);}
+  .ljn-node{position:relative;margin-bottom:30px;}
+  .ljn-node:last-child{margin-bottom:0;}
+  .ljn-node::before{content:"";position:absolute;left:-20px;top:14px;width:11px;height:11px;transform:translateX(-2.6px) rotate(45deg);
+    background:var(--v3-mint);border-radius:2.5px;}
+  .ljn-node::after{content:"";position:absolute;left:-9px;top:19px;width:9px;height:1.6px;background:rgba(95,255,185,.4);}
+  .ljn-nodehead{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border-radius:9px;
+    padding:11px 13px;font-size:14px;color:#fff;margin-bottom:13px;}
+  .ljn-nodehead b{font-weight:700;}
+  .ljn-uparrow{flex:none;width:22px;height:22px;border:1.4px solid rgba(255,255,255,.7);border-radius:50%;color:#fff;
+    display:flex;align-items:center;justify-content:center;}
+  .ljn-uparrow svg{width:11px;height:11px;}
+  .ljn-list{list-style:none;margin:0 0 13px;padding:0 2px;display:flex;flex-direction:column;gap:9px;}
+  .ljn-list li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:rgba(255,255,255,.92);line-height:1.4;}
+  .ljn-list i{font-style:normal;flex:none;margin-top:1px;width:16px;height:16px;border-radius:50%;background:rgba(95,255,185,.25);
+    color:var(--v3-mint);font-size:8.5px;display:flex;align-items:center;justify-content:center;}
+  .ljn-stat{background:rgba(0,0,0,.28);border:1px solid rgba(95,255,185,.25);border-radius:10px;padding:12px 13px;
+    font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.9);}
+  .ljn-stat span{color:var(--v3-mint);font-weight:700;}
+</style>
+
+{% schema %}
+{ "name": "LP Journey Timeline", "settings": [] }
+{% endschema %}

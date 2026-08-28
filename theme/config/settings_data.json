@@ -1,0 +1,59 @@
+{
+  "current": {
+    "colors_accent_1": "#1B5E3A",
+    "colors_accent_2": "#3F7A4F",
+    "colors_text": "#15251C",
+    "colors_background_1": "#FFFFFF",
+    "cart_type": "drawer",
+    "favicon": "",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "sale_title": "SUMMER SALE",
+          "sale_sub": "Shop Now and Get Up To 70% Off"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "brand": "pinemoor"
+        }
+      },
+      "benefit-ticker": {
+        "type": "benefit-ticker",
+        "settings": {
+          "perk_1": "24-Hour Tick Protection",
+          "perk_2": "All Natural & Safe for Kids",
+          "perk_3": "Tastes Like Pure Maple Syrup",
+          "perk_4": "Lifetime Guarantee"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "header-v2": {
+        "type": "header-v2",
+        "settings": {
+          "brand": "pinemoor"
+        }
+      },
+      "benefit-ticker-v2": {
+        "type": "benefit-ticker-v2",
+        "settings": {
+          "perk_1": "24-Hour Tick Protection",
+          "perk_2": "All Natural & Safe for Kids",
+          "perk_3": "Tastes Like Pure Maple Syrup",
+          "perk_4": "Lifetime Guarantee"
+        }
+      },
+      "footer-v2": {
+        "type": "footer-v2",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {}
+}

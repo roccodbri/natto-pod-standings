@@ -1,0 +1,37 @@
+{%- liquid
+  assign p1 = section.settings.perk_1 | default: '24-Hour Tick Protection'
+  assign p2 = section.settings.perk_2 | default: 'All Natural & Safe for Kids'
+  assign p3 = section.settings.perk_3 | default: 'Tastes Like Pure Maple Syrup'
+  assign p4 = section.settings.perk_4 | default: 'Lifetime Guarantee'
+-%}
+
+{%- capture icon_shield -%}<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>{%- endcapture -%}
+{%- capture icon_leaf -%}<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>{%- endcapture -%}
+{%- capture icon_drop -%}<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/></svg>{%- endcapture -%}
+{%- capture icon_badge -%}<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L8 22l4-2 4 2-1-7.5"/></svg>{%- endcapture -%}
+
+<div class="benefit-ticker" aria-label="Product perks">
+  <div class="benefit-ticker__track">
+    {%- for i in (1..2) -%}
+    <div class="benefit-ticker__group" {% if i == 2 %}aria-hidden="true"{% endif %}>
+      <span class="benefit-ticker__item">{{ icon_shield }}{{ p1 }}</span>
+      <span class="benefit-ticker__item">{{ icon_leaf }}{{ p2 }}</span>
+      <span class="benefit-ticker__item">{{ icon_drop }}{{ p3 }}</span>
+      <span class="benefit-ticker__item">{{ icon_badge }}{{ p4 }}</span>
+    </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefit Ticker",
+  "settings": [
+    {"type":"text","id":"perk_1","label":"Perk 1","default":"24-Hour Tick Protection"},
+    {"type":"text","id":"perk_2","label":"Perk 2","default":"All Natural & Safe for Kids"},
+    {"type":"text","id":"perk_3","label":"Perk 3","default":"Tastes Like Pure Maple Syrup"},
+    {"type":"text","id":"perk_4","label":"Perk 4","default":"Lifetime Guarantee"}
+  ],
+  "presets": [{"name":"Benefit Ticker"}]
+}
+{% endschema %}

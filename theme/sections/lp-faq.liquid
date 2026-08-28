@@ -1,0 +1,51 @@
+{%- comment -%}
+  Dark-green FAQ panel: left-aligned white heading, then translucent rounded
+  accordion rows with circled chevrons.
+{%- endcomment -%}
+
+<section class="lfq">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 v3-h2--light lfq-h">Frequently Asked Questions</h2>
+    <div class="lfq-acc" data-q="What exactly does Pinemoor do?">Ticks don&rsquo;t see you &mdash; they smell you. Pinemoor&rsquo;s six botanicals absorb and exit through your skin, quieting the scent signals ticks track. Without a clear read on you, they climb off before biting.</div>
+    <div class="lfq-acc" data-q="How fast will I see results?">The botanicals go to work within the hour. Days 3&ndash;5 is the window where most customers report complete repellence, and one daily dose keeps it going all season.</div>
+    <div class="lfq-acc" data-q="How do I take it?">One full dropper daily &mdash; under the tongue, or stirred into water, coffee, or juice. The maple syrup flavor makes it easy, even for kids.</div>
+    <div class="lfq-acc" data-q="Will I smell like herbs all day?">No. The scent shift ticks pick up on isn&rsquo;t something people notice &mdash; no spray smell, no greasy film.</div>
+    <div class="lfq-acc" data-q="Is it safe for daily use?">Yes. Pinemoor was crafted for consistent daily use by the whole family &mdash; no DEET, no permethrin, no artificial colors or preservatives.</div>
+    <div class="lfq-acc" data-q="Can I take it with other supplements?">Pinemoor fits alongside a normal supplement routine. If you&rsquo;re pregnant, nursing, taking medication, or have a medical condition, check with your healthcare provider first.</div>
+    <div class="lfq-acc" data-q="Where is it made?">Pinemoor is crafted from 100% plant-based extracts and bottled in the USA.</div>
+    <div class="lfq-acc" data-q="What if it doesn&rsquo;t work for me?">You&rsquo;re covered by our Lifetime Money-Back Guarantee &mdash; return your order at any time and we&rsquo;ll issue a full refund according to our refund policy. No deadlines, no questions.</div>
+  </div>
+</section>
+
+<style>
+  .lfq{background:var(--v3-dark);padding:34px 0 36px;}
+  .lfq-h{margin-bottom:20px;}
+  .lfq-acc{margin-bottom:12px;}
+  .lfq-btn{display:flex;align-items:center;gap:9px;width:100%;background:rgba(255,255,255,.16);border-radius:10px;
+    padding:16px 15px;color:#fff;font-size:13.5px;font-weight:500;text-align:left;}
+  .lfq-chev{margin-left:auto;flex:none;width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.28);
+    display:flex;align-items:center;justify-content:center;transition:transform .2s;}
+  .lfq-chev svg{width:10px;height:10px;}
+  .lfq-acc.open .lfq-chev{transform:rotate(90deg);}
+  .lfq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s ease;}
+  .lfq-acc.open .lfq-body{grid-template-rows:1fr;}
+  .lfq-body-in{overflow:hidden;}
+  .lfq-acc.open .lfq-body-in{padding:11px 5px 3px;}
+  .lfq-body-in p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.85);}
+</style>
+
+<script>
+(function(){
+  [].slice.call(document.querySelectorAll('.lfq-acc')).forEach(function(a){
+    var q=a.getAttribute('data-q'), body=a.innerHTML;
+    a.innerHTML='<button type="button" class="lfq-btn">'+q+
+      '<span class="lfq-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></button>'+
+      '<div class="lfq-body"><div class="lfq-body-in"><p>'+body+'</p></div></div>';
+    a.querySelector('.lfq-btn').addEventListener('click',function(){a.classList.toggle('open');});
+  });
+})();
+</script>
+
+{% schema %}
+{ "name": "LP FAQ", "settings": [] }
+{% endschema %}

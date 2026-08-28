@@ -1,0 +1,25 @@
+{%- comment -%}
+  Resolve an image value that came out of a section setting.
+
+  Sections in this theme take image URLs as plain text so the same field can hold
+  either a remote CDN URL or a file that ships with the theme. This snippet
+  decides which: anything containing "://" or starting with "//" is passed
+  through untouched; anything else is treated as a theme asset filename and run
+  through asset_url. That keeps every Pinemoor photograph inside the theme zip —
+  no dependency on a CDN that might be cleaned out later — while still allowing
+  a Shopify Files URL to be pasted into the theme editor.
+
+  Usage: {%- render 'pm-img-src', src: section.settings.image_1 -%}
+{%- endcomment -%}
+{%- liquid
+  assign v = src | strip
+  if v == blank
+    echo ''
+  elsif v contains '://'
+    echo v
+  elsif v contains '//'
+    echo v
+  else
+    echo v | asset_url
+  endif
+-%}

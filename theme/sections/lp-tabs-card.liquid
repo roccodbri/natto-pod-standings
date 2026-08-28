@@ -1,0 +1,90 @@
+{%- comment -%}
+  Dark-green tabbed card: three folder-style tabs (FAQs / What To Expect /
+  Reviews) over a deep-green panel of translucent accordion rows.
+{%- endcomment -%}
+
+<section class="ltc">
+  <div class="ltc-tabs" role="tablist">
+    <button type="button" class="ltc-tab active" onclick="ltcTab(this,0)" role="tab">FAQS</button>
+    <button type="button" class="ltc-tab" onclick="ltcTab(this,1)" role="tab">What To Expect</button>
+    <button type="button" class="ltc-tab" onclick="ltcTab(this,2)" role="tab">Reviews</button>
+  </div>
+  <div class="ltc-panel">
+
+    <div class="ltc-pane active">
+      <h3 class="ltc-h">Frequently Asked Questions</h3>
+      <div class="ltc-acc" data-q="What is Pinemoor?">Pinemoor is an organic herbal tincture &mdash; six clinically-studied botanicals in a maple syrup&ndash;flavored base &mdash; that changes the scent your skin gives off so ticks never get a clear read on you.</div>
+      <div class="ltc-acc" data-q="Is Pinemoor Easy to Use?">One full dropper every morning with water, coffee, or juice. No sprays, no reapplying, no missed spots.</div>
+      <div class="ltc-acc" data-q="What exactly does Pinemoor do?">Ticks don&rsquo;t see you &mdash; they smell you. Pinemoor&rsquo;s botanicals absorb and exit through your skin, quieting the scent signals ticks track so they climb off before biting.</div>
+      <div class="ltc-acc" data-q="How fast will I see results?">The botanicals go to work within the hour. Days 3&ndash;5 is the window where most customers report complete repellence.</div>
+      <div class="ltc-acc" data-q="How do I take it?">Squeeze one full dropper under the tongue, or stir it into your morning drink. That&rsquo;s the whole routine.</div>
+      <div class="ltc-acc" data-q="Is it safe for daily use?">Yes &mdash; it was crafted for consistent daily-use protection, kid-approved and family-friendly, with no DEET or synthetic pesticides.</div>
+      <div class="ltc-acc" data-q="Can I take it with other supplements?">Pinemoor fits alongside a normal supplement routine. If you have a medical condition or take medication, check with your healthcare provider first.</div>
+      <div class="ltc-acc" data-q="Where is it made?">It&rsquo;s crafted from 100% plant-based extracts and bottled in the USA.</div>
+      <div class="ltc-acc" data-q="What if it doesn&rsquo;t work for me?">You&rsquo;re covered by our Lifetime Money-Back Guarantee &mdash; return your order at any time for a full refund. No deadlines, no questions.</div>
+    </div>
+
+    <div class="ltc-pane">
+      <h3 class="ltc-h">What To Expect</h3>
+      <div class="ltc-acc" data-q="Day 1 — The botanicals go to work">Your first dropper absorbs within the hour &mdash; and the scent your skin gives off starts to shift.</div>
+      <div class="ltc-acc" data-q="Days 3–5 — Ticks read you as &ldquo;wrong host&rdquo;">The window where most customers report complete repellence: ticks climb on, get confused, climb off.</div>
+      <div class="ltc-acc" data-q="Week 2 — All-day confidence">Stand, creek bottom, tall grass &mdash; one morning dose covers up to 24 hours. Nothing to reapply.</div>
+      <div class="ltc-acc" data-q="Day 30+ — Season-long armor">Coffee, drops, out the door. The whole family protected from the inside out, all season.</div>
+    </div>
+
+    <div class="ltc-pane">
+      <h3 class="ltc-h">Reviews</h3>
+      <div class="ltc-acc" data-q="&ldquo;Whole family&rsquo;s on it now.&rdquo; — Mallory K.">We had a brutal tick year here and two people from our church got diagnosed with Lyme. That was enough for me to stop messing around with sprays. Whole family&rsquo;s on it now and I&rsquo;m not looking back.</div>
+      <div class="ltc-acc" data-q="&ldquo;Not one bite.&rdquo; — Wade K.">Two guys in my hunting club got Lyme last season. Started Pinemoor before the opener and the whole family&rsquo;s been on it since &mdash; not one bite.</div>
+      <div class="ltc-acc" data-q="&ldquo;Reordered already.&rdquo; — cabinlife_mn">Simple to take, tastes fine, and I&rsquo;m not coating my kids in chemicals every time they go outside. Reordered already.</div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .ltc{padding:22px 0 0;}
+  .ltc-tabs{display:flex;max-width:390px;margin:0 auto;}
+  .ltc-tab{flex:1;padding:11px 6px;font-size:12.5px;font-weight:600;color:#fff;background:#9DBFAF;
+    border-radius:12px 12px 0 0;text-align:center;}
+  .ltc-tab.active{background:var(--v3-dark);}
+  .ltc-panel{background:var(--v3-dark);border-radius:0 0 14px 14px;padding:20px 15px 24px;max-width:390px;margin:0 auto;}
+  .ltc-h{font-family:var(--v3-head);font-weight:500;font-size:24px;color:#fff;margin-bottom:16px;}
+  .ltc-pane{display:none;}
+  .ltc-pane.active{display:block;}
+  .ltc-acc{margin-bottom:11px;}
+  .ltc-acc-btn{display:flex;align-items:center;gap:9px;width:100%;background:rgba(255,255,255,.16);border-radius:10px;
+    padding:14px 14px;color:#fff;font-size:13.5px;font-weight:500;text-align:left;}
+  .ltc-acc-chev{margin-left:auto;flex:none;width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.28);
+    display:flex;align-items:center;justify-content:center;transition:transform .2s;}
+  .ltc-acc-chev svg{width:10px;height:10px;}
+  .ltc-acc.open .ltc-acc-chev{transform:rotate(90deg);}
+  .ltc-acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s ease;}
+  .ltc-acc.open .ltc-acc-body{grid-template-rows:1fr;}
+  .ltc-acc-body-in{overflow:hidden;}
+  .ltc-acc.open .ltc-acc-body-in{padding:11px 4px 4px;}
+  .ltc-acc-body-in p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.85);}
+</style>
+
+<script>
+(function(){
+  /* build accordion rows from data-q wrappers */
+  [].slice.call(document.querySelectorAll('.ltc-acc')).forEach(function(a){
+    var q=a.getAttribute('data-q'), body=a.innerHTML;
+    a.innerHTML='<button type="button" class="ltc-acc-btn">'+q+
+      '<span class="ltc-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></button>'+
+      '<div class="ltc-acc-body"><div class="ltc-acc-body-in"><p>'+body+'</p></div></div>';
+    a.querySelector('.ltc-acc-btn').addEventListener('click',function(){a.classList.toggle('open');});
+  });
+  window.ltcTab=function(btn,i){
+    var tabs=[].slice.call(btn.parentNode.children);
+    tabs.forEach(function(t){t.classList.remove('active');}); btn.classList.add('active');
+    var panes=[].slice.call(document.querySelectorAll('.ltc-pane'));
+    panes.forEach(function(p,j){p.classList.toggle('active',i===j);});
+  };
+})();
+</script>
+
+{% schema %}
+{ "name": "LP Tabs Card", "settings": [] }
+{% endschema %}

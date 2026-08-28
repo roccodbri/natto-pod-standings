@@ -1,0 +1,98 @@
+{%- comment -%}
+  Three white accordion cards under the review feed: Product Description /
+  Frequently Asked Questions / Shipping, Returns & Guarantees. Each row is a
+  bordered card with a colored lead icon and a circled chevron that rotates open.
+{%- endcomment -%}
+
+<section class="lia">
+  <div class="v3-wrap">
+
+    <div class="lia-item">
+      <button type="button" class="lia-btn" onclick="liaTog(this)" aria-expanded="false">
+        <span class="lia-ic lia-ic--info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".8" fill="currentColor"/></svg></span>
+        Product Description
+        <span class="lia-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="lia-body">
+        <div class="lia-body-in">
+          <p>Pinemoor is an organic herbal dropper designed for whole-family tick defense.* Take one full dropper daily with water, coffee, or juice &mdash; the botanicals absorb and exit through your skin, changing the scent ticks hunt by.</p>
+          <ul>
+            <li>Provides 24-hour systemic protection from one dose*</li>
+            <li>Simple to add to any morning routine*</li>
+            <li>Maple syrup&ndash;flavored, kid-approved formula*</li>
+            <li>No DEET, no permethrin, no synthetic pesticides</li>
+            <li>Gluten-free &middot; Non-GMO &middot; free from unnecessary additives</li>
+          </ul>
+          <p><b>Key ingredients:</b> Oregano Extract, Carvacrol, Garlic Extract, Thyme, Soursop &amp; Caraway Seed &mdash; six botanicals that each quiet a different scent signal your skin gives off.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lia-item">
+      <button type="button" class="lia-btn" onclick="liaTog(this)" aria-expanded="false">
+        <span class="lia-ic lia-ic--faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9a3 3 0 1 1 4.6 2.5c-1 .7-1.6 1.2-1.6 2.5"/><circle cx="12" cy="17.5" r=".8" fill="currentColor"/></svg></span>
+        Frequently Asked Questions
+        <span class="lia-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="lia-body">
+        <div class="lia-body-in">
+          <p><b>How do I take it?</b><br>One full dropper daily, straight under the tongue or stirred into water, coffee, or juice.</p>
+          <p><b>How fast does it work?</b><br>Your first dropper absorbs within the hour. Days 3&ndash;5 is the window where most customers report complete repellence.</p>
+          <p><b>Is it safe for kids?</b><br>Yes &mdash; the maple syrup&ndash;flavored formula was crafted for everyday use by the whole family.</p>
+          <p><b>Will I smell like herbs?</b><br>No. The scent shift ticks pick up on is not something people notice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lia-item">
+      <button type="button" class="lia-btn" onclick="liaTog(this)" aria-expanded="false">
+        <span class="lia-ic lia-ic--ship"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        Shipping, Returns &amp; Guarantees
+        <span class="lia-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+      </button>
+      <div class="lia-body">
+        <div class="lia-body-in">
+          <p>Orders ship from the USA with fast, tracked delivery. Bundles ship free.</p>
+          <p>Every order is covered by our <b>Lifetime Money-Back Guarantee</b> &mdash; return your order at any time and we&rsquo;ll issue a full refund according to our refund policy. No deadlines, no questions.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .lia{background:#fff;padding:4px 0 18px;}
+  .lia-item{background:#fff;border:1px solid rgba(17,17,17,.14);border-radius:12px;margin-bottom:13px;
+    box-shadow:0 1px 4px rgba(17,17,17,.05);overflow:hidden;}
+  .lia-item:last-child{margin-bottom:0;}
+  .lia-btn{display:flex;align-items:center;gap:10px;width:100%;padding:16px 15px;font-size:14.5px;font-weight:600;
+    color:var(--v3-ink);text-align:left;}
+  .lia-ic{flex:none;width:20px;height:20px;}
+  .lia-ic svg{width:100%;height:100%;}
+  .lia-ic--info{color:var(--v3-ink);}
+  .lia-ic--faq{color:var(--v3-red);}
+  .lia-ic--ship{color:var(--v3-ink);}
+  .lia-chev{margin-left:auto;flex:none;width:26px;height:26px;border:1.4px solid rgba(17,17,17,.35);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--v3-ink);transition:transform .2s;}
+  .lia-chev svg{width:12px;height:12px;}
+  .lia-item.open .lia-chev{transform:rotate(90deg);}
+  .lia-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease;}
+  .lia-item.open .lia-body{grid-template-rows:1fr;}
+  .lia-body-in{overflow:hidden;padding:0 15px;}
+  .lia-item.open .lia-body-in{padding-bottom:16px;}
+  .lia-body-in p{font-size:13.5px;line-height:1.55;color:var(--v3-body);margin-bottom:10px;}
+  .lia-body-in ul{margin:0 0 10px;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--v3-body);}
+</style>
+
+<script>
+  window.liaTog=function(btn){
+    var item=btn.closest('.lia-item');
+    var open=item.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Info Accordions", "settings": [] }
+{% endschema %}

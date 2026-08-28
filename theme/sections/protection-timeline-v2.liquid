@@ -1,0 +1,121 @@
+<section class="tl" id="pm-timeline">
+  <div class="tl-wrap">
+    <div class="tl-head">
+      <h2 class="tl-h">How Fast Does Pinemoor <span class="accent">Make You Invisible To Ticks?</span></h2>
+      <p class="tl-hint">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5a1.5 1.5 0 0 1 3 0v6M12 11V9.5a1.5 1.5 0 0 1 3 0V12M15 11.5a1.5 1.5 0 0 1 3 0V13c0 4.5-2 8-6.5 8-3.5 0-5-2-7-5.5l-1.6-2.9a1.4 1.4 0 0 1 2.3-1.5L7 13V6"/></svg>
+        Tap each milestone on the trail to see what happens
+      </p>
+    </div>
+
+    <div class="tl-trail">
+      <span class="tl-line" aria-hidden="true"></span>
+
+      <details class="tl-stop">
+        <summary class="tl-sum">
+          <span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V8M6 13l6-6 6 6"/></svg></span>
+          <span class="tl-labwrap">
+            <span class="tl-when">Day 1</span>
+            <span class="tl-title">The Botanicals Go To Work</span>
+          </span>
+          <span class="tl-tap">Tap<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="tl-body"><p>Your first dropper absorbs within the hour &mdash; and the scent your skin gives off starts to shift.</p></div>
+      </details>
+
+      <details class="tl-stop">
+        <summary class="tl-sum">
+          <span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M9 5.5A3.5 3.5 0 0 1 15 8c0 1-.3 1.8-.8 2.5M6 12c-1 1.5-1.5 3.2-1.5 5h11"/></svg></span>
+          <span class="tl-labwrap">
+            <span class="tl-when">Day 3&ndash;5</span>
+            <span class="tl-title">Ticks Read You As &ldquo;Wrong Host&rdquo;</span>
+          </span>
+          <span class="tl-tap">Tap<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="tl-body"><p>The window where most customers report <strong>complete repellence</strong> &mdash; ticks climb on, get confused, climb off.</p></div>
+      </details>
+
+      <details class="tl-stop">
+        <summary class="tl-sum">
+          <span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span class="tl-labwrap">
+            <span class="tl-when">Week 2</span>
+            <span class="tl-title">All-Day Confidence</span>
+          </span>
+          <span class="tl-tap">Tap<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="tl-body"><p>Stand, creek bottom, tall grass &mdash; one morning dose covers up to 24 hours. Nothing to reapply.</p></div>
+      </details>
+
+      <details class="tl-stop">
+        <summary class="tl-sum">
+          <span class="tl-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 9h3l-4 6h4l-3 5h16l-3-5h4l-4-6h3z"/><line x1="12" y1="20" x2="12" y2="23"/></svg></span>
+          <span class="tl-labwrap">
+            <span class="tl-when">Day 30+</span>
+            <span class="tl-title">Season-Long Armor</span>
+          </span>
+          <span class="tl-tap">Tap<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </summary>
+        <div class="tl-body"><p>Coffee, drops, out the door. The whole family protected from the inside out, all season.</p></div>
+      </details>
+    </div>
+
+    <div class="tl-cta">
+      <button type="button" class="btn-primary" onclick="pmScrollTop(event)">Start Day 1 Today</button>
+      <p class="guarantee-line"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime money-back guarantee</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 760px;}
+
+  .tl{background:#fff;padding:34px 16px 38px;}
+  .tl-wrap{max-width:620px;margin:0 auto;}
+  /* typography matched to the outdoorsmen-recommend section */
+  .tl-head{text-align:center;margin-bottom:20px;}
+  .tl-h{font-family:var(--font-head);font-weight:500;font-size:26px;line-height:1.2;color:#000;max-width:680px;margin:0 auto;letter-spacing:normal;}
+  .tl-hint{display:inline-flex;align-items:center;gap:7px;margin-top:11px;font-family:var(--font-body);font-size:13.5px;font-weight:500;
+    color:var(--green-deep);background:var(--green-bright-soft);border:1px solid rgba(0,147,112,.3);border-radius:50px;padding:7px 15px;}
+  .tl-hint svg{flex:none;color:var(--green-bright);}
+
+  .tl-trail{position:relative;}
+  .tl-line{position:absolute;left:21px;top:14px;bottom:14px;width:0;border-left:2.5px dotted rgba(8,89,70,.35);}
+  .tl-stop{position:relative;margin-bottom:10px;}
+  .tl-stop:last-child{margin-bottom:0;}
+  .tl-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;}
+  .tl-sum::-webkit-details-marker{display:none;}
+  .tl-node{flex:none;position:relative;z-index:1;width:42px;height:42px;border-radius:50%;background:var(--green-deep);color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff;transition:transform .25s;}
+  .tl-node svg{width:20px;height:20px;}
+  /* pulse ring invites the tap — stops once opened */
+  .tl-stop:not([open]) .tl-node::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--green-bright);
+    animation:tlPulse 1.8s ease-out infinite;}
+  @keyframes tlPulse{0%{transform:scale(.85);opacity:.9;}70%{transform:scale(1.25);opacity:0;}100%{opacity:0;}}
+  .tl-stop[open] .tl-node{transform:scale(1.08);}
+  .tl-labwrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;background:#fff;border:1.4px solid var(--line);border-radius:10px;
+    padding:10px 14px;transition:border-color .25s;}
+  .tl-stop[open] .tl-labwrap{border-color:var(--green-deep);}
+  .tl-when{font-family:var(--font-head);font-weight:500;font-size:12.5px;color:var(--green-bright);letter-spacing:.02em;}
+  .tl-title{font-family:var(--font-head);font-weight:500;font-size:16.5px;color:#000;line-height:1.22;}
+  .tl-tap{flex:none;display:inline-flex;align-items:center;gap:3px;font-family:var(--font-body);font-size:11.5px;font-weight:700;
+    color:var(--green-deep);background:var(--green-bright-soft);border-radius:50px;padding:5px 10px;}
+  .tl-tap svg{width:12px;height:12px;transition:transform .25s;}
+  .tl-stop[open] .tl-tap svg{transform:rotate(180deg);}
+  .tl-body{margin:8px 0 4px 55px;background:#fff;border:1.4px solid var(--green-deep);border-radius:10px;padding:12px 14px;
+    animation:tlOpen .3s ease;}
+  @keyframes tlOpen{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:none;}}
+  .tl-body p{font-family:var(--font-body);font-size:14.5px;line-height:1.55;color:var(--muted);margin:0;}
+  .tl-body strong{color:#000;font-weight:700;}
+  .tl-cta{margin-top:26px;max-width:430px;margin-left:auto;margin-right:auto;text-align:center;}
+
+  @media (min-width:760px){
+    .tl-wrap{max-width:680px;}
+    .tl-h{font-size:34px;}
+    .tl-title{font-size:18px;}
+  }
+</style>
+
+{% schema %}{"name":"Protection Timeline V2","settings":[]}{% endschema %}

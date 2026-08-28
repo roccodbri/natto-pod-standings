@@ -1,0 +1,35 @@
+{%- comment -%}
+  Pale-mint section: left-aligned heading, one body paragraph, then a row of
+  square image (left) + four green checkmark bullet lines (right).
+{%- endcomment -%}
+
+<section class="lpr">
+  <div class="v3-wrap">
+    <h2 class="v3-h2">When Ticks Find You,<br>Problems Start</h2>
+    <p class="lpr-body">Ticks don&rsquo;t see you &mdash; they smell you. One bite can mean Lyme, alpha-gal, or worse. Pinemoor changes the scent your skin gives off, so ticks never get a clear read on you in the first place.</p>
+    <div class="lpr-row">
+      <img class="lpr-img" src="{{ 'lp-problem-tick.webp' | asset_url }}" alt="Tick questing on tall grass" loading="lazy" decoding="async" width="160" height="176">
+      <ul class="lpr-list">
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.5 15.5l-3.8-3.8 1.4-1.4 2.4 2.4 5.4-5.4 1.4 1.4-6.8 6.8z"/></svg> Repels Ticks Before They Bite</li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.5 15.5l-3.8-3.8 1.4-1.4 2.4 2.4 5.4-5.4 1.4 1.4-6.8 6.8z"/></svg> Covers The Whole Body</li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.5 15.5l-3.8-3.8 1.4-1.4 2.4 2.4 5.4-5.4 1.4 1.4-6.8 6.8z"/></svg> Protects The Whole Family</li>
+        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.5 15.5l-3.8-3.8 1.4-1.4 2.4 2.4 5.4-5.4 1.4 1.4-6.8 6.8z"/></svg> No Sprays, No Reapplying</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lpr{background:var(--v3-tint);padding:32px 0 34px;}
+  .lpr .v3-h2{margin-bottom:14px;}
+  .lpr-body{font-size:14px;line-height:1.55;color:var(--v3-ink);margin-bottom:20px;}
+  .lpr-row{display:flex;align-items:center;gap:16px;}
+  .lpr-img{flex:none;width:46%;max-width:180px;aspect-ratio:1/1.08;object-fit:cover;border-radius:12px;}
+  .lpr-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:15px;}
+  .lpr-list li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--v3-ink);}
+  .lpr-list svg{flex:none;width:17px;height:17px;color:var(--v3-green);}
+</style>
+
+{% schema %}
+{ "name": "LP Problems", "settings": [] }
+{% endschema %}
