@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "lp-hero": {
+      "type": "lp-hero",
+      "settings": {
+        "product": "pinemoor®-tick-protection-drops-tyler-copy",
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    },
+    "lp-ugc": {
+      "type": "lp-ugc",
+      "settings": {}
+    },
+    "lp-tabs": {
+      "type": "lp-tabs",
+      "settings": {}
+    },
+    "lp-difference-hero": {
+      "type": "lp-difference-hero",
+      "settings": {}
+    },
+    "lp-restore": {
+      "type": "lp-restore",
+      "settings": {}
+    },
+    "lp-mirror": {
+      "type": "lp-mirror",
+      "settings": {}
+    },
+    "lp-steps": {
+      "type": "lp-steps",
+      "settings": {}
+    },
+    "lp-problems": {
+      "type": "lp-problems",
+      "settings": {}
+    },
+    "lp-why-trust": {
+      "type": "lp-why-trust",
+      "settings": {}
+    },
+    "lp-proven": {
+      "type": "lp-proven",
+      "settings": {}
+    },
+    "lp-journey": {
+      "type": "lp-journey",
+      "settings": {}
+    },
+    "lp-five-reasons": {
+      "type": "lp-five-reasons",
+      "settings": {}
+    },
+    "lp-comparison": {
+      "type": "lp-comparison",
+      "settings": {}
+    },
+    "lp-faq": {
+      "type": "lp-faq",
+      "settings": {}
+    },
+    "lp-guarantee": {
+      "type": "lp-guarantee",
+      "settings": {}
+    },
+    "lp-transformations": {
+      "type": "lp-transformations",
+      "settings": {}
+    },
+    "lp-final-cta": {
+      "type": "lp-final-cta",
+      "settings": {
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    }
+  },
+  "order": [
+    "lp-hero",
+    "lp-ugc",
+    "lp-tabs",
+    "lp-difference-hero",
+    "lp-restore",
+    "lp-mirror",
+    "lp-steps",
+    "lp-problems",
+    "lp-why-trust",
+    "lp-proven",
+    "lp-journey",
+    "lp-five-reasons",
+    "lp-comparison",
+    "lp-faq",
+    "lp-guarantee",
+    "lp-transformations",
+    "lp-final-cta"
+  ]
+}

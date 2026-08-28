@@ -1,0 +1,312 @@
+{%- liquid
+  assign variant_1 = section.settings.variant_id_1 | default: '52810262577333'
+  assign variant_2 = section.settings.variant_id_2 | default: '52810262610101'
+  assign variant_3 = section.settings.variant_id_3 | default: '52810262642869'
+  assign hero_product = all_products[section.settings.product]
+  assign use_product_images = false
+  if hero_product and hero_product.images.size > 0
+    assign use_product_images = true
+  endif
+  assign fb1 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260713_233510_2fd30a75-bcc7-4fe8-a2b9-d92c9085bdba.png?v=1783998610&width=1100'
+  assign fb2 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/lone_star_tick_drops.png?v=1779163464&width=1100'
+  assign fb3 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoor_3_bottles_no_droppers.png?v=1780325112&width=1100'
+  assign fb4 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoor_6_bottles_lined_up.png?v=1780325063&width=1100'
+-%}
+
+<section class="lpx" id="lp-hero">
+  <div class="lp-wrap">
+
+    <h1 class="lpx-title">Pinemoor&reg; Tick Protection Drops</h1>
+    <p class="lpx-sub">Stop ticks before they ever bite, with a simple daily herbal drop ritual the whole family can take.</p>
+
+    <!-- benefit chips -->
+    <div class="lpx-chips">
+      <span class="lpx-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> 24-Hour Protection</span>
+      <span class="lpx-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L9.5 22 19 10h-6.5z"/></svg> All Natural</span>
+      <span class="lpx-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.6"/><circle cx="16" cy="8" r="2.6"/><path d="M3.5 19c0-2.8 2-5 4.5-5s4.5 2.2 4.5 5M12.5 19c.3-2.4 2.1-4 4-4 2.2 0 4 2.2 4 5"/></svg> Family Safe</span>
+    </div>
+
+    <!-- rating row -->
+    <div class="lpx-rate">
+      <span class="lpx-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="lpx-avatars">
+        <img src="{{ 'pm-45-ac97b.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="80" height="80">
+        <img src="{{ 'pm-33-4b9bd.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="80" height="80">
+        <img src="{{ 'pm-52-6f1c2.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="80" height="80">
+      </span>
+      <span class="lpx-rate-txt">Rated 4.9 &lsquo;Excellent&rsquo; | 1,206+ Reviews</span>
+    </div>
+
+    <!-- gallery: big slide + thumb rail on the right -->
+    <div class="lpx-gal">
+      <div class="lpx-stage" id="lpxStage">
+        {%- if use_product_images -%}
+          {%- for img in hero_product.images limit: 6 -%}
+          <div class="lpx-slide{% if forloop.first %} active{% endif %}"><img src="{{ img | image_url: width: 1000 }}" alt="{{ img.alt | escape | default: 'Pinemoor Tick Protection Drops' }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async" width="{{ img.width }}" height="{{ img.height }}"></div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="lpx-slide active"><img src="{{ fb1 }}" alt="Pinemoor Tick Protection Drops" loading="eager" fetchpriority="high" decoding="async"></div>
+          <div class="lpx-slide"><img src="{{ fb2 }}" alt="Pinemoor herbal tick drops" loading="lazy" decoding="async"></div>
+          <div class="lpx-slide"><img src="{{ fb3 }}" alt="Pinemoor 3 bottle pack" loading="lazy" decoding="async"></div>
+          <div class="lpx-slide"><img src="{{ fb4 }}" alt="Pinemoor 6 bottle family bundle" loading="lazy" decoding="async"></div>
+        {%- endif -%}
+      </div>
+      <div class="lpx-thumbs" id="lpxThumbs">
+        {%- if use_product_images -%}
+          {%- for img in hero_product.images limit: 6 -%}
+          <button class="lpx-thumb{% if forloop.first %} active{% endif %}" onclick="lpxGo({{ forloop.index0 }})" aria-label="View image {{ forloop.index }}"><img src="{{ img | image_url: width: 200 }}" alt="" loading="lazy" decoding="async" width="72" height="72"></button>
+          {%- endfor -%}
+        {%- else -%}
+          <button class="lpx-thumb active" onclick="lpxGo(0)" aria-label="Image 1"><img src="{{ fb1 | replace: 'width=1100', 'width=200' }}" alt="" loading="lazy" decoding="async" width="72" height="72"></button>
+          <button class="lpx-thumb" onclick="lpxGo(1)" aria-label="Image 2"><img src="{{ fb2 | replace: 'width=1100', 'width=200' }}" alt="" loading="lazy" decoding="async" width="72" height="72"></button>
+          <button class="lpx-thumb" onclick="lpxGo(2)" aria-label="Image 3"><img src="{{ fb3 | replace: 'width=1100', 'width=200' }}" alt="" loading="lazy" decoding="async" width="72" height="72"></button>
+          <button class="lpx-thumb" onclick="lpxGo(3)" aria-label="Image 4"><img src="{{ fb4 | replace: 'width=1100', 'width=200' }}" alt="" loading="lazy" decoding="async" width="72" height="72"></button>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- icon benefit rows -->
+    <div class="lpx-feats">
+      <div class="lpx-feat">
+        <svg class="lpx-feat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <div><h3>Changes the scent ticks hunt by</h3><p>So a tick stops reading you as a host.</p></div>
+      </div>
+      <div class="lpx-feat">
+        <svg class="lpx-feat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><h3>Covers all of you, all day</h3><p>Scalp to waistband &mdash; one dose, 24 hours.</p></div>
+      </div>
+      <div class="lpx-feat">
+        <svg class="lpx-feat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/></svg>
+        <div><h3>Helps you skip the sprays</h3><p>Nothing greasy on skin, clothes or gear.</p></div>
+      </div>
+    </div>
+
+    <div class="lpx-div" aria-hidden="true"></div>
+
+    {%- if hero_product -%}
+      {% form 'product', hero_product, id: 'lp-product-form' %}
+        <input type="hidden" name="id" id="lp-variant-input" value="{{ variant_2 }}">
+        <input type="hidden" name="quantity" value="1">
+        {% render 'lp-offers', uid: 'hero', variant_1: variant_1, variant_2: variant_2, variant_3: variant_3 %}
+      {% endform %}
+    {%- else -%}
+      {% render 'lp-offers', uid: 'hero', variant_1: variant_1, variant_2: variant_2, variant_3: variant_3 %}
+    {%- endif -%}
+
+    <!-- testimonial slider -->
+    <div class="lpx-quote-wrap">
+      <button class="lpx-qarrow lpx-qarrow--l" onclick="lpxQuote(-1)" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lpx-qarrow lpx-qarrow--r" onclick="lpxQuote(1)" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="lpx-quote" id="lpxQuotes">
+        <div class="lpx-q active" data-tags="No Bites All Season|Whole Family">
+          <p class="lpx-q-txt">&ldquo;Two guys in my hunting club got Lyme last season. Started Pinemoor before the opener and the whole family&rsquo;s been on it since &mdash; not one bite.&rdquo;</p>
+          <div class="lpx-q-who"><span class="lpx-q-av">WK</span><span class="lpx-q-name">Wade K., 47 years</span></div>
+        </div>
+        <div class="lpx-q" data-tags="Kid Approved|No More Sprays">
+          <p class="lpx-q-txt">&ldquo;I never wanted to coat my kids in chemicals that half the time do nothing. This actually works &mdash; clean checks all season, and I stopped worrying.&rdquo;</p>
+          <div class="lpx-q-who"><span class="lpx-q-av">RM</span><span class="lpx-q-name">Rachel M., 38 years</span></div>
+        </div>
+        <div class="lpx-q" data-tags="Easy Ritual|Repeat Customer">
+          <p class="lpx-q-txt">&ldquo;One dropper with my coffee and I don&rsquo;t think about ticks again all day. It rides on the counter next to the coffee pot now.&rdquo;</p>
+          <div class="lpx-q-who"><span class="lpx-q-av">GH</span><span class="lpx-q-name">Greg H., 52 years</span></div>
+        </div>
+      </div>
+      <div class="lpx-q-tags" id="lpxQtags"></div>
+    </div>
+
+    <!-- info accordion cards -->
+    <div class="lpx-acc">
+      <details class="lpx-acc-item">
+        <summary><svg class="lpx-acc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></svg> Product Description <span class="lpx-acc-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></summary>
+        <div class="lpx-acc-body">
+          <p>Ticks don&rsquo;t see you &mdash; they smell you. Pinemoor is an organic herbal dropper that absorbs and exits through your skin, changing the scent ticks hunt by so they climb off before they bite.</p>
+          <ul>
+            <li>Designed for whole-family tick defense*</li>
+            <li>One dropper gives 24-hour, whole-body protection*</li>
+            <li>Maple syrup&ndash;flavored, kid-approved formula*</li>
+            <li>No DEET, no permethrin, no synthetic pesticides</li>
+          </ul>
+        </div>
+      </details>
+      <details class="lpx-acc-item">
+        <summary><span class="lpx-acc-q" aria-hidden="true">?</span> Frequently Asked Questions <span class="lpx-acc-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></summary>
+        <div class="lpx-acc-body">
+          <p><strong>How do I take it?</strong> One full dropper daily with water, coffee, or juice.</p>
+          <p><strong>How fast does it work?</strong> Your first dose absorbs within the hour; most customers report complete repellence by day 3&ndash;5.</p>
+          <p><strong>Is it safe for kids?</strong> Yes &mdash; it&rsquo;s a maple syrup&ndash;flavored herbal formula the whole family takes from one bottle.</p>
+        </div>
+      </details>
+      <details class="lpx-acc-item">
+        <summary><svg class="lpx-acc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-.8 12.2a1.8 1.8 0 0 1-1.8 1.8H7.6a1.8 1.8 0 0 1-1.8-1.8z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg> Shipping, Returns &amp; Guarantees <span class="lpx-acc-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span></summary>
+        <div class="lpx-acc-body">
+          <p>Orders ship from the US within 24 hours with tracked delivery. Bundles ship free.</p>
+          <p>Every order is covered by our <strong>Lifetime Money-Back Guarantee</strong> &mdash; return it at any time for a full refund. No deadlines, no questions.</p>
+        </div>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.lpx{background:#fff;padding:26px 0 34px;}
+.lpx-title{font-family:var(--lp-head);font-weight:500;font-size:clamp(34px,10vw,44px);line-height:1.06;letter-spacing:-.015em;color:var(--lp-ink);}
+.lpx-sub{font-family:var(--lp-body);font-size:19.5px;line-height:1.35;color:var(--lp-ink);margin-top:16px;}
+.lpx-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.lpx-chip{display:inline-flex;align-items:center;gap:8px;background:var(--lp-mint-2);border:1.4px solid #A9D8C2;color:var(--lpg-deep);
+  border-radius:50px;padding:11px 17px;font-family:var(--lp-body);font-size:16px;font-weight:500;}
+.lpx-chip svg{width:18px;height:18px;color:var(--lpg-deep);}
+.lpx-rate{display:flex;align-items:center;gap:11px;margin-top:22px;flex-wrap:wrap;}
+.lpx-stars{color:#F5A623;font-size:24px;letter-spacing:2px;line-height:1;}
+.lpx-avatars{display:inline-flex;}
+.lpx-avatars img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-9px;}
+.lpx-avatars img:first-child{margin-left:0;}
+.lpx-rate-txt{font-family:var(--lp-body);font-size:16.5px;color:var(--lp-ink);}
+/* gallery */
+.lpx-gal{display:grid;grid-template-columns:1fr 66px;gap:10px;margin-top:22px;align-items:start;}
+.lpx-stage{position:relative;border-radius:12px;overflow:hidden;background:var(--lp-mint-2);}
+.lpx-slide{display:none;}
+.lpx-slide.active{display:block;}
+.lpx-slide img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
+.lpx-thumbs{display:flex;flex-direction:column;gap:8px;max-height:calc(100vw - 120px);overflow-y:auto;scrollbar-width:none;}
+.lpx-thumbs::-webkit-scrollbar{display:none;}
+.lpx-thumb{flex:none;width:66px;height:66px;border-radius:8px;overflow:hidden;border:2px solid transparent;padding:0;transition:border-color .15s;}
+.lpx-thumb.active{border-color:var(--lpg-dark);}
+.lpx-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+/* icon feature rows */
+.lpx-feats{display:flex;flex-direction:column;gap:22px;margin-top:28px;}
+.lpx-feat{display:flex;align-items:flex-start;gap:16px;}
+.lpx-feat-ic{flex:none;width:34px;height:34px;color:var(--lpg);margin-top:2px;}
+.lpx-feat h3{font-family:var(--lp-body);font-weight:700;font-size:20px;color:var(--lp-ink);line-height:1.25;}
+.lpx-feat p{font-family:var(--lp-body);font-size:17px;color:var(--lp-muted);margin-top:4px;line-height:1.4;}
+.lpx-div{height:1px;background:var(--lp-line);margin:30px 0;}
+/* testimonial slider */
+.lpx-quote-wrap{position:relative;background:var(--lp-mint);border-radius:14px;padding:26px 24px 30px;margin-top:34px;}
+.lpx-qarrow{position:absolute;top:38px;width:44px;height:44px;border-radius:50%;border:1.6px solid var(--lpg);
+  background:transparent;color:var(--lpg-deep);display:flex;align-items:center;justify-content:center;z-index:2;}
+.lpx-qarrow svg{width:16px;height:16px;}
+.lpx-qarrow--l{left:-8px;} .lpx-qarrow--r{right:-8px;}
+.lpx-q{display:none;}
+.lpx-q.active{display:block;}
+.lpx-q-txt{font-family:var(--lp-body);font-size:19px;line-height:1.45;color:var(--lp-ink);padding:0 30px;}
+.lpx-q-who{display:flex;align-items:center;gap:13px;margin-top:20px;padding:0 30px;}
+.lpx-q-av{flex:none;width:52px;height:52px;border-radius:50%;border:2px solid var(--lpg-deep);color:var(--lpg-deep);
+  display:flex;align-items:center;justify-content:center;font-family:var(--lp-body);font-weight:700;font-size:16px;}
+.lpx-q-name{font-family:var(--lp-body);font-weight:600;font-size:18px;color:var(--lp-ink);}
+.lpx-q-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;padding:0 30px;}
+.lpx-q-tags span{border:1.6px solid var(--lpg-deep);color:var(--lpg-deep);border-radius:8px;padding:11px 18px;
+  font-family:var(--lp-body);font-size:16.5px;font-weight:500;}
+/* accordion link-cards */
+.lpx-acc{display:flex;flex-direction:column;gap:18px;margin-top:26px;}
+.lpx-acc-item{border:1.4px solid #B9C4BE;border-radius:14px;background:#fff;overflow:hidden;}
+.lpx-acc-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:24px 20px;
+  font-family:var(--lp-body);font-weight:500;font-size:20px;color:var(--lp-ink);}
+.lpx-acc-item summary::-webkit-details-marker{display:none;}
+.lpx-acc-ic{flex:none;width:26px;height:26px;color:var(--lp-ink);}
+.lpx-acc-q{flex:none;width:26px;text-align:center;color:var(--lp-red);font-weight:800;font-size:24px;line-height:1;}
+.lpx-acc-btn{flex:none;margin-left:auto;width:42px;height:42px;border-radius:50%;border:1.4px solid #9FB1A8;
+  display:flex;align-items:center;justify-content:center;color:var(--lp-ink);transition:transform .25s;}
+.lpx-acc-btn svg{width:15px;height:15px;}
+.lpx-acc-item[open] .lpx-acc-btn{transform:rotate(90deg);}
+.lpx-acc-body{padding:0 20px 20px;}
+.lpx-acc-body p{font-family:var(--lp-body);font-size:15.5px;line-height:1.55;color:var(--lp-muted);margin-bottom:9px;}
+.lpx-acc-body strong{color:var(--lp-ink);}
+.lpx-acc-body ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.lpx-acc-body li{position:relative;padding-left:20px;font-family:var(--lp-body);font-size:15px;line-height:1.5;color:var(--lp-muted);}
+.lpx-acc-body li::before{content:"\2713";position:absolute;left:0;color:var(--lpg);font-weight:700;}
+</style>
+
+<script>
+(function(){
+  function lpInit(){
+  /* gallery */
+  var slides=[].slice.call(document.querySelectorAll('#lpxStage .lpx-slide'));
+  var thumbs=[].slice.call(document.querySelectorAll('#lpxThumbs .lpx-thumb'));
+  var cur=0;
+  window.lpxGo=function(n){
+    if(!slides.length)return;
+    slides[cur].classList.remove('active'); if(thumbs[cur])thumbs[cur].classList.remove('active');
+    cur=((n%slides.length)+slides.length)%slides.length;
+    slides[cur].classList.add('active'); if(thumbs[cur])thumbs[cur].classList.add('active');
+  };
+  var stage=document.getElementById('lpxStage');
+  if(stage){var sx=0;
+    stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)lpxGo(cur+(dx<0?1:-1));},{passive:true});
+  }
+
+  /* delivery date (+3 days) into every [data-lp-delivery] */
+  var d=new Date();d.setDate(d.getDate()+3);
+  var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var day=d.getDate();
+  var suf=(day%10===1&&day!==11)?'st':(day%10===2&&day!==12)?'nd':(day%10===3&&day!==13)?'rd':'th';
+  [].slice.call(document.querySelectorAll('[data-lp-delivery]')).forEach(function(el){el.textContent=months[d.getMonth()]+' '+day+suf;});
+
+  /* offer selection + ATC (shared by every [data-lp-offers] block; one-time only) */
+  function fmt(n){return '$'+Number(n).toFixed(2);}
+  [].slice.call(document.querySelectorAll('[data-lp-offers]')).forEach(function(block){
+    var cards=[].slice.call(block.querySelectorAll('.lpo-card'));
+    var priceEl=block.querySelector('[data-lp-atc-price]');
+    var strikeEl=block.querySelector('[data-lp-atc-strike]');
+    function render(){
+      var sel=block.querySelector('.lpo-card.is-active'); if(!sel)return;
+      if(priceEl)priceEl.textContent=fmt(sel.getAttribute('data-total'));
+      if(strikeEl)strikeEl.textContent=fmt(sel.getAttribute('data-strike'));
+      var vinput=document.getElementById('lp-variant-input');
+      if(vinput)vinput.value=sel.getAttribute('data-variant');
+    }
+    cards.forEach(function(c){
+      c.addEventListener('click',function(e){
+        e.preventDefault();
+        cards.forEach(function(x){x.classList.remove('is-active');});
+        c.classList.add('is-active');
+        var r=c.querySelector('.lpo-radio'); if(r)r.checked=true;
+        render();
+      });
+    });
+    var atc=block.querySelector('[data-lp-atc]');
+    if(atc)atc.addEventListener('click',function(){
+      var sel=block.querySelector('.lpo-card.is-active'); if(!sel)return;
+      var vid=sel.getAttribute('data-variant');
+      if(!vid||vid.indexOf('REPLACE')!==-1){alert('Set your Shopify variant IDs in the section settings before going live.');return;}
+      addToCart(parseInt(vid,10),1,atc,'');
+    });
+    render();
+  });
+
+  /* testimonial slider + tag chips */
+  var qs=[].slice.call(document.querySelectorAll('#lpxQuotes .lpx-q'));
+  var tagBox=document.getElementById('lpxQtags');
+  var qi=0;
+  function renderTags(){
+    if(!tagBox||!qs.length)return;
+    tagBox.innerHTML='';
+    (qs[qi].getAttribute('data-tags')||'').split('|').forEach(function(t){
+      if(!t)return; var s=document.createElement('span'); s.textContent=t; tagBox.appendChild(s);
+    });
+  }
+  window.lpxQuote=function(d){
+    if(!qs.length)return;
+    qs[qi].classList.remove('active');
+    qi=((qi+d)%qs.length+qs.length)%qs.length;
+    qs[qi].classList.add('active');
+    renderTags();
+  };
+  renderTags();
+  }
+  /* later sections (final CTA) also carry [data-lp-offers] — wait for full DOM */
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',lpInit);}else{lpInit();}
+})();
+</script>
+
+{% schema %}
+{
+  "name": "LP Product Hero",
+  "settings": [
+    {"type":"product","id":"product","label":"Product (gallery images + checkout)"},
+    {"type":"text","id":"variant_id_1","label":"Variant ID — Buy One","default":"52810262577333"},
+    {"type":"text","id":"variant_id_2","label":"Variant ID — Buy 2 Get 1 Free","default":"52810262610101"},
+    {"type":"text","id":"variant_id_3","label":"Variant ID — Buy 3 Get 3 Free","default":"52810262642869"}
+  ]
+}
+{% endschema %}

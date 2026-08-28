@@ -1,0 +1,13 @@
+<div class="wrap" style="padding:60px 18px;text-align:center;min-height:40vh;">
+  <h1 class="sec-h" style="margin-bottom:18px;">Your Cart</h1>
+  {% if cart.item_count > 0 %}
+    {% for item in cart.items %}
+      <p style="margin:8px 0;">{{ item.quantity }} &times; {{ item.product.title }} — {{ item.final_line_price | money }}</p>
+    {% endfor %}
+    <p style="margin:18px 0;font-weight:700;">Total: {{ cart.total_price | money }}</p>
+    <a href="/checkout" class="btn-primary" style="max-width:320px;margin:0 auto;">Checkout</a>
+  {% else %}
+    <p style="color:var(--muted);margin-bottom:18px;">Your cart is empty.</p>
+    <a href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2" class="btn-primary" style="max-width:320px;margin:0 auto;">Continue Shopping</a>
+  {% endif %}
+</div>

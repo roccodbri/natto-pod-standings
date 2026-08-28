@@ -1,0 +1,112 @@
+<section class="cp" id="pm-compounds">
+  <div class="cp-wrap">
+    <h2 class="cp-h">6 Clinically-Studied Compounds <span class="accent">Doing Different Jobs</span></h2>
+
+    <div class="cp-rail" id="cpRail">
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-oregano-oil-88832.webp' | asset_url }}" alt="Oregano Extract" loading="lazy" decoding="async" width="316" height="276"></div>
+        <h3 class="cp-name">Oregano Extract</h3>
+        <p class="cp-text">Rich in carvacrol and thymol &mdash; the two compounds that shift the natural scent coming off your dog&rsquo;s skin and coat, so a questing tick reads &ldquo;wrong host&rdquo; and never latches on.</p>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-black-seed-oil-b9896783-2083-43f5--2659c.webp' | asset_url }}" alt="Carvacrol" loading="lazy" decoding="async" width="560" height="488"></div>
+        <h3 class="cp-name">Carvacrol</h3>
+        <p class="cp-text">A concentrated botanical packed with tick-deterrent power. It layers onto oregano&rsquo;s effect, masking the body cues a tick uses to lock onto your dog.</p>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-thymoquinone-a99c1.webp' | asset_url }}" alt="Cedarwood Extract" loading="lazy" decoding="async" width="560" height="488"></div>
+        <h3 class="cp-name">Cedarwood Extract</h3>
+        <p class="cp-text">A botanical long prized as a natural flea and tick repellent &mdash; it reinforces the protective barrier from the inside out, helping each daily dose keep pests off your dog for longer.</p>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-carvacrol-13b1803e-15a6-4a5b-8d6d--8d7d4.webp' | asset_url }}" alt="Thyme" loading="lazy" decoding="async" width="478" height="418"></div>
+        <h3 class="cp-name">Thyme</h3>
+        <p class="cp-text">Concentrated in thymol, which lingers in your dog&rsquo;s natural skin oils &mdash; extending the protective window through long days in the yard, woods, and tall grass.</p>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-gettyimages-1064978608-bf1aca84a8e-f2b91.webp' | asset_url }}" alt="Soursop Root" loading="lazy" decoding="async" width="560" height="373"></div>
+        <h3 class="cp-name">Soursop Root</h3>
+        <p class="cp-text">Adds a second deterrent layer that ticks and fleas avoid &mdash; supporting all-day staying power so your dog stays covered from the morning walk to evening play.</p>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-img"><img src="{{ 'pm-tbk4mufjgzz4jsbw4k6raj-54c29.webp' | asset_url }}" alt="Pau D'Arco" loading="lazy" decoding="async" width="560" height="420"></div>
+        <h3 class="cp-name">Pau D'Arco</h3>
+        <p class="cp-text">A time-honored botanical that rounds out the blend&rsquo;s repellent action &mdash; helping turn your dog into a host that ticks simply pass over.</p>
+      </article>
+
+    </div>
+
+    <div class="cp-nav">
+      <button class="cp-arrow" id="cpPrev" aria-label="Previous">&#8249;</button>
+      <div class="cp-dots" id="cpDots"></div>
+      <button class="cp-arrow" id="cpNext" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 760px;}
+
+  .cp{background:var(--bg);padding:34px 0 36px;}
+  .cp-wrap{max-width:1180px;margin:0 auto;}
+  .cp-h{font-family:var(--font-head);font-weight:500;font-size:clamp(28px,6.6vw,40px);line-height:1.14;text-align:center;color:#000;
+    padding:0 18px;margin-bottom:22px;letter-spacing:normal}
+  .cp-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;padding:0 16px 4px;}
+  .cp-rail::-webkit-scrollbar{display:none;}
+  .cp-card{flex:0 0 78%;max-width:300px;scroll-snap-align:center;background:#fff;border:1px solid var(--line);
+    border-radius:10px;overflow:hidden;padding:0 0 18px;}
+  .cp-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--tint);}
+  .cp-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cp-name{font-family:var(--font-head);font-weight:500;letter-spacing:normal;font-size:19px;text-align:center;color:#000;margin:16px 16px 8px;}
+  .cp-text{font-family:var(--font-body);font-size:14px;line-height:1.55;color:var(--muted);text-align:center;padding:0 18px;}
+  .cp-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;}
+  .cp-arrow{width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--green-deep);
+    font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .cp-dots{display:flex;gap:7px;}
+  .cp-dots button{width:8px;height:8px;border-radius:50%;background:#E4EDE6;transition:.2s;}
+  .cp-dots button.active{background:var(--green-bright);transform:scale(1.3);}
+
+  @media (min-width:760px){
+    .cp-h{font-size:clamp(28px,6.6vw,40px);margin-bottom:30px;}
+    .cp-card{flex:0 0 270px;}
+  }
+</style>
+
+<script>
+(function(){
+  var rail=document.getElementById('cpRail'); if(!rail)return;
+  var cards=[].slice.call(rail.querySelectorAll('.cp-card'));
+  var dotsWrap=document.getElementById('cpDots');
+  var cur=0;
+  cards.forEach(function(_,i){
+    var b=document.createElement('button');b.setAttribute('aria-label','Card '+(i+1));
+    if(i===0)b.classList.add('active');
+    b.addEventListener('click',function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function go(i){cur=Math.max(0,Math.min(cards.length-1,i));cards[cur].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});}
+  document.getElementById('cpPrev').addEventListener('click',function(){go(cur-1);});
+  document.getElementById('cpNext').addEventListener('click',function(){go(cur+1);});
+  var raf;
+  rail.addEventListener('scroll',function(){
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){
+      var i=Math.round(rail.scrollLeft/(rail.scrollWidth/cards.length));
+      cur=Math.max(0,Math.min(cards.length-1,i));
+      dots.forEach(function(d,idx){d.classList.toggle('active',idx===cur);});
+    });
+  },{passive:true});
+})();
+</script>
+
+{% schema %}{"name":"Compounds (Dog)","settings":[]}{% endschema %}

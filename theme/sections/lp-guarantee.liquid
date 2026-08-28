@@ -1,0 +1,37 @@
+{%- comment -%}
+  Guarantee banner: dark rounded card, bottle image left, circular handshake
+  badge floating on top, headline + sub right.
+{%- endcomment -%}
+<section class="lpgu">
+  <div class="lp-wrap">
+    <div class="lpgu-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--lpg-deep)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4-3 5 2 5-2 4 3-3 3 .5 6-4 2.5L12 17l-2.5 2.5L5 17l.5-6z"/><path d="M12 7l-3.5 3.5 2 2L12 11l1.5 1.5 2-2z"/></svg>
+    </div>
+    <div class="lpgu-card">
+      <div class="lpgu-img">
+        <img src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260713_233510_2fd30a75-bcc7-4fe8-a2b9-d92c9085bdba.png?v=1783998610&width=600" alt="Pinemoor Tick Protection Drops bottle" loading="lazy" decoding="async" width="300" height="300">
+      </div>
+      <div class="lpgu-txt">
+        <h2>Lifetime Money Back Guarantee</h2>
+        <p>Feel the difference this season or we&rsquo;ll make it right &mdash; return your order at any time for a full refund.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 620px;}
+.lpgu{background:var(--lpg-dark);padding:70px 0 52px;}
+.lpgu .lp-wrap{position:relative;}
+.lpgu-badge{position:absolute;top:-56px;left:50%;transform:translateX(-50%);width:112px;height:112px;border-radius:50%;
+  background:var(--lp-mint);display:flex;align-items:center;justify-content:center;z-index:2;
+  box-shadow:0 0 0 6px var(--lpg-dark);}
+.lpgu-badge svg{width:52px;height:52px;}
+.lpgu-card{background:#2E6B4D;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-top:44px;}
+.lpgu-img img{width:100%;max-width:230px;margin:0 auto;display:block;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));}
+.lpgu-txt{padding:10px 20px 30px 4px;}
+.lpgu-txt h2{font-family:var(--lp-head);font-weight:500;font-size:clamp(26px,7vw,34px);line-height:1.1;color:#fff;letter-spacing:-.01em;}
+.lpgu-txt p{font-family:var(--lp-body);font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.85);margin-top:12px;}
+</style>
+
+{% schema %}{"name":"LP Guarantee Banner","settings":[]}{% endschema %}

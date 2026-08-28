@@ -1,0 +1,40 @@
+<section class="hc" id="pm-hunterschoice">
+  <div class="hc-wrap">
+    <div class="hc-badge">
+      <svg class="hc-laurel hc-laurel--l" viewBox="0 0 20 44" fill="currentColor" aria-hidden="true"><path d="M15 2c-4 2-6 5-6 8 3-1 5-4 6-8zM11 9c-4 1-7 4-7 8 3-.5 6-3.5 7-8zM8 17c-4 1-6 4-6 8 3-.5 5-4 6-8zM7 25c-3 1.5-4.5 5-3.5 9 2.5-1.5 4-5 3.5-9zM8 33c-2 2.5-2 6 0 9 2-2.5 2-6.5 0-9z"/></svg>
+      <span class="hc-title">Hunters&rsquo;<br>Choice</span>
+      <svg class="hc-laurel hc-laurel--r" viewBox="0 0 20 44" fill="currentColor" aria-hidden="true"><path d="M15 2c-4 2-6 5-6 8 3-1 5-4 6-8zM11 9c-4 1-7 4-7 8 3-.5 6-3.5 7-8zM8 17c-4 1-6 4-6 8 3-.5 5-4 6-8zM7 25c-3 1.5-4.5 5-3.5 9 2.5-1.5 4-5 3.5-9zM8 33c-2 2.5-2 6 0 9 2-2.5 2-6.5 0-9z"/></svg>
+    </div>
+    <div class="hc-txt">
+      <p><strong>187 outdoorsmen</strong>, including <em>Field &amp; Stream</em> contributors, recommend Pinemoor.</p>
+      <div class="hc-row">
+        <span class="hc-avatars">
+          <img src="{{ 'pm-women-deer-hunter-lead-8838d.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="44" height="44">
+          <img src="{{ 'pm-images-37cea.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="743" height="413">
+          <img src="{{ 'pm-image-9e508.webp' | asset_url }}" alt="" loading="lazy" decoding="async" width="720" height="360">
+        </span>
+        <a href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2" class="hc-link" onclick="event.preventDefault();var t=document.getElementById('pm-hunters');if(t)t.scrollIntoView({behavior:'smooth'});">Read their reviews</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hc{background:var(--bg);padding:2px 16px 20px;}
+  .hc-wrap{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:11px;}
+  .hc-badge{flex:none;display:flex;align-items:center;gap:1px;color:var(--green-deep);}
+  .hc-laurel{width:11px;height:26px;color:var(--green-deep);}
+  .hc-laurel--r{transform:scaleX(-1);}
+  .hc-title{font-family:var(--font-body);font-weight:700;font-size:11px;line-height:1.12;text-align:center;color:var(--green-deep);}
+  .hc-txt p{font-family:var(--font-body);font-size:11.5px;line-height:1.4;color:var(--ink);margin:0 0 3px;}
+  .hc-txt p strong{font-weight:700;}
+  .hc-row{display:flex;align-items:center;gap:7px;}
+  .hc-avatars{display:inline-flex;}
+  .hc-avatars img{width:17px;height:17px;border-radius:50%;object-fit:cover;border:1.5px solid #fff;margin-left:-5px;}
+  .hc-avatars img:first-child{margin-left:0;}
+  .hc-link{font-family:var(--font-body);font-size:11px;font-weight:500;color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+
+  @media (min-width:760px){ .hc-wrap{max-width:640px;justify-content:center;} }
+</style>
+
+{% schema %}{"name":"Hunters Choice","settings":[]}{% endschema %}

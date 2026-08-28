@@ -1,0 +1,102 @@
+{%- comment -%}
+  V2 PDP flag. The pinemoor-v2 product template renders the zip-2 ("theme final")
+  design system: its own critical CSS, header, footer, ticker and deferred
+  stylesheet. Every other template is untouched and keeps the current look.
+{%- endcomment -%}
+{%- assign pm_v2 = false -%}
+{%- if template.suffix == 'pinemoor-v2' or template == 'product.pinemoor-v2' -%}{%- assign pm_v2 = true -%}{%- endif -%}
+{%- comment -%}Mobile-LP PDP: the default product template renders its own
+  announcement/header/footer chrome (lp-*), everything else is untouched.{%- endcomment -%}
+{%- assign pm_lp = false -%}
+{%- if template.name == 'product' and template.suffix == blank -%}{%- assign pm_lp = true -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="{% if pm_v2 %}#085946{% else %}#10281C{% endif %}">
+  <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% endif %}</title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% render 'pm-fonts' %}
+  {{ content_for_header }}
+  {% if pm_v2 %}{% render 'pm-critical-css-v2' %}{% else %}{% render 'pm-critical-css' %}{% endif %}
+  {% if pm_lp %}{% render 'lp-critical' %}{% endif %}
+  {%- assign pm_deferred = 'pm-deferred.css' -%}{%- if pm_v2 -%}{%- assign pm_deferred = 'pm-deferred-v2.css' -%}{%- endif -%}
+  <link rel="preload" as="style" href="{{ pm_deferred | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ pm_deferred | asset_url }}"></noscript>
+</head>
+<body class="page-{{ template | handle }}">
+
+  <!-- Cart Drawer (Rosabella-style layout · Pinemoor typography) -->
+  <div id="cart-drawer-overlay" class="cart-overlay" onclick="cartOverlayClick()"></div>
+  <div id="cart-drawer" class="cart-drawer" role="dialog" aria-label="Cart" aria-modal="true">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">Your Cart</h3>
+      <button class="cart-drawer__close" onclick="closeCartDrawer()" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__scroll">
+      <div id="cart-drawer-items" class="cart-drawer__items">
+        <div class="cart-drawer__empty">Your cart is empty</div>
+      </div>
+      <div class="cart-upsell" id="cart-upsell" style="display:none;">
+        <div class="cart-upsell__banner">74% of customers also bought &#128071;</div>
+        <div class="cart-item cart-item--upsell">
+          <img class="cart-item__img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/Pinemoor_For_Dogs_-_Dog_Variation_4.png?v=1783450399&width=200" alt="Vet-Approved Tick Protection Drops for Dogs" loading="lazy" decoding="async" width="200" height="200">
+          <div class="cart-item__info">
+            <div class="cart-item__head">
+              <div class="cart-item__main">
+                <p class="cart-item__title cart-item__title--wrap">Vet-Approved Tick Protection Drops <span class="cart-item__title-nowrap">(For&nbsp;Dogs)</span></p>
+                <div class="cart-item__left">
+                  <div class="cart-item__variant">3 Bottles</div>
+                  <span class="cart-item__freeship"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Free Shipping</span>
+                </div>
+              </div>
+              <div class="cart-item__right">
+                <div class="cart-item__pricewrap">
+                  <div class="cart-item__pricerow"><span class="cart-item__compare">$59.99</span><span class="cart-item__price">$29.99</span></div>
+                  <span class="cart-item__save">Save $30</span>
+                </div>
+                <button type="button" class="cart-upsell__btn" id="cart-upsell-btn" onclick="pmAddUpsell(this)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-drawer__footer" id="cart-drawer-footer">
+        <div class="cart-drawer__totalrow">
+          <span class="cart-drawer__total-label">Total: <span id="cart-drawer-count">0</span> <span id="cart-drawer-itemword">Items</span></span>
+          <span class="cart-drawer__total-right">
+            <span id="cart-drawer-total" class="cart-drawer__total-amount">$0.00</span>
+          </span>
+        </div>
+        <a href="/checkout" class="btn-cart-checkout" id="cart-checkout-btn"><svg class="btn-cart-lock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="11" width="15" height="9.5" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg> Secure Checkout</a>
+        <button type="button" class="cart-drawer__continue" onclick="closeCartDrawer()">Continue Shopping</button>
+        <div class="cart-drawer__pay">
+          {%- assign pay_icons = "master,american_express,apple_pay,visa,paypal,google_pay,shopify_pay" | split: "," -%}
+          {%- for type in pay_icons -%}{{ type | payment_type_svg_tag: class: 'cart-pay-icon' }}{%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-wrap">
+    {% if pm_lp %}
+      {% section 'lp-announcement' %}
+      {% section 'lp-header' %}
+    {% else %}
+      {% section 'announcement-bar' %}
+      {% if pm_v2 %}{% section 'header-v2' %}{% section 'benefit-ticker-v2' %}{% else %}{% section 'header' %}{% endif %}
+    {% endif %}
+    <main>
+      {{ content_for_layout }}
+    </main>
+    {% if pm_lp %}{% section 'lp-footer' %}{% elsif pm_v2 %}{% section 'footer-v2' %}{% else %}{% section 'footer' %}{% endif %}
+  </div>
+
+  <script src="{{ 'pm-cart-theme.js' | asset_url }}" defer></script>
+</body>
+</html>

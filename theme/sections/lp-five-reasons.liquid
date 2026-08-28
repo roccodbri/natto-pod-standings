@@ -1,0 +1,58 @@
+{%- comment -%}
+  Mint section: centered 3-line headline + one-line sub, then a carousel of
+  tall white cards (photo top, big title, long copy), outline arrows below.
+{%- endcomment -%}
+<section class="lpf">
+  <div class="lp-wrap">
+    <h2 class="lp-h2 lp-h2--c">5 Reasons Why Thousands Choose Pinemoor</h2>
+    <p class="lp-sub lp-sub--c">Real protection. Clean ingredients. One simple daily ritual.</p>
+  </div>
+
+  <div class="lpf-rail lp-rail" id="lpfRail">
+    <article class="lpf-card">
+      <div class="lpf-img"><img src="{{ 'pm-shot-dropper.webp' | asset_url }}" alt="Daily herbal dropper" loading="lazy" decoding="async" width="600" height="600"></div>
+      <h3>Whole-Body Coverage</h3>
+      <p>Unlike sprays that only cover the skin they touch, Pinemoor works from the inside &mdash; scalp, waistband, behind the knee &mdash; so a tick never finds an unguarded inch.</p>
+    </article>
+    <article class="lpf-card">
+      <div class="lpf-img"><img src="{{ 'pm-oregeno-oil-19258.webp' | asset_url }}" alt="Oregano botanical extract" loading="lazy" decoding="async" width="560" height="340"></div>
+      <h3>Six Botanicals in Balance</h3>
+      <p>Herbal actives like oregano, thyme, and garlic extract work together, each quieting a different scent signal your skin gives off &mdash; so a tick never gets a clear read on you.</p>
+    </article>
+    <article class="lpf-card">
+      <div class="lpf-img"><img src="{{ 'pm-goldenpuppy185743593-56a9c1f23df78-602c5.webp' | asset_url }}" alt="Gentle enough for the whole household" loading="lazy" decoding="async" width="600" height="400"></div>
+      <h3>Gentle, Every Day</h3>
+      <p>Unlike harsh chemical repellents, this formula supports daily protection without DEET, grease, or fumes &mdash; just a light maple taste with your morning coffee.</p>
+    </article>
+    <article class="lpf-card">
+      <div class="lpf-img"><img src="{{ 'pm-camping2-1-62a88.webp' | asset_url }}" alt="Family camping trip" loading="lazy" decoding="async" width="1000" height="562"></div>
+      <h3>One Bottle, Whole Family</h3>
+      <p>Kid-approved flavor means everyone actually takes it. One bottle beside the coffee pot covers the whole household before they head out the door.</p>
+    </article>
+    <article class="lpf-card">
+      <div class="lpf-img"><img src="{{ 'pm-hnd24-hunt-1-40128.webp' | asset_url }}" alt="Hunter protected all day" loading="lazy" decoding="async" width="800" height="600"></div>
+      <h3>Backed for Life</h3>
+      <p>Every order carries a Lifetime Money-Back Guarantee. If it doesn&rsquo;t change your season, return it at any time for a full refund.</p>
+    </article>
+  </div>
+
+  <div class="lp-arrows">
+    <button class="lp-arrow" id="lpfPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="lp-arrow" id="lpfNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<style>
+#shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 1000px;}
+.lpf{background:var(--lp-mint);padding:46px 0 50px;}
+.lpf-rail{margin-top:26px;padding:0 18px 4px;}
+.lpf-card{width:82%;max-width:340px;background:#fff;border:1.6px solid var(--lpg);border-radius:16px;overflow:hidden;padding-bottom:24px;}
+.lpf-img{width:100%;aspect-ratio:4/3;overflow:hidden;}
+.lpf-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.lpf-card h3{font-family:var(--lp-head);font-weight:500;font-size:26px;line-height:1.12;color:var(--lp-ink);margin:20px 20px 0;}
+.lpf-card p{font-family:var(--lp-body);font-size:16.5px;line-height:1.55;color:var(--lp-muted);margin:14px 20px 0;}
+</style>
+
+<script>lpRail('lpfRail','lpfPrev','lpfNext');</script>
+
+{% schema %}{"name":"LP Five Reasons","settings":[]}{% endschema %}

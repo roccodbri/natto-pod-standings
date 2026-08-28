@@ -1,0 +1,219 @@
+{%- comment -%}
+  Critical CSS, inlined to remove the render-blocking base.css request.
+  Covers: tokens, reset, buttons, announcement bar, header, benefit ticker,
+  cart-drawer positioning (so the drawer can never flash on screen) and the
+  shared section-heading helper. Everything else lives in pm-deferred.css,
+  which loads without blocking paint.
+{%- endcomment -%}
+<style>/* ============================================================
+   PINEMOOR — Resilia-style theme  (mobile-first)
+   Fonts: Clash Grotesk (headings) · Satoshi (body)
+   ============================================================ */
+:root{
+  /* Forest-green palette on pure white. Token names are unchanged so every
+     var() reference across the theme picks the new colours up untouched. */
+  --green:#1B5E3A;          /* forest green — primary CTA / ATC */
+  --green-deep:#123F27;     /* deep forest — CTA hover + 3D button edge */
+  --green-bright:#3F7A4F;   /* sage green — accents, subtitles, stars */
+  --green-bright-soft:rgba(63,122,79,0.13);
+  --green-bar:#CFE6D6;      /* pale green chip */
+  --bar-ink:#15251C;        /* text on pale-green chips */
+  --cream:#FFFFFF;          /* button text on dark/green fills */
+  --tint:#F1F7F3;           /* faint green wash for alternating sections */
+  --bg:#FFFFFF;             /* page background — pure white */
+  --ink:#15251C;            /* body text — green-black */
+  --dark:#10281C;           /* footer + dark sections */
+  --bar:#164A2F;            /* announcement bar — lighter forest */
+  --gold:#CFE6D6;           /* pale green highlight (was gold) */
+  --muted:#56695E;
+  --muted-2:#839489;
+  --line:#DAE5DD;
+  --white:#ffffff;
+  --pos:#3F7A4F;            /* ticks / pros */
+  --neg:#9E3B1F;            /* crosses / cons */
+  --font-head:'Clash Grotesk','Satoshi',sans-serif;
+  --font-body:'Satoshi',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-logo:'Tenor Sans','Times New Roman',serif;
+  --wrap:1290px;
+  --radius:12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+/* the overscroll canvas — rubber-banding at the top of the page shows the
+   announcement bar's brown instead of a white strip (footer is the same colour,
+   so the bottom bounce matches too) */
+html{-webkit-text-size-adjust:100%;background:var(--bar);}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--bg);
+  min-height:100vh;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+h1,h2{font-family:var(--font-head);font-weight:500;
+  line-height:1.14;letter-spacing:normal;color:var(--ink);overflow-wrap:break-word;}
+h1{font-size:clamp(27px,6.6vw,38px);}
+h2{font-size:clamp(28px,6.6vw,40px);}
+h3,h4,h5{font-family:var(--font-head);font-weight:500;line-height:1.14;color:var(--ink);
+  letter-spacing:normal;}
+h3{font-size:23px;} h4{font-size:20px;} h5{font-size:18px;}
+em{font-style:italic;}
+.accent{color:var(--green-bright);}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px;}
+.stars{display:inline-flex;gap:3px;}
+.stars svg{width:17px;height:17px;fill:var(--green-bright);}
+.subhead{font-family:var(--font-body);font-weight:700;font-size:26px;line-height:1.2;color:var(--green-bright);}
+.sec-eyebrow{display:block;font-family:var(--font-body);font-weight:700;font-size:13px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--green-bright);margin-bottom:14px;}
+
+/* ---------- Shared buttons ---------- */
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;
+  background:var(--green);color:var(--cream);
+  font-family:var(--font-body);font-weight:800;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;
+  padding:20px 40px;border-radius:8px;
+  box-shadow:0 5px 0 var(--green-deep), 0 8px 14px rgba(16,40,28,.30);
+  transition:transform .12s ease, background .2s ease, box-shadow .12s ease;
+  text-align:center;line-height:1.15;
+}
+.btn-primary:hover{background:var(--green-deep);}
+.btn-primary:active{transform:translateY(4px);box-shadow:0 1px 0 var(--green-deep), 0 2px 6px rgba(16,40,28,.28);}
+.btn-cream{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--font-body);font-weight:700;font-size:16px;letter-spacing:1.4px;text-transform:uppercase;
+  padding:17px 26px;border-radius:8px;
+  transition:transform .15s ease, filter .2s ease;
+  line-height:1.15;
+}
+.btn-cream:hover{filter:brightness(.97);}
+.btn-cream:active{transform:scale(.99);}
+.guarantee-line{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  font-size:13.5px;color:var(--muted);margin-top:12px;
+}
+.guarantee-line svg{flex:none;color:var(--green-bright);}
+
+/* ============================================================
+   ANNOUNCEMENT BAR  (kept identical to reference)
+   ============================================================ */
+.announcement-bar{background:var(--bar);color:var(--cream);text-align:center;padding-top:env(safe-area-inset-top,0px);}
+.announcement-bar__inner{
+  max-width:760px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  padding:3.5px 18px;
+}
+.announcement-bar__text{display:flex;flex-direction:column;align-items:center;line-height:1.1;}
+.announcement-bar__title{font-family:var(--font-body);font-weight:800;font-size:13px;letter-spacing:.02em;
+  line-height:1.15;text-transform:uppercase;}
+.announcement-bar__sub{font-family:var(--font-body);font-size:8.5px;font-weight:600;opacity:.85;margin-top:0;}
+.countdown-timer{display:flex;align-items:center;gap:5px;}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;min-width:20px;}
+.countdown-num{font-family:var(--font-body);font-weight:500;font-size:14px;line-height:1;}
+.countdown-label{font-family:var(--font-body);font-size:8.5px;font-weight:400;letter-spacing:normal;opacity:.75;margin-top:1px;text-transform:none;}
+.countdown-sep{opacity:.45;font-size:13px;margin-top:-2px;}
+
+/* ============================================================
+   HEADER  (hamburger · logo · cart   — search removed)
+   ============================================================ */
+.site-header{background:var(--bg);color:var(--ink);position:sticky;top:0;z-index:40;}
+.site-header__inner{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  max-width:var(--wrap);margin:0 auto;padding:3px 18px;min-height:48px;
+}
+.site-header__hamburger{display:flex;flex-direction:column;gap:4px;width:24px;justify-self:start;padding:4px 0;}
+.site-header__hamburger span{display:block;height:1.8px;width:21px;background:var(--ink);border-radius:2px;}
+.site-header__logo{justify-self:center;}
+.site-header__logo-text{
+  font-family:var(--font-logo);font-weight:400;font-size:19px;letter-spacing:.14em;
+  color:var(--ink);text-transform:uppercase;line-height:1;
+}
+.site-header__icons{justify-self:end;display:flex;align-items:center;gap:14px;}
+.site-header__cart-btn{position:relative;color:var(--ink);display:flex;}
+.cart-count{
+  position:absolute;top:-8px;right:-10px;min-width:19px;height:19px;padding:0 5px;
+  background:var(--green);color:#fff;border-radius:50px;
+  font-size:11.5px;font-weight:700;align-items:center;justify-content:center;
+}
+
+/* mobile slide-in nav */
+.mobile-nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:.25s;z-index:60;}
+.mobile-nav-overlay.open{opacity:1;visibility:visible;}
+.mobile-nav{
+  position:fixed;top:0;left:0;height:100%;width:300px;max-width:84vw;background:#fff;z-index:70;
+  transform:translateX(-100%);transition:transform .28s ease;padding:64px 26px 26px;
+}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav__close{position:absolute;top:18px;right:18px;color:var(--green-deep);}
+.mobile-nav__links{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.mobile-nav__links a{
+  display:block;font-family:var(--font-body);font-size:18px;font-weight:700;color:var(--green-deep);
+  padding:11px 0;border-bottom:1px solid var(--line);
+}
+
+/* ============================================================
+   BENEFIT TICKER (auto-scroller)
+   ============================================================ */
+.benefit-ticker{background:var(--cream);color:var(--ink);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;}
+.benefit-ticker__track{display:inline-flex;width:max-content;animation:tickerScroll 20s linear infinite;}
+.benefit-ticker:hover .benefit-ticker__track{animation-play-state:paused;}
+.benefit-ticker__group{display:inline-flex;align-items:center;padding:5px 0;}
+.benefit-ticker__item{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-body);font-weight:600;font-size:13.5px;color:var(--ink);letter-spacing:.02em;
+  padding:0 11px;
+}
+.benefit-ticker__item svg{flex:none;width:13px;height:13px;color:var(--green);}
+@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.benefit-ticker__track{animation-duration:90s;}}
+
+/* ============================================================
+   CART DRAWER — Rosabella-style layout · Pinemoor typography
+   ============================================================ */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:.25s;z-index:80;}
+.cart-overlay.open{opacity:1;visibility:visible;}
+.cart-drawer{
+  position:fixed;top:0;right:0;height:100%;width:430px;max-width:100vw;background:#fff;z-index:90;overflow-x:hidden;
+  transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;
+  font-family:var(--font-body);color:var(--green-deep);
+}
+.cart-drawer.open{transform:translateX(0);}
+@media (max-width:480px){
+  /* inset drawer — floats off the screen edges with rounded corners (Rosabella-style) */
+  .cart-drawer{
+    width:calc(100vw - 20px);
+    height:calc(100% - 20px);
+    top:10px;right:10px;
+    border-radius:16px;
+    overflow:hidden;
+    transform:translateX(calc(100% + 12px));
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+  }
+  .cart-drawer.open{transform:translateX(0);}
+}
+/* ============================================================
+   GLOBAL section-heading helper (Resilia-style)
+   ============================================================ */
+.sec-stars{color:var(--green-bright);font-size:18px;letter-spacing:3px;text-align:center;}
+.sec-h{
+  font-family:var(--font-head);font-weight:500;font-size:clamp(28px,6.6vw,40px);line-height:1.14;
+  text-align:center;color:var(--ink);letter-spacing:normal;margin-bottom:16px;
+}
+.sec-sub{text-align:center;color:var(--muted);font-size:19px;line-height:1.45;max-width:680px;margin:12px auto 0;}
+
+@media (min-width:760px){
+  .announcement-bar__title{font-size:14px;}
+}
+/* matches the add-to-cart label's desktop step, so every CTA on the page
+   is set at the same size */
+@media (min-width:900px){
+  .btn-primary{font-size:13.5px;}
+}</style>
