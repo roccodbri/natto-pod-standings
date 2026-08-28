@@ -1,0 +1,83 @@
+{%- comment -%}
+  White section: green stars + "Rated 4.8 | Trusted By" line, big heading,
+  then a vertical run of large pale-mint cards — tall customer photo fading
+  into the card, green stars, bold review title, quote, name + VERIFIED
+  CUSTOMER row. Arrows at the bottom rotate the cards.
+{%- endcomment -%}
+
+<section class="lug">
+  <div class="v3-wrap">
+    <div class="lug-trust"><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span> Rated 4.8 / 5 | Trusted By 47K+ Customers</div>
+    <h2 class="v3-h2 lug-h">Real Protection Starts Here</h2>
+
+    <div class="lug-track" id="lugTrack">
+
+      <div class="lug-card">
+        <div class="lug-photo"><img src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Pinemoor customer" loading="lazy" decoding="async"></div>
+        <div class="lug-body">
+          <span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span>
+          <h3>Not One Bite All Season</h3>
+          <p>&ldquo;Two guys in my hunting club got Lyme last season. I was done with sprays that wash off by noon. Started Pinemoor before the opener and the whole family&rsquo;s been on it since &mdash; not one bite.&rdquo;</p>
+          <div class="lug-who"><span>Wade K., 46 years</span><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg> VERIFIED CUSTOMER</b></div>
+        </div>
+      </div>
+
+      <div class="lug-card">
+        <div class="lug-photo"><img src="{{ 'lp-ugc-3.webp' | asset_url }}" alt="Pinemoor customer at home" loading="lazy" decoding="async"></div>
+        <div class="lug-body">
+          <span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span>
+          <h3>Clean Checks, No Chemicals</h3>
+          <p>&ldquo;We hike with the dogs every weekend, and I never wanted to coat my kids in synthetic chemicals that half the time do nothing. This actually works &mdash; clean checks all season, and I stopped worrying.&rdquo;</p>
+          <div class="lug-who"><span>Rachel M., 36 years</span><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg> VERIFIED CUSTOMER</b></div>
+        </div>
+      </div>
+
+      <div class="lug-card">
+        <div class="lug-photo"><img src="{{ 'pm-shot-dropper.webp' | asset_url }}" alt="Taking Pinemoor drops" loading="lazy" decoding="async"></div>
+        <div class="lug-body">
+          <span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span>
+          <h3>Easier Than Any Spray</h3>
+          <p>&ldquo;I&rsquo;m in the tall grass on the bank every weekend from April to October. Used to pull a tick off almost every trip. Since I started the drops? Nothing. Made my wife order a bottle too.&rdquo;</p>
+          <div class="lug-who"><span>Greg H., 49 years</span><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 5-5"/></svg> VERIFIED CUSTOMER</b></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="v3-arrows lug-arrows">
+      <button type="button" class="v3-arrow" onclick="lugMove(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="v3-arrow" onclick="lugMove(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lug{background:#fff;padding:26px 0 30px;}
+  .lug-trust{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12.5px;font-weight:700;margin-bottom:9px;}
+  .lug-h{text-align:center;margin-bottom:20px;}
+  .lug-track{display:flex;flex-direction:column;gap:18px;}
+  .lug-card{border:1px solid var(--v3-green);border-radius:16px;overflow:hidden;background:var(--v3-tint);}
+  .lug-photo{position:relative;}
+  .lug-photo img{width:100%;aspect-ratio:1/1.05;object-fit:cover;}
+  .lug-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;
+    background:linear-gradient(180deg,rgba(242,255,250,0),var(--v3-tint));}
+  .lug-body{padding:6px 18px 18px;}
+  .lug-body h3{font-family:var(--v3-head);font-weight:600;font-size:19px;line-height:1.25;margin:10px 0 10px;}
+  .lug-body p{font-size:13.5px;line-height:1.55;color:var(--v3-body);margin-bottom:16px;}
+  .lug-who{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;font-weight:600;}
+  .lug-who b{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--v3-green);}
+  .lug-who b svg{width:14px;height:14px;}
+  .lug-arrows{margin-top:20px;}
+</style>
+
+<script>
+  window.lugMove=function(d){
+    var t=document.getElementById('lugTrack'); if(!t||t.children.length<2)return;
+    if(d>0){t.appendChild(t.firstElementChild);}else{t.insertBefore(t.lastElementChild,t.firstElementChild);}
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+</script>
+
+{% schema %}
+{ "name": "LP UGC Reviews", "settings": [] }
+{% endschema %}

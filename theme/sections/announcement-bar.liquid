@@ -1,0 +1,44 @@
+<div class="announcement-bar">
+  <div class="announcement-bar__inner">
+    <span class="announcement-bar__text">
+      <span class="announcement-bar__title">{{ section.settings.sale_title | default: 'SUMMER SALE' }}</span>
+      <span class="announcement-bar__sub">{{ section.settings.sale_sub | default: 'Shop Now and Get Up To 70% Off' }}</span>
+    </span>
+    <div class="countdown-timer" id="countdown-timer">
+      <div class="countdown-unit"><span class="countdown-num" id="c-hours">01</span><span class="countdown-label">Hrs</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="c-mins">59</span><span class="countdown-label">Mins</span></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-unit"><span class="countdown-num" id="c-secs">00</span><span class="countdown-label">Secs</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var FLOOR_MS=3600000, START_MIN=7200000, START_MAX=9000000;
+  function randomStart(){return START_MIN+Math.floor(Math.random()*(START_MAX-START_MIN));}
+  var stored=localStorage.getItem('pm_timer_end'), endTime;
+  if(stored && parseInt(stored)-Date.now()>FLOOR_MS){endTime=parseInt(stored);}
+  else{endTime=Date.now()+randomStart();localStorage.setItem('pm_timer_end',endTime);}
+  function tick(){
+    var diff=endTime-Date.now();
+    if(diff<FLOOR_MS){endTime=Date.now()+randomStart();localStorage.setItem('pm_timer_end',endTime);diff=endTime-Date.now();}
+    var h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    document.getElementById('c-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('c-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('c-secs').textContent=String(s).padStart(2,'0');
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {"type":"text","id":"sale_title","label":"Sale Title","default":"SUMMER SALE"},
+    {"type":"text","id":"sale_sub","label":"Sale Subtext","default":"Shop Now and Get Up To 70% Off"}
+  ]
+}
+{% endschema %}

@@ -1,0 +1,62 @@
+<style>
+/* ==========================================================================
+   PINEMOOR V3 — clinical-green LP design system (mobile-first).
+   Tokens + shared primitives only; each section carries its own scoped CSS.
+   ========================================================================== */
+:root{
+  --v3-green:#199B62;          /* primary brand green — borders, accents, links */
+  --v3-green-mid:#20A56E;      /* hover / secondary accent */
+  --v3-dark:#124B32;           /* dark panels, ATC button */
+  --v3-darker:#085431;         /* announcement bar, deep panels */
+  --v3-forest:#075230;         /* timeline / ritual panels */
+  --v3-forest-2:#004028;       /* deepest green (footer wash) */
+  --v3-mint:#5FFFB9;           /* bright mint accent on dark */
+  --v3-tint:#F2FFFA;           /* pale mint section + card background */
+  --v3-tint-2:#EAFFF4;         /* slightly deeper tint */
+  --v3-ink:#111111;
+  --v3-body:#333333;
+  --v3-mut:#7B7B7B;
+  --v3-red:#B91414;
+  --v3-star:#FF9000;
+  --v3-line:rgba(25,155,98,.45);
+  --v3-line-soft:rgba(25,155,98,.22);
+  --v3-radius:14px;
+  --v3-radius-sm:10px;
+  --v3-font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --v3-head:'Helvetica Now Display','Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --v3-wrap:560px;
+}
+html{-webkit-text-size-adjust:100%;}
+body.pm-v3{margin:0;font-family:var(--v3-font);color:var(--v3-ink);background:#fff;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+/* zero-specificity resets so section classes always win */
+:where(body.pm-v3) :where(*,*::before,*::after){box-sizing:border-box;}
+:where(body.pm-v3) :where(img){max-width:100%;display:block;}
+:where(body.pm-v3) :where(button){font-family:inherit;cursor:pointer;border:none;background:none;padding:0;color:inherit;}
+:where(body.pm-v3) :where(a){color:inherit;text-decoration:none;}
+:where(body.pm-v3) :where(h1,h2,h3,h4,p,ul){margin:0;}
+:where(body.pm-v3) :where(main){display:block;}
+
+/* shared primitives */
+.v3-wrap{max-width:var(--v3-wrap);margin:0 auto;padding:0 16px;}
+.v3-h2{font-family:var(--v3-head);font-weight:600;font-size:29px;line-height:1.16;letter-spacing:-.02em;color:var(--v3-ink);}
+.v3-h2--light{color:#fff;}
+.v3-stars{display:inline-flex;gap:2px;color:var(--v3-star);}
+.v3-stars--green{color:var(--v3-green);}
+.v3-stars svg{width:15px;height:15px;fill:currentColor;}
+.v3-arrows{display:flex;justify-content:center;gap:26px;}
+.v3-arrow{width:34px;height:34px;border-radius:50%;border:1.4px solid var(--v3-green);color:var(--v3-green);
+  display:flex;align-items:center;justify-content:center;background:transparent;transition:background .15s,color .15s;}
+.v3-arrow:active{background:var(--v3-green);color:#fff;}
+.v3-arrow svg{width:15px;height:15px;}
+.v3-arrow--light{border-color:#fff;color:#fff;}
+.v3-atc{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:100%;
+  background:var(--v3-dark);color:#fff;border-radius:12px;padding:15px 18px;
+  transition:background .15s,transform .1s;}
+.v3-atc:hover{background:var(--v3-darker);}
+.v3-atc:active{transform:scale(.985);}
+.v3-atc-main{font-weight:600;font-size:17px;letter-spacing:-.01em;}
+.v3-atc-main .v3-atc-strike{font-weight:500;font-size:15px;color:rgba(255,255,255,.55);text-decoration:line-through;margin-left:6px;}
+.v3-atc-sub{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.85);}
+.v3-atc-sub svg{width:14px;height:14px;fill:currentColor;}
+</style>

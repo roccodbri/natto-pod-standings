@@ -1,0 +1,594 @@
+{%- comment -%} Pinemoor Anti-Tick MeshProtect Kit — full product page (cloned structure) {%- endcomment -%}
+{%- assign IMG = 'https://cdn.shopify.com/s/files/1/0780/8175/3399/files/?width=1000' -%}
+{%- assign v_s = section.settings.variant_small | default: 'REPLACE_ME_SMALL' -%}
+{%- assign v_m = section.settings.variant_medium | default: 'REPLACE_ME_MEDIUM' -%}
+{%- assign v_l = section.settings.variant_large | default: 'REPLACE_ME_LARGE' -%}
+
+<div class="mp">
+
+  <!-- ============ HERO ============ -->
+  <section class="mp-hero">
+    <div class="mp-hero-grid">
+
+      <!-- Gallery -->
+      {%- assign mp_gallery = 'mp-gallery-5.webp,mp-gallery-4.webp,mp-gallery-3.webp,mp-gallery-2.webp,mp-gallery-1.webp' | split: ',' -%}
+      <div class="mp-gallery">
+        <div class="mp-stage">
+          <img id="mpMainImg" src="{{ mp_gallery[0] | asset_url }}" alt="Pinemoor Anti-Tick MeshProtect Kit" loading="lazy" decoding="async" width="1200" height="1200">
+        </div>
+        <div class="mp-thumbs" id="mpThumbs">
+          {%- for file in mp_gallery -%}
+            <button type="button" class="mp-thumb{% if forloop.first %} active{% endif %}" data-full="{{ file | asset_url }}">
+              <img src="{{ file | asset_url }}" alt="MeshProtect Kit view {{ forloop.index }}" loading="lazy" decoding="async" width="1200" height="1200">
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Buy box -->
+      <div class="mp-buy">
+        <h1 class="mp-title">Pinemoor Anti-Tick MeshProtect&trade; Kit</h1>
+
+        <div class="mp-rating">
+          <span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="mp-rating-txt">4.9 &middot; 1,265+ protected customers &middot; <a href="https://pinemoor.co/products/double-potency-upgrade-ultimate-tick-protection-1-bottle?view=pinemoor-v2">read reviews</a></span>
+        </div>
+
+        <p class="mp-stock"><span class="mp-dot"></span> In stock — ships in 1–3 business days</p>
+        <p class="mp-lowstock">● Low stock in size Large — selling fast this week</p>
+
+        <ul class="mp-bullets">
+          <li><strong>Completely sealed off from ticks</strong> — hood to boot line, one unisex kit</li>
+          <li><strong>Zero chemicals</strong> — nothing on your skin, kids or pets</li>
+          <li><strong>Bite-proof mesh</strong> — holes far smaller than a poppy-seed nymph</li>
+          <li><strong>One purchase</strong> — reusable season after season</li>
+        </ul>
+
+        <div class="mp-freecallout">Buy the Hooded Top + Mitts — your Trousers &amp; Boot Covers come <strong>FREE</strong> (worth $49.98)</div>
+
+        <div class="mp-kitbox">
+          <img class="mp-kitbox-img" src="{{ IMG }}sec-box.jpg" alt="Everything inside the MeshProtect Kit" loading="lazy" decoding="async">
+          <ul class="mp-kitlist">
+            <li><span>Hooded Mesh Top</span><span class="mp-kp">$29.99</span></li>
+            <li><span>Mesh Mitts</span><span class="mp-kp">$19.99</span></li>
+            <li><span>Mesh Trousers</span><span class="mp-kp"><s>$29.99</s> FREE</span></li>
+            <li><span>Boot Covers</span><span class="mp-kp"><s>$19.99</s> FREE</span></li>
+          </ul>
+        </div>
+
+        <!-- Bundle selector -->
+        <div class="mp-bundles" id="mpBundles">
+          <button type="button" class="mp-bundle" data-qty="1" data-perkit="49.99">
+            <span class="mp-bundle-top"><span class="mp-bundle-qty">1 kit</span><span class="mp-bundle-tag">just me</span></span>
+            <span class="mp-bundle-price">$49.99 / kit</span>
+            <span class="mp-bundle-badge">Most popular</span>
+          </button>
+          <button type="button" class="mp-bundle active" data-qty="2" data-perkit="39.99">
+            <span class="mp-bundle-top"><span class="mp-bundle-qty">2 kits</span><span class="mp-bundle-tag">SAVE 20%</span></span>
+            <span class="mp-bundle-price">$39.99 / kit</span>
+            <span class="mp-bundle-badge">Best value</span>
+          </button>
+          <button type="button" class="mp-bundle" data-qty="3" data-perkit="34.99">
+            <span class="mp-bundle-top"><span class="mp-bundle-qty">3 kits</span><span class="mp-bundle-tag">SAVE 30%</span></span>
+            <span class="mp-bundle-price">$34.99 / kit</span>
+            <span class="mp-bundle-badge">Mix &amp; match</span>
+          </button>
+        </div>
+
+        <!-- Size(s) — one per kit -->
+        <div class="mp-opt">
+          <div class="mp-opt-label"><span id="mpSizeHeading">Choose a size for each kit</span> <a href="#mpSizeChart" class="mp-sizeguide" onclick="mpOpenSizeChart(event)">size guide</a></div>
+          <div id="mpKitSizes">
+            {%- for k in (1..3) -%}
+            <div class="mp-kitsize" data-kit="{{ forloop.index0 }}"{% unless forloop.index <= 2 %} hidden{% endunless %}>
+              <span class="mp-kitsize-label">Kit {{ forloop.index }}</span>
+              <div class="mp-sizes">
+                <button type="button" class="mp-size" data-variant="{{ v_s }}" data-fit="Small — fits 5'1&quot;–5'7&quot; · 99–143 lb">S</button>
+                <button type="button" class="mp-size active" data-variant="{{ v_m }}" data-fit="Medium — fits 5'7&quot;–6'1&quot; · 143–198 lb">M</button>
+                <button type="button" class="mp-size" data-variant="{{ v_l }}" data-fit="Large — fits 6'1&quot;–6'7&quot; · 198–254 lb">L</button>
+              </div>
+            </div>
+            {%- endfor -%}
+          </div>
+          <p class="mp-fit" id="mpFit">Medium — fits 5'7"–6'1" · 143–198 lb</p>
+        </div>
+
+        <p class="mp-overclothes">Worn <strong>over your regular clothes</strong>. If height and weight differ, go by weight (size up). Free 90-day size exchanges.</p>
+
+        <div class="mp-pricerow">
+          <s class="mp-compare" id="mpCompare">$199.92</s>
+          <span class="mp-price" id="mpPrice">$79.98</span>
+          <span class="mp-savebadge" id="mpSave">SAVE 60%</span>
+        </div>
+
+        <button type="button" class="mp-atc" id="mpAtc" onclick="mpAddToCart(this)">ADD 2 KITS TO CART — $79.98</button>
+
+        <div class="mp-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Free US shipping</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 90-day money-back</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="11" width="15" height="9.5" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg> Secure checkout</span>
+        </div>
+
+        <p class="mp-delivery"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Order now for delivery by: <strong id="mpDeliveryDate">—</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DESCRIPTION / SPECS ============ -->
+  <section class="mp-wrap mp-desc">
+    <details open><summary>Description</summary>
+      <div class="mp-acc-body">
+        <p>The MeshProtect Kit is the whole Pinemoor barrier system in one box: the Hooded Mesh Top, Mesh Trousers, over-shoe Boot Covers and Mesh Mitts, all in matching fine mesh with elastic seals.</p>
+        <p>Pull it on over your normal clothes in under a minute. Ticks climbing from grass hit the boot covers and find nothing to bite. Nothing at the ankles, wrists or neck. You walk home, brush them off, done.</p>
+        <p>Unisex sizing to wear loose over clothing in S / M / L. Machine washable, packs into a glovebox.</p>
+        <p><em>Honest note: it only works while you're wearing it — keep it by the door. And it protects you, not your dog; keep your vet's tick prevention going.</em></p>
+      </div>
+    </details>
+    <details id="mpSizeChart"><summary>Size chart (unisex, fits over clothing)</summary>
+      <div class="mp-acc-body">
+        <div class="mp-table-scroll">
+          <table class="mp-sizetable">
+            <thead><tr><th>Size (over clothing)</th><th>Small</th><th>Medium</th><th>Large</th></tr></thead>
+            <tbody>
+              <tr><td>Height</td><td>5'1"–5'7"</td><td>5'7"–6'1"</td><td>6'1"–6'7"</td></tr>
+              <tr><td>Weight</td><td>99–143 lb</td><td>143–198 lb</td><td>198–254 lb</td></tr>
+              <tr><td>Chest</td><td>45.7"</td><td>48.0"</td><td>50.4"</td></tr>
+              <tr><td>Jacket length</td><td>24.4"</td><td>25.6"</td><td>26.8"</td></tr>
+              <tr><td>Sleeve</td><td>29.5"</td><td>31.5"</td><td>33.5"</td></tr>
+              <tr><td>Pants length</td><td>42.5"</td><td>44.5"</td><td>46.5"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mp-small">Over 254 lb or 6'7"? Email support@pinemoor.co.</p>
+      </div>
+    </details>
+    <details><summary>Shipping &amp; returns</summary>
+      <div class="mp-acc-body"><p>Free US shipping. Processing 1–3 business days, transit 6–12 days. 90-day money-back guarantee &amp; free size exchanges: email support@pinemoor.co.</p></div>
+    </details>
+    <details><summary>Care</summary>
+      <div class="mp-acc-body"><p>Machine wash cold, hang dry. No re-treating, no sprays — ready again as soon as it's dry. Packs into a glovebox.</p></div>
+    </details>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="mp-wrap mp-hiw">
+    <div class="mp-hiw-grid">
+      <img class="mp-hiw-img" src="{{ IMG }}ed-tick-mesh.jpg" alt="Tick stopped on the mesh" loading="lazy" decoding="async">
+      <div class="mp-hiw-txt">
+        <span class="mp-eyebrow">How it works</span>
+        <h2>Four pieces. Zero gaps.</h2>
+        <p>Ticks don't jump or fall from trees — they climb. They board at your boots, climb your legs, and bite where skin starts. Each kit piece closes a level: boot covers seal the entry point, trousers cover the climb, the hooded top protects torso, neck and head, the mitts finish your hands.</p>
+        <p>The mesh holes are big enough for air and far too small for any tick — including poppy-seed nymphs. No chemicals, nothing to reapply, nothing that wears off.</p>
+        <button type="button" class="mp-textcta" onclick="mpScrollToBuy()">Get protected →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PEST BARRIER ============ -->
+  <section class="mp-wrap mp-pests">
+    <span class="mp-eyebrow center">The full barrier</span>
+    <h2 class="center">Forget about ticks. And everything else that bites.</h2>
+    <div class="mp-pest-grid">
+      <figure><img src="{{ IMG }}pest-tick.jpg" alt="Ticks" loading="lazy" decoding="async"><figcaption>Ticks</figcaption></figure>
+      <figure><img src="{{ IMG }}pest-mosquito.jpg" alt="Mosquitoes" loading="lazy" decoding="async"><figcaption>Mosquitoes</figcaption></figure>
+      <figure><img src="{{ IMG }}pest-noseeum.jpg" alt="No-see-ums" loading="lazy" decoding="async"><figcaption>No-see-ums</figcaption></figure>
+      <figure><img src="{{ IMG }}pest-blackfly.jpg" alt="Black flies" loading="lazy" decoding="async"><figcaption>Black flies</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ WATCH IT HAPPEN ============ -->
+  <section class="mp-wrap mp-strip">
+    <span class="mp-eyebrow center">Watch it happen</span>
+    <h2 class="center">What actually happens out there</h2>
+    <p class="mp-lead center">Most bites don't come from being careless — they happen in the ten seconds between brushing past tall grass and noticing. A nymph the size of a poppy seed climbs aboard, finds bare skin, and you never feel a thing. Here's that same moment, frame by frame, with the mesh on instead: the tick lands, hits a wall of fabric, and never reaches you.</p>
+    <img class="mp-strip-img" src="{{ IMG }}sec-strip.jpg" alt="Exposed skin, then cover up, the tick hits the mesh, blocked" loading="lazy" decoding="async">
+    <p class="mp-small center">The only difference between the first frame and the last is a layer of mesh worn over your clothes. No spray, no timing, no luck.</p>
+  </section>
+
+  <!-- ============ BUILT TO SEAL ============ -->
+  <section class="mp-wrap mp-seams">
+    <div class="mp-seams-grid">
+      <img class="mp-seams-img" src="{{ IMG }}sec-seams.jpg" alt="Fine mesh and sealed seams — fabric and cuff close-ups" loading="lazy" decoding="async">
+      <div class="mp-seams-txt">
+        <span class="mp-eyebrow">Built to seal</span>
+        <h2>Fine mesh. Sealed seams. No way in.</h2>
+        <p>A barrier is only as good as its weakest gap — so every edge is built to close. The fabric is a tight, even weave with openings smaller than a nymph tick; the seams are bonded flat instead of loosely stitched; and every opening you pull through is locked down with elastic.</p>
+        <ul class="mp-checklist">
+          <li><strong>Holes ~0.5mm</strong> — smaller than a poppy-seed nymph, still open enough for airflow</li>
+          <li><strong>Bonded, flat-locked seams</strong> — no loose stitch gaps for anything to crawl through</li>
+          <li><strong>Elastic at hood, cuffs, waist &amp; ankles</strong> — sealed at every wrist, neck and boot line</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ECONOMICS ============ -->
+  <section class="mp-wrap mp-econ">
+    <span class="mp-eyebrow center">Do the math</span>
+    <h2 class="center">Sprays are a subscription. MeshProtect is a one-time buy.</h2>
+    <p class="mp-lead center">Every can of repellent is empty by August. Every bottle of oil lasts about an hour. So you repurchase, reapply, and re-coat your skin all season — then do it again next year. TickProtect-style mesh is a single layer you buy once and pull on for years. Machine-wash it, fold it into its pouch, and it's ready next spring. No refills. No reapplying.</p>
+    <img class="mp-econ-img" src="{{ IMG }}cut-economics.png" alt="Repellent sprays bought every season versus one folded mesh suit bought once" loading="lazy" decoding="async">
+    <div class="mp-econ-labels"><span>$150+ every single year</span><span>One kit, used for years</span></div>
+    <div class="center"><button type="button" class="mp-textcta" onclick="mpScrollToBuy()">Get yours — one-time buy →</button></div>
+  </section>
+
+  <!-- ============ WHY SWITCHING ============ -->
+  <section class="mp-wrap mp-why">
+    <h2 class="center">Why thousands of outdoor families are switching</h2>
+    <div class="mp-why-grid">
+      <div class="mp-why-card"><h3>100% bite-proof</h3><p>A physical barrier — ticks can't reach what they can't touch.</p></div>
+      <div class="mp-why-card"><h3>Zero chemicals</h3><p>Nothing on your skin, nothing to breathe, nothing the dog licks off.</p></div>
+      <div class="mp-why-card"><h3>Buy once, reuse for years</h3><p>Sprays run out every season. Mesh doesn't. Machine-washable, packs tiny.</p></div>
+      <div class="mp-why-card"><h3>Safe around kids &amp; pets</h3><p>It's fabric, not pesticide — nothing on anyone's skin.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON ============ -->
+  <section class="mp-wrap mp-compare">
+    <h2 class="center">The honest comparison</h2>
+    <div class="mp-table-scroll">
+      <table class="mp-comptable">
+        <thead><tr><th></th><th>MeshProtect&trade;</th><th>DEET sprays</th><th>Essential oils</th><th>Treated clothing</th></tr></thead>
+        <tbody>
+          <tr><td>No insecticide on your body</td><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td></tr>
+          <tr><td>Tick never reaches you</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+          <tr><td>Never wears out / no re-treating</td><td class="y">✓</td><td class="n">✗ reapply</td><td class="n">✗ hourly</td><td class="n">✗ fades</td></tr>
+          <tr><td>Safe around cats, kids &amp; pregnancy</td><td class="y">✓</td><td class="n">✗</td><td class="y">~</td><td class="n">✗</td></tr>
+          <tr><td>One-time purchase</td><td class="y">✓</td><td class="n">✗ refills</td><td class="n">✗ refills</td><td class="n">✗ re-treat</td></tr>
+          <tr><td>Cost over 3 seasons</td><td class="y">$49.99 once</td><td class="n">$150+</td><td class="n">$200+</td><td class="n">$250+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ GUARANTEE ============ -->
+  <section class="mp-wrap mp-guar">
+    <div class="mp-guar-badge">Money back<br><strong>90</strong><br>day guarantee</div>
+    <h2 class="center">Wear it all season. Not convinced? Full refund.</h2>
+    <p class="mp-lead center">If a tick gets past the mesh — or you just don't love it — email support@pinemoor.co within 90 days of delivery for your money back.</p>
+    <div class="center"><button type="button" class="mp-textcta solid" onclick="mpScrollToBuy()">Get the kit →</button></div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="mp-wrap mp-faq" id="mpFaq">
+    <h2 class="center">Frequently asked questions</h2>
+    <details><summary>Does one kit fit my whole family?</summary><div class="mp-acc-body"><p>Each kit is one size (chosen at checkout). For different sizes, add multiple kits — the 2-kit and 3-kit bundles take an extra 20–30% off.</p></div></details>
+    <details><summary>Is it hot to wear?</summary><div class="mp-acc-body"><p>No — it's fine open-weave mesh, not fabric. Air passes straight through, so it wears cooler than a long-sleeve shirt while covering more.</p></div></details>
+    <details><summary>What about my dogs?</summary><div class="mp-acc-body"><p>Honest answer: MeshProtect protects <strong>you</strong>. Keep your vet's tick prevention for your dog — and you'll stop carrying ticks into the house.</p></div></details>
+    <details><summary>Can I hunt in it — is it quiet?</summary><div class="mp-acc-body"><p>The mesh is soft and silent. The black weave looks sharp and low-profile in the field.</p></div></details>
+    <details><summary>Will briars tear it?</summary><div class="mp-acc-body"><p>It handles normal trail and yard work fine. Hard briar bushwhacking can snag any mesh — if yours tears inside 90 days, email us.</p></div></details>
+    <details><summary>Do you ship outside the US?</summary><div class="mp-acc-body"><p>US-only for now. Free shipping on every US order.</p></div></details>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="mp-wrap mp-reviews" id="mpReviews">
+    <span class="mp-eyebrow center">From real customers</span>
+    <h2 class="center">12,400+ reviews. 4.8 stars on average.</h2>
+    <div class="mp-rev-summary">
+      <div class="mp-rev-score">4.8<span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-small">Based on 12,400+ reviews</span></div>
+      <div class="mp-rev-bars">
+        <div class="mp-rev-bar"><span>5★</span><span class="mp-bar"><i style="width:84%"></i></span><span>10,416</span></div>
+        <div class="mp-rev-bar"><span>4★</span><span class="mp-bar"><i style="width:11%"></i></span><span>1,364</span></div>
+        <div class="mp-rev-bar"><span>3★</span><span class="mp-bar"><i style="width:3%"></i></span><span>372</span></div>
+        <div class="mp-rev-bar"><span>2★</span><span class="mp-bar"><i style="width:1%"></i></span><span>124</span></div>
+        <div class="mp-rev-bar"><span>1★</span><span class="mp-bar"><i style="width:1%"></i></span><span>124</span></div>
+      </div>
+    </div>
+    <div class="mp-rev-photos">
+      <img src="{{ IMG }}story-1.jpg" alt="Customer photo" loading="lazy" decoding="async">
+      <img src="{{ IMG }}story-2.jpg" alt="Customer photo" loading="lazy" decoding="async">
+      <img src="{{ IMG }}story-3.jpg" alt="Customer photo" loading="lazy" decoding="async">
+      <img src="{{ IMG }}story-4.jpg" alt="Customer photo" loading="lazy" decoding="async">
+      <img src="{{ IMG }}story-5.jpg" alt="Customer photo" loading="lazy" decoding="async">
+    </div>
+    <div class="mp-rev-cards">
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-verified">✓ Verified buyer · May 2026</span></div><h4>Found 6 ticks ON the suit. Zero on me.</h4><p>Turkey season in Missouri, 5'10" 185 lb in size M over a flannel. Brushed them off the mesh at the truck. First season in years I haven't pulled one off my neck.</p><span class="mp-rev-name">— Mike R.</span></article>
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-verified">✓ Verified buyer · May 2026</span></div><h4>Bought 2 kits — me and my wife</h4><p>We walk fields every evening with the dogs. The 2-kit bundle made it stupid not to. Pull-on-over-clothes in seconds, totally unisex fit.</p><span class="mp-rev-name">— Dan H.</span></article>
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-verified">✓ Verified buyer · April 2026</span></div><h4>My alpha-gal household's peace of mind</h4><p>My husband got alpha-gal two years ago. He wears the full kit for every yard job now. Nothing has gotten through the mesh.</p><span class="mp-rev-name">— Karen &amp; Bill T.</span></article>
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-verified">✓ Verified buyer · June 2026</span></div><h4>The boot covers are the secret weapon</h4><p>Covers go over my sneakers in 10 seconds. Walked the long-grass trail all week — nothing on me, two ticks stuck climbing the mesh.</p><span class="mp-rev-name">— Janet P.</span></article>
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="mp-verified">✓ Verified buyer · June 2026</span></div><h4>Cooler than my fishing shirt</h4><p>Expected a sauna. The mesh breathes better than my long-sleeve sun shirt. Wore it foraging through July in Georgia.</p><span class="mp-rev-name">— Ray B.</span></article>
+      <article class="mp-rev-card"><div class="mp-rev-head"><span class="mp-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="mp-verified">✓ Verified buyer · April 2026</span></div><h4>Sized up and glad I did</h4><p>6'0", 210 lb — went Large to fit over my work jacket, perfect. Arrived in 9 days, exactly the window they quoted.</p><span class="mp-rev-name">— Carl D.</span></article>
+    </div>
+  </section>
+
+  <!-- ============ KIT RECAP ============ -->
+  <section class="mp-wrap mp-kit">
+    <h2 class="center">Everything in your kit</h2>
+    <div class="mp-kit-grid">
+      <div class="mp-kit-card"><h3>Hooded Mesh Top</h3><p>Protects torso, neck and head with a sealed hood.</p></div>
+      <div class="mp-kit-card"><h3>Mesh Trousers</h3><p>Covers the climb from ankle to waist. Included free.</p></div>
+      <div class="mp-kit-card"><h3>Boot Covers</h3><p>Seal the entry point — ticks board here and find nothing. Free.</p></div>
+      <div class="mp-kit-card"><h3>Mesh Mitts</h3><p>Finish your hands so there's no bare skin anywhere.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ STICKY ADD-TO-CART ============ -->
+<div class="mp-sticky" id="mpSticky">
+  <div class="mp-sticky-inner">
+    <div class="mp-sticky-info"><span class="mp-sticky-name">MeshProtect&trade; Kit</span><span class="mp-sticky-price" id="mpStickyPrice">$79.98</span></div>
+    <button type="button" class="mp-sticky-btn" onclick="mpAddToCart(this)">Add to cart</button>
+  </div>
+</div>
+
+<style>
+  /* Skip layout+paint for this section while it is far offscreen.
+     `auto` lets the browser swap in the real height after first render. */
+  #shopify-section-{{ section.id }}{content-visibility:auto;contain-intrinsic-size:auto 1600px;}
+
+  .mp{font-family:var(--font-body);color:var(--ink);overflow-x:clip;max-width:100%;}
+  .mp-wrap{max-width:1080px;margin:0 auto;padding:34px 18px;}
+  .mp .center{text-align:center;}
+  .mp h2{font-size:clamp(28px,6.6vw,40px);line-height:1.16;margin-bottom:14px;}
+  .mp-eyebrow{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright);margin-bottom:8px;}
+  .mp-eyebrow.center{display:block;text-align:center;}
+  .mp-lead{font-size:15.5px;line-height:1.6;color:var(--muted);max-width:720px;margin:0 auto 18px;}
+  .mp-small{font-size:12.5px;color:var(--muted-2);}
+
+  /* HERO */
+  .mp-hero{background:#fff;padding:18px 0 8px;}
+  .mp-hero-grid{max-width:1080px;margin:0 auto;padding:0 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px;}
+  .mp-gallery,.mp-buy{min-width:0;}
+  .mp-stage{background:var(--tint);border-radius:14px;overflow:hidden;aspect-ratio:1/1;}
+  .mp-stage img{width:100%;height:100%;object-fit:cover;}
+  .mp-thumbs{display:flex;gap:9px;margin-top:10px;overflow-x:auto;scrollbar-width:none;}
+  .mp-thumbs::-webkit-scrollbar{display:none;}
+  .mp-thumb{flex:0 0 70px;width:70px;height:70px;border-radius:9px;overflow:hidden;border:2px solid transparent;background:var(--tint);}
+  .mp-thumb.active{border-color:var(--green);}
+  .mp-thumb img{width:100%;height:100%;object-fit:cover;}
+
+  .mp-title{font-size:25px;line-height:1.15;margin-bottom:8px;}
+  .mp-rating{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .mp-stars{color:#f5a623;letter-spacing:1px;font-size:15px;}
+  .mp-rating-txt{font-size:13px;color:var(--muted);}
+  .mp-rating-txt a{text-decoration:underline;}
+  .mp-stock{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--green-deep);margin-bottom:4px;}
+  .mp-dot{width:8px;height:8px;border-radius:50%;background:var(--green-bright);display:inline-block;}
+  .mp-lowstock{font-size:12.5px;color:#c0392b;margin-bottom:14px;}
+  .mp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+  .mp-bullets li{position:relative;padding-left:24px;font-size:14.5px;line-height:1.45;color:var(--ink);}
+  .mp-bullets li:before{content:"✓";position:absolute;left:0;top:0;color:var(--green-bright);font-weight:800;}
+  .mp-freecallout{background:var(--green-bright-soft);border:1px dashed var(--green-bright);border-radius:10px;padding:11px 14px;font-size:13.5px;color:var(--green-deep);margin-bottom:16px;}
+
+  .mp-kitbox{display:flex;gap:14px;align-items:center;background:var(--tint);border-radius:12px;padding:12px;margin-bottom:18px;}
+  .mp-kitbox-img{width:118px;height:118px;object-fit:cover;border-radius:9px;flex:none;}
+  .mp-kitlist{list-style:none;flex:1;display:flex;flex-direction:column;gap:7px;}
+  .mp-kitlist li{display:flex;justify-content:space-between;font-size:13.5px;border-bottom:1px solid var(--line);padding-bottom:6px;}
+  .mp-kp{font-weight:700;color:var(--green-deep);}
+  .mp-kp s{color:var(--muted-2);font-weight:400;margin-right:4px;}
+
+  .mp-bundles{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+  .mp-bundle{position:relative;display:flex;flex-direction:column;gap:3px;text-align:left;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;transition:.15s;}
+  .mp-bundle.active{border-color:var(--green);background:var(--green-bright-soft);}
+  .mp-bundle-top{display:flex;align-items:center;gap:10px;}
+  .mp-bundle-qty{font-family:var(--font-head);font-weight:600;font-size:17px;}
+  .mp-bundle-tag{font-size:11.5px;font-weight:700;color:var(--green-bright);background:#fff;border:1px solid var(--green-bright);border-radius:20px;padding:1px 9px;}
+  .mp-bundle-price{font-size:12.5px;color:var(--muted);}
+  .mp-bundle-badge{position:absolute;top:-9px;right:12px;font-size:10.5px;font-weight:700;color:#fff;background:var(--green);border-radius:20px;padding:2px 9px;}
+
+  .mp-opt{margin-bottom:16px;}
+  .mp-opt-label{font-size:13.5px;font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+  .mp-sizeguide{font-weight:500;font-size:12.5px;color:var(--green-bright);text-decoration:underline;cursor:pointer;}
+  .mp-swatches{display:flex;gap:8px;}
+  .mp-swatch{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);}
+  .mp-swatch.active{border-color:var(--green);box-shadow:0 0 0 2px #fff inset;}
+  .mp-sizes{display:flex;gap:8px;}
+  .mp-size{flex:1;border:2px solid var(--line);border-radius:10px;padding:12px 0;font-weight:600;font-size:15px;background:#fff;transition:.15s;}
+  .mp-size.active{border-color:var(--green);background:var(--green);color:#fff;}
+  .mp-kitsize{margin-bottom:10px;}
+  .mp-kitsize[hidden]{display:none;}
+  .mp-kitsize-label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:5px;}
+  .mp-fit{font-size:12.5px;color:var(--muted);margin-top:8px;}
+  .mp-overclothes{font-size:12.5px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+
+  .mp-pricerow{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .mp-compare{color:var(--muted-2);font-size:16px;}
+  .mp-price{font-family:var(--font-head);font-weight:600;font-size:22px;color:var(--ink);}
+  .mp-savebadge{font-size:11.5px;font-weight:700;color:#fff;background:#c0392b;border-radius:6px;padding:3px 8px;}
+
+  .mp-atc{width:100%;background:var(--green);color:#fff;border-radius:12px;padding:17px;font-family:var(--font-body);font-weight:500;font-size:14.5px;letter-spacing:.8px;text-transform:uppercase;box-shadow:0 6px 18px rgba(9,89,70,.25);}
+  .mp-atc:active{transform:translateY(1px);}
+  .mp-trust{display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin-top:13px;font-size:11.5px;font-weight:600;color:var(--green-deep);}
+  .mp-trust span{display:inline-flex;align-items:center;gap:5px;}
+  .mp-trust svg{width:15px;height:15px;}
+  .mp-delivery{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--muted);margin-top:11px;}
+
+  /* DESCRIPTION / ACCORDIONS */
+  .mp-desc details,.mp-faq details{border-bottom:1px solid var(--line);}
+  .mp-desc summary,.mp-faq summary{list-style:none;cursor:pointer;font-family:var(--font-head);font-weight:500;font-size:16px;padding:15px 28px 15px 0;position:relative;}
+  .mp-desc summary::-webkit-details-marker,.mp-faq summary::-webkit-details-marker{display:none;}
+  .mp-desc summary:after,.mp-faq summary:after{content:"+";position:absolute;right:4px;top:13px;font-size:20px;color:var(--green);}
+  .mp-desc details[open] summary:after,.mp-faq details[open] summary:after{content:"–";}
+  .mp-acc-body{padding:0 0 16px;font-size:14px;line-height:1.6;color:var(--muted);}
+  .mp-acc-body p{margin-bottom:10px;}
+  .mp-table-scroll{overflow-x:auto;}
+  .mp-sizetable,.mp-comptable{width:100%;border-collapse:collapse;font-size:12.5px;}
+  .mp-sizetable th,.mp-sizetable td,.mp-comptable th,.mp-comptable td{border:1px solid var(--line);padding:8px 10px;text-align:center;}
+  @media(max-width:560px){
+    .mp-sizetable,.mp-comptable{font-size:10.5px;}
+    .mp-sizetable th,.mp-sizetable td,.mp-comptable th,.mp-comptable td{padding:6px 4px;}
+  }
+  .mp-sizetable th,.mp-comptable th{background:var(--tint);font-family:var(--font-head);font-weight:500;}
+  .mp-sizetable td:first-child,.mp-comptable td:first-child{text-align:left;font-weight:600;}
+  .mp-comptable .y{color:var(--green-bright);font-weight:700;}
+  .mp-comptable .n{color:var(--muted-2);}
+
+  /* HOW IT WORKS / SEAMS */
+  .mp-hiw-grid,.mp-seams-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;}
+  .mp-hiw-img,.mp-seams-img{width:100%;border-radius:14px;}
+  .mp-hiw-txt p,.mp-seams-txt p{font-size:14.5px;line-height:1.6;color:var(--muted);margin-bottom:12px;}
+  .mp-checklist{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .mp-checklist li{position:relative;padding-left:24px;font-size:14px;line-height:1.45;color:var(--ink);}
+  .mp-checklist li:before{content:"✓";position:absolute;left:0;color:var(--green-bright);font-weight:800;}
+  .mp-textcta{font-family:var(--font-head);font-weight:600;font-size:15px;color:var(--green);border-bottom:2px solid var(--green);padding-bottom:2px;}
+  .mp-textcta.solid{background:var(--green);color:#fff;border:none;border-radius:10px;padding:13px 22px;}
+
+  /* PESTS */
+  .mp-pest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+  .mp-pest-grid figure{text-align:center;}
+  .mp-pest-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;margin-bottom:7px;}
+  .mp-pest-grid figcaption{font-family:var(--font-head);font-weight:500;font-size:14px;}
+
+  /* STRIP / ECON */
+  .mp-strip-img,.mp-econ-img{width:100%;border-radius:14px;margin:6px 0 12px;}
+  .mp-econ-labels{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:16px;}
+
+  /* WHY / KIT */
+  .mp-why-grid,.mp-kit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+  .mp-why-card,.mp-kit-card{background:var(--tint);border-radius:12px;padding:16px;}
+  .mp-why-card h3,.mp-kit-card h3{font-size:16px;margin-bottom:6px;}
+  .mp-why-card p,.mp-kit-card p{font-size:13px;line-height:1.5;color:var(--muted);}
+
+  /* GUARANTEE */
+  .mp-guar{text-align:center;}
+  .mp-guar-badge{display:inline-block;border:3px solid var(--green);border-radius:50%;width:108px;height:108px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--green-deep);line-height:1.15;margin:0 auto 16px;}
+  .mp-guar-badge strong{font-family:var(--font-head);font-size:30px;}
+
+  /* REVIEWS */
+  .mp-rev-summary{display:grid;grid-template-columns:1fr;gap:16px;background:var(--tint);border-radius:14px;padding:18px;margin-bottom:18px;}
+  .mp-rev-score{display:flex;flex-direction:column;align-items:center;font-family:var(--font-head);font-size:40px;font-weight:600;}
+  .mp-rev-bars{display:flex;flex-direction:column;gap:6px;}
+  .mp-rev-bar{display:grid;grid-template-columns:30px 1fr 50px;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+  .mp-rev-bar .mp-bar{height:8px;background:#e3e6df;border-radius:6px;overflow:hidden;}
+  .mp-rev-bar .mp-bar i{display:block;height:100%;background:#f5a623;}
+  .mp-rev-photos{display:flex;gap:9px;overflow-x:auto;margin-bottom:18px;scrollbar-width:none;}
+  .mp-rev-photos::-webkit-scrollbar{display:none;}
+  .mp-rev-photos img{flex:0 0 110px;width:110px;height:110px;object-fit:cover;border-radius:10px;}
+  .mp-rev-cards{display:grid;grid-template-columns:1fr;gap:14px;}
+  .mp-rev-card{border:1px solid var(--line);border-radius:12px;padding:16px;}
+  .mp-rev-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;}
+  .mp-verified{font-size:11px;color:var(--green-deep);font-weight:600;}
+  .mp-rev-card h4{font-family:var(--font-head);font-weight:500;font-size:15px;margin-bottom:6px;}
+  .mp-rev-card p{font-size:13.5px;line-height:1.55;color:var(--muted);margin-bottom:8px;}
+  .mp-rev-name{font-size:12.5px;font-weight:700;color:var(--ink);}
+
+  /* STICKY */
+  .mp-sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s;z-index:50;}
+  .mp-sticky.show{transform:translateY(0);}
+  .mp-sticky-inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .mp-sticky-name{font-family:var(--font-head);font-weight:600;font-size:14px;display:block;}
+  .mp-sticky-price{font-size:12px;color:var(--green-deep);font-weight:700;}
+  .mp-sticky-btn{background:var(--green);color:#fff;border-radius:10px;padding:13px 26px;font-family:var(--font-head);font-weight:600;font-size:15px;white-space:nowrap;}
+
+  @media(min-width:860px){
+    .mp-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:34px;align-items:start;}
+    .mp-gallery{position:sticky;top:18px;}
+    .mp h2{font-size:32px;}
+    .mp-title{font-size:30px;}
+    .mp-hiw-grid,.mp-seams-grid{grid-template-columns:1fr 1fr;gap:30px;}
+    .mp-pest-grid,.mp-why-grid,.mp-kit-grid{grid-template-columns:repeat(4,1fr);}
+    .mp-rev-summary{grid-template-columns:240px 1fr;align-items:center;}
+    .mp-rev-cards{grid-template-columns:repeat(2,1fr);}
+    .mp-bundles{flex-direction:row;}
+    .mp-bundle{flex:1;}
+  }
+</style>
+
+<script>
+(function(){
+  var MP={ perKit:{1:49.99,2:39.99,3:34.99}, compareKit:99.96, qty:2 };
+  function $(id){return document.getElementById(id);}
+  function money(n){return '$'+n.toFixed(2);}
+  function kitRows(){return Array.prototype.slice.call(document.querySelectorAll('#mpKitSizes .mp-kitsize'));}
+  function updateFit(el){ if(el && $('mpFit')) $('mpFit').textContent=el.dataset.fit||''; }
+  function updateKitRows(){
+    kitRows().forEach(function(row,i){
+      row.hidden = i >= MP.qty;
+      var lbl=row.querySelector('.mp-kitsize-label'); if(lbl) lbl.style.display=(MP.qty>1)?'block':'none';
+    });
+    var h=$('mpSizeHeading'); if(h) h.textContent=(MP.qty>1)?'Choose a size for each kit':'Select your size';
+  }
+  function render(){
+    var pk=MP.perKit[MP.qty], total=pk*MP.qty, comp=MP.compareKit*MP.qty;
+    var save=Math.round((1-pk/MP.compareKit)*100);
+    $('mpPrice').textContent=money(total);
+    $('mpCompare').textContent=money(comp);
+    $('mpSave').textContent='SAVE '+save+'%';
+    $('mpAtc').textContent='ADD '+(MP.qty===1?'TO CART':MP.qty+' KITS TO CART')+' — '+money(total);
+    if($('mpStickyPrice'))$('mpStickyPrice').textContent=money(total);
+  }
+  // bundles
+  document.querySelectorAll('#mpBundles .mp-bundle').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#mpBundles .mp-bundle').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active'); MP.qty=parseInt(b.dataset.qty); updateKitRows(); render();
+    });
+  });
+  // per-kit sizes
+  kitRows().forEach(function(row){
+    row.querySelectorAll('.mp-size').forEach(function(b){
+      b.addEventListener('click',function(){
+        row.querySelectorAll('.mp-size').forEach(function(x){x.classList.remove('active');});
+        b.classList.add('active'); updateFit(b);
+      });
+    });
+  });
+  // gallery thumbs
+  document.querySelectorAll('#mpThumbs .mp-thumb').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('#mpThumbs .mp-thumb').forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      var full=t.getAttribute('data-full'); if(full)$('mpMainImg').src=full;
+    });
+  });
+  // add to cart — one line item per chosen variant, quantities tallied across kits
+  window.mpAddToCart=function(btn){
+    var counts={};
+    for(var i=0;i<MP.qty;i++){
+      var row=document.querySelector('#mpKitSizes .mp-kitsize[data-kit="'+i+'"]');
+      if(!row) continue;
+      var act=row.querySelector('.mp-size.active'); if(!act) continue;
+      var v=act.dataset.variant;
+      if(!v || /REPLACE_ME/.test(String(v))){
+        alert('Add your Shopify variant IDs in Theme Editor → MeshProtect Kit, then this button will add to cart.');
+        return;
+      }
+      counts[v]=(counts[v]||0)+1;
+    }
+    var items=Object.keys(counts).map(function(v){return {id:v, quantity:counts[v]};});
+    if(!items.length) return;
+    var label=btn?btn.innerHTML:''; if(btn){btn.disabled=true;btn.innerHTML='Adding…';}
+    fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items})})
+      .then(function(r){return r.json();})
+      .then(function(d){ if(d.status){throw new Error(d.description||'Could not add to cart');} if(typeof openCartDrawer==='function'){openCartDrawer();} })
+      .catch(function(e){ alert('Could not add to cart: '+e.message); })
+      .then(function(){ if(btn){btn.disabled=false;btn.innerHTML=label;} });
+  };
+  window.mpScrollToBuy=function(){ var el=document.querySelector('.mp-hero'); if(el)el.scrollIntoView({behavior:'smooth'}); };
+  window.mpOpenSizeChart=function(e){ if(e)e.preventDefault(); var d=$('mpSizeChart'); if(d){d.open=true; d.scrollIntoView({behavior:'smooth',block:'center'});} };
+  // delivery date (5 business-ish days out)
+  (function(){ var d=new Date(); d.setDate(d.getDate()+8); var opt={weekday:'short',month:'short',day:'numeric'}; var el=$('mpDeliveryDate'); if(el)el.textContent=d.toLocaleDateString('en-US',opt); })();
+  // sticky bar
+  var hero=document.querySelector('.mp-hero'), sticky=$('mpSticky');
+  if(hero&&sticky){ window.addEventListener('scroll',function(){ var b=hero.getBoundingClientRect().bottom; sticky.classList.toggle('show', b<0); },{passive:true}); }
+  updateKitRows(); render(); updateFit(document.querySelector('#mpKitSizes .mp-kitsize:not([hidden]) .mp-size.active'));
+})();
+</script>
+
+{% schema %}
+{
+  "name": "MeshProtect Kit",
+  "settings": [
+    {"type":"header","content":"Checkout variant IDs (Black)"},
+    {"type":"text","id":"variant_small","label":"Small — Shopify variant ID","default":"52726522413237"},
+    {"type":"text","id":"variant_medium","label":"Medium — Shopify variant ID","default":"52726522446005"},
+    {"type":"text","id":"variant_large","label":"Large — Shopify variant ID","default":"52726522478773"}
+  ],
+  "blocks": [
+    {
+      "type":"gallery_image",
+      "name":"Hero gallery image",
+      "settings":[
+        {"type":"image_picker","id":"image","label":"Image (upload to override the URL below)"},
+        {"type":"text","id":"image_url","label":"Image URL (used if no image uploaded)"},
+        {"type":"text","id":"alt","label":"Alt text"}
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {"name":"MeshProtect Kit"}
+  ]
+}
+{% endschema %}

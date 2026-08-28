@@ -1,0 +1,52 @@
+<header class="lph">
+  <div class="lph-in">
+    <a href="/products/{{ section.settings.product_handle | default: 'pinemoor®-tick-protection-drops-tyler-copy' }}" class="lph-logo" aria-label="Pinemoor home">
+      <svg class="lph-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L5 12h3.2L4.6 18h5.9V22h3v-4h5.9l-3.6-6H19L12 2z"/></svg>
+      <span class="lph-word">PINEMOOR</span>
+    </a>
+    <button type="button" class="lph-cart" onclick="openCartDrawer()" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+      <span class="lph-count" id="lphCount" style="display:none;">0</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .lph{background:#fff;border-bottom:1px solid rgba(17,17,17,.1);position:relative;z-index:40;}
+  .lph-in{max-width:var(--v3-wrap);margin:0 auto;display:flex;align-items:center;justify-content:center;
+    position:relative;height:41px;padding:0 14px;}
+  .lph-logo{display:inline-flex;align-items:center;gap:6px;color:var(--v3-dark);}
+  .lph-mark{width:17px;height:17px;color:var(--v3-green);}
+  .lph-word{font-family:var(--v3-head);font-weight:700;font-size:15.5px;letter-spacing:.24em;color:var(--v3-dark);}
+  .lph-cart{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border:1.4px solid var(--v3-ink);border-radius:7px;
+    display:flex;align-items:center;justify-content:center;color:var(--v3-ink);background:#fff;}
+  .lph-cart svg{width:15px;height:15px;}
+  .lph-count{position:absolute;top:-7px;right:-7px;min-width:15px;height:15px;border-radius:8px;background:var(--v3-green);
+    color:#fff;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+</style>
+
+<script>
+(function(){
+  /* keep the badge in sync with the cart drawer count */
+  function sync(){
+    var src=document.getElementById('cart-drawer-count');
+    var badge=document.getElementById('lphCount');
+    if(!src||!badge)return;
+    var n=parseInt(src.textContent||'0',10)||0;
+    badge.textContent=n; badge.style.display=n>0?'flex':'none';
+  }
+  var src=document.getElementById('cart-drawer-count');
+  if(src&&window.MutationObserver){new MutationObserver(sync).observe(src,{childList:true,characterData:true,subtree:true});}
+  document.addEventListener('DOMContentLoaded',sync);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "LP Header",
+  "settings": [
+    {"type":"text","id":"product_handle","label":"Product handle (logo link)","default":"pinemoor®-tick-protection-drops-tyler-copy"}
+  ]
+}
+{% endschema %}

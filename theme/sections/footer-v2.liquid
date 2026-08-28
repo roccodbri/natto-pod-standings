@@ -1,0 +1,57 @@
+<footer class="site-footer">
+  <div class="site-footer__inner">
+
+    <div class="footer-newsletter">
+      <h3>Get ahead of tick season.</h3>
+      <p>Join our list for seasonal tick alerts, range updates, and early restock access.</p>
+      <form class="footer-newsletter__form" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" placeholder="Enter your email" required class="footer-newsletter__input">
+        <button type="submit" class="footer-newsletter__btn">Join</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Pinemoor</h4>
+        <ul>
+          <li><a href="#product-hero" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});">Shop</a></li>
+          <li><a href="#pm-compounds">The Six Herbs</a></li>
+          <li><a href="#pm-accordions">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/policies/shipping-policy">Shipping Policy</a></li>
+          <li><a href="/policies/refund-policy">Return Policy</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+          <li><a href="mailto:hello@pinemoor.com">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-logo-area">
+      <span class="footer-logo">pinemoor</span>
+      <p class="footer-tagline">No DEET. No drama. Just protection.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} Pinemoor. All rights reserved.</p>
+    <p class="footer-disclaimer">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Tick exposure cannot be eliminated entirely; always perform tick checks after time outdoors.</p>
+  </div>
+</footer>
+
+<script>
+function handleNewsletterSubmit(e){
+  e.preventDefault();
+  var btn=e.target.querySelector('button');
+  btn.textContent='Thank you!';btn.disabled=true;
+  e.target.querySelector('input').value='';
+  setTimeout(function(){btn.textContent='Join';btn.disabled=false;},3000);
+}
+</script>
+
+{% schema %}{"name":"Footer V2","settings":[]}{% endschema %}

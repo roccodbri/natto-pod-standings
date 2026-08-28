@@ -1,0 +1,84 @@
+{%- comment -%}
+  White section: small stars + trust line, big centered heading, three pill
+  tabs (one filled, two outline), then a horizontal snap-scroll row of tall
+  outlined quote cards. Arrows page the row.
+{%- endcomment -%}
+
+<section class="lrt">
+  <div class="v3-wrap">
+    <div class="lrt-trust"><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span> Trusted by thousands of families</div>
+    <h2 class="v3-h2 lrt-h">Results You Can Count On Outside</h2>
+    <div class="lrt-tabs" id="lrtTabs">
+      <button type="button" class="lrt-tab active" onclick="lrtTab(this,'hunting')">Hunting</button>
+      <button type="button" class="lrt-tab" onclick="lrtTab(this,'family')">Family</button>
+      <button type="button" class="lrt-tab" onclick="lrtTab(this,'hiking')">Hiking</button>
+    </div>
+  </div>
+
+  <div class="lrt-row" id="lrtRow">
+    <div class="lrt-card" data-set="hunting">
+      <div class="lrt-score">5/5 <span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+      <p class="lrt-quote">&ldquo;Three weekends in the stand so far and not one tick. Honestly bought it half expecting a gimmick &mdash; I&rsquo;m sold.&rdquo;</p>
+      <div class="lrt-who">Cole S., 39 years <em>|</em> <b>&bull;</b> Verified Buyer</div>
+    </div>
+    <div class="lrt-card" data-set="hunting">
+      <p class="lrt-quote-top">5/5</p>
+      <p class="lrt-quote">&ldquo;Bow season means hours in the timber. A buddy of mine got alpha-gal from a lone star bite &mdash; that was all I needed to hear. Two seasons on Pinemoor, zero issues. One dropper with breakfast and I don&rsquo;t think about ticks again.&rdquo;</p>
+      <div class="lrt-who">Curt B., 47 years <em>|</em> <b>&bull;</b> Verified Buyer</div>
+    </div>
+    <div class="lrt-card" data-set="family">
+      <p class="lrt-quote-top">5/5</p>
+      <p class="lrt-quote">&ldquo;We had a brutal tick year here and two people from our church got diagnosed with Lyme. That was enough for me to stop messing around with sprays. Whole family&rsquo;s on it now and I&rsquo;m not looking back.&rdquo;</p>
+      <div class="lrt-who">Mallory K., 41 years <em>|</em> <b>&bull;</b> Verified Buyer</div>
+    </div>
+    <div class="lrt-card" data-set="hiking">
+      <p class="lrt-quote-top">5/5</p>
+      <p class="lrt-quote">&ldquo;We hike with the dogs every weekend, and I never wanted to coat my kids in synthetic chemicals that half the time do nothing. This actually works &mdash; clean checks all season, and I stopped worrying.&rdquo;</p>
+      <div class="lrt-who">Rachel M., 36 years <em>|</em> <b>&bull;</b> Verified Buyer</div>
+    </div>
+  </div>
+
+  <div class="v3-arrows lrt-arrows">
+    <button type="button" class="v3-arrow" onclick="lrtMove(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button type="button" class="v3-arrow" onclick="lrtMove(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<style>
+  .lrt{background:#fff;padding:30px 0 26px;}
+  .lrt-trust{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:12px;}
+  .lrt-h{text-align:center;margin-bottom:18px;}
+  .lrt-tabs{display:flex;gap:10px;margin-bottom:18px;}
+  .lrt-tab{flex:1;padding:11px 8px;border-radius:10px;border:1.4px solid var(--v3-green);font-size:13.5px;
+    font-weight:600;color:var(--v3-ink);background:#fff;transition:background .15s,color .15s;}
+  .lrt-tab.active{background:var(--v3-green);color:#fff;}
+  .lrt-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 4px;scrollbar-width:none;}
+  .lrt-row::-webkit-scrollbar{display:none;}
+  .lrt-card{flex:none;width:150px;scroll-snap-align:start;border:1.4px solid var(--v3-green);border-radius:12px;
+    background:#fff;padding:14px 12px;display:flex;flex-direction:column;}
+  .lrt-card.is-first{background:var(--v3-tint);}
+  .lrt-score,.lrt-quote-top{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;margin-bottom:9px;}
+  .lrt-quote{font-size:12.5px;font-style:italic;line-height:1.5;color:var(--v3-body);flex:1;margin-bottom:12px;}
+  .lrt-who{font-size:11.5px;font-weight:600;color:var(--v3-ink);line-height:1.4;}
+  .lrt-who em{font-style:normal;color:rgba(17,17,17,.25);margin:0 3px;}
+  .lrt-who b{color:var(--v3-green);}
+  .lrt-arrows{margin-top:16px;}
+</style>
+
+<script>
+  window.lrtMove=function(d){
+    var r=document.getElementById('lrtRow'); if(!r)return;
+    r.scrollBy({left:d*170,behavior:'smooth'});
+  };
+  window.lrtTab=function(btn,set){
+    [].slice.call(document.querySelectorAll('#lrtTabs .lrt-tab')).forEach(function(t){t.classList.remove('active');});
+    btn.classList.add('active');
+    var row=document.getElementById('lrtRow');
+    var first=row.querySelector('.lrt-card[data-set="'+set+'"]');
+    if(first)row.scrollTo({left:first.offsetLeft-row.offsetLeft-16,behavior:'smooth'});
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Results Tabs", "settings": [] }
+{% endschema %}

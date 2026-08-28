@@ -1,0 +1,80 @@
+{%- comment -%}
+  Pale-mint section: centered heading + small subline, then a horizontal
+  snap-scroll row of tall outlined cards — photo on top, "Reason N" pill,
+  bold title, small body. Arrows below.
+{%- endcomment -%}
+
+<section class="lfr">
+  <div class="v3-wrap">
+    <svg class="lfr-sprig" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 34C14 28 18 20 32 8"/><path d="M14 26c4 1 7 0 9-3M20 20c3 1 6 0 8-3M26 14c2 1 4 0 6-2"/></svg>
+    <h2 class="v3-h2 lfr-h">5 Reasons Why Thousands Choose Pinemoor</h2>
+    <p class="lfr-sub">Real protection. Clean ingredients. One dropper a day.</p>
+  </div>
+
+  <div class="lfr-row" id="lfrRow">
+    <div class="lfr-card">
+      <img src="{{ 'pm-samanthamorgan-89531.webp' | asset_url }}" alt="Hunter in the field" loading="lazy" decoding="async">
+      <span class="lfr-badge">Reason 1</span>
+      <h3>Repels From Within</h3>
+      <p>Unlike sprays that sit on your skin, Pinemoor&rsquo;s botanicals exit through your skin and quiet the scent signals ticks track &mdash; so you stop reading as food.</p>
+    </div>
+    <div class="lfr-card">
+      <img src="{{ 'pm-camping2-1-62a88.webp' | asset_url }}" alt="Family camping" loading="lazy" decoding="async">
+      <span class="lfr-badge">Reason 2</span>
+      <h3>24-Hour Coverage</h3>
+      <p>One morning dropper covers you head to toe for up to 24 hours. Nothing to reapply, no missed spots, no greasy film.</p>
+    </div>
+    <div class="lfr-card">
+      <img src="{{ 'pm-your-guide-to-kitchen-herbs-and-sp-5ee97.webp' | asset_url }}" alt="Herbal botanicals" loading="lazy" decoding="async">
+      <span class="lfr-badge">Reason 3</span>
+      <h3>Six Studied Botanicals</h3>
+      <p>Oregano, carvacrol, garlic, thyme, soursop, and caraway seed &mdash; each quiets a different scent signal your skin gives off.</p>
+    </div>
+    <div class="lfr-card">
+      <img src="{{ 'lp-ugc-3.webp' | asset_url }}" alt="Clean maple-flavored formula" loading="lazy" decoding="async">
+      <span class="lfr-badge">Reason 4</span>
+      <h3>Clean &amp; Kid-Approved</h3>
+      <p>Maple syrup&ndash;flavored with no DEET, no permethrin, no artificial additives. Gluten-free, non-GMO, made for the whole family.</p>
+    </div>
+    <div class="lfr-card">
+      <img src="{{ 'pm-shot-held.webp' | asset_url }}" alt="Happy Pinemoor customer" loading="lazy" decoding="async">
+      <span class="lfr-badge">Reason 5</span>
+      <h3>Results You Can Count</h3>
+      <p>Most customers report complete repellence within days 3&ndash;5 &mdash; clean tick checks all season, backed by a lifetime money-back guarantee.</p>
+    </div>
+  </div>
+
+  <div class="v3-arrows lfr-arrows">
+    <button type="button" class="v3-arrow" onclick="lfrMove(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button type="button" class="v3-arrow" onclick="lfrMove(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</section>
+
+<style>
+  .lfr{background:var(--v3-tint);padding:34px 0 30px;position:relative;}
+  .lfr-sprig{position:absolute;top:16px;right:18px;width:34px;height:34px;color:var(--v3-green);opacity:.7;}
+  .lfr-h{text-align:center;margin-bottom:12px;}
+  .lfr-sub{text-align:center;font-size:13.5px;color:var(--v3-ink);margin-bottom:20px;}
+  .lfr-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 4px;scrollbar-width:none;}
+  .lfr-row::-webkit-scrollbar{display:none;}
+  .lfr-card{position:relative;flex:none;width:132px;scroll-snap-align:start;background:#fff;border:1px solid var(--v3-green);
+    border-radius:12px;overflow:hidden;padding-bottom:14px;}
+  .lfr-card img{width:100%;height:74px;object-fit:cover;}
+  .lfr-badge{display:inline-block;background:var(--v3-green);color:#fff;border-radius:50px;padding:4px 12px;
+    font-size:10.5px;font-weight:600;margin:10px 10px 8px;}
+  .lfr-card h3{font-family:var(--v3-head);font-weight:600;font-size:15px;line-height:1.2;color:var(--v3-ink);
+    padding:0 10px;margin-bottom:8px;}
+  .lfr-card p{font-size:11px;line-height:1.45;color:var(--v3-body);padding:0 10px;}
+  .lfr-arrows{margin-top:16px;}
+</style>
+
+<script>
+  window.lfrMove=function(d){
+    var r=document.getElementById('lfrRow'); if(!r)return;
+    r.scrollBy({left:d*150,behavior:'smooth'});
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Five Reasons", "settings": [] }
+{% endschema %}

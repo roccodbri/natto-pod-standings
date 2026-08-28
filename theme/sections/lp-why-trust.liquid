@@ -1,0 +1,50 @@
+{%- comment -%}
+  Dark-green panel: centered white heading, three rounded translucent icon
+  tiles in a row, then a two-column grid of six mint checkmark items.
+{%- endcomment -%}
+
+<section class="lwt">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 v3-h2--light lwt-h">Why Trust<br>Pinemoor?</h2>
+    <div class="lwt-tiles">
+      <div class="lwt-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-2 5c-1 2.4-3.2 4-6 4s-5-1.6-6-4l-2-5z"/><path d="M12 10V7M9 7c0-2 1.3-3.5 3-4 1.7.5 3 2 3 4"/></svg>
+        <span>Herbalist<br>Crafted</span>
+      </div>
+      <div class="lwt-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4M12 3v5l5 9a2 2 0 0 1-1.8 3H8.8A2 2 0 0 1 7 17l5-9"/><path d="M8.5 14.5h7"/></svg>
+        <span>Clean<br>Ingredients</span>
+      </div>
+      <div class="lwt-tile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12l-4 2v7h16v-7l-4-2"/><path d="M12 3l4 3-4 8-4-8 4-3z"/></svg>
+        <span>Bottled In<br>The USA</span>
+      </div>
+    </div>
+    <div class="lwt-checks">
+      <span><i>&#10004;</i> No DEET</span>
+      <span><i>&#10004;</i> No Synthetic Pesticides</span>
+      <span><i>&#10004;</i> No Permethrin</span>
+      <span><i>&#10004;</i> Gluten-Free</span>
+      <span><i>&#10004;</i> Non-GMO</span>
+      <span><i>&#10004;</i> No Artificial Additives</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lwt{background:var(--v3-dark);padding:34px 0 32px;}
+  .lwt-h{text-align:center;margin-bottom:22px;}
+  .lwt-tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:24px;}
+  .lwt-tile{background:rgba(255,255,255,.12);border-radius:12px;padding:18px 8px;display:flex;flex-direction:column;
+    align-items:center;gap:10px;text-align:center;}
+  .lwt-tile svg{width:30px;height:30px;color:var(--v3-mint);}
+  .lwt-tile span{font-size:12px;font-weight:500;color:#fff;line-height:1.35;}
+  .lwt-checks{display:grid;grid-template-columns:1fr 1fr;gap:13px 10px;}
+  .lwt-checks span{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;}
+  .lwt-checks i{font-style:normal;flex:none;width:17px;height:17px;border-radius:50%;background:var(--v3-mint);
+    color:var(--v3-dark);font-size:10px;display:flex;align-items:center;justify-content:center;}
+</style>
+
+{% schema %}
+{ "name": "LP Why Trust", "settings": [] }
+{% endschema %}

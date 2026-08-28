@@ -1,0 +1,55 @@
+{
+  "layout": "product",
+  "sections": {
+    "product-hero": {
+      "type": "product-hero-dog",
+      "settings": {
+        "product": "nif",
+        "variant_id_1": "52748473401525",
+        "variant_id_2": "52748473335989",
+        "variant_id_3": "52748473368757",
+        "selling_plan_id_1": "2686976181",
+        "selling_plan_id_2": "2687074485",
+        "selling_plan_id_3": "2687107253"
+      }
+    },
+    "real-stories": {
+      "type": "real-stories-dog",
+      "settings": {}
+    },
+    "whats-at-stake": {
+      "type": "whats-at-stake-dog",
+      "settings": {}
+    },
+    "compounds": {
+      "type": "compounds-dog",
+      "settings": {}
+    },
+    "ticker-2": {
+      "type": "benefit-ticker",
+      "settings": {
+        "perk_1": "24-Hour Flea & Tick Protection",
+        "perk_2": "All Natural & Safe For Dogs",
+        "perk_3": "1ml Per 20 lbs · In Food Or Water",
+        "perk_4": "Lifetime Guarantee"
+      }
+    },
+    "five-reasons": {
+      "type": "five-reasons-dog",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews-dog",
+      "settings": {}
+    }
+  },
+  "order": [
+    "product-hero",
+    "real-stories",
+    "whats-at-stake",
+    "compounds",
+    "ticker-2",
+    "five-reasons",
+    "reviews"
+  ]
+}

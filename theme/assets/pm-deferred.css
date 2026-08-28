@@ -1,0 +1,248 @@
+/* Pinemoor — non-critical CSS: cart-drawer internals + footer.
+   Loaded async; nothing here affects first paint. */
+/* white header bar, pinemoor-green title + close */
+.cart-drawer__header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:#fff;border-bottom:1px solid var(--line);flex:none;}
+.cart-drawer__title{font-family:var(--font-logo);font-size:19px;font-weight:400;color:var(--green-deep);letter-spacing:.09em;text-transform:uppercase;}
+.cart-drawer__close{color:var(--green-deep);display:flex;padding:2px;}
+.cart-drawer__scroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;}
+.cart-drawer__items{flex:1;padding:0 20px;}
+.cart-drawer__empty{text-align:center;font-weight:300;color:var(--green-deep);padding:54px 0;font-size:16px;}
+/* item row — original Pinemoor cart card */
+.cart-item{display:flex;gap:14px;padding:24px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+.cart-item__img{width:94px;height:94px;border-radius:6px;object-fit:cover;background:var(--tint);flex:none;}
+.cart-item__info{flex:1;min-width:0;display:flex;flex-direction:column;}
+.cart-item__head{display:flex;justify-content:space-between;gap:10px;align-items:stretch;}
+.cart-item__main{display:flex;flex-direction:column;}
+.cart-item__title{font-weight:300;font-size:14.5px;color:var(--green-deep);line-height:1.3;white-space:nowrap;margin-bottom:8px;}
+.cart-item__left{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0;}
+.cart-item__variant{font-weight:300;font-size:14.5px;color:var(--muted);}
+.cart-item__freeship{display:inline-flex;align-items:center;gap:5px;color:var(--green-deep);font-size:13.5px;font-weight:300;white-space:nowrap;}
+.cart-item__freeship svg{width:15px;height:15px;flex:none;color:var(--green-bright);}
+.cart-item__freegift{display:inline-flex;align-items:center;gap:5px;color:var(--green-deep);font-size:13.5px;font-weight:300;white-space:nowrap;}
+.cart-item__freegift svg{width:15px;height:15px;flex:none;color:var(--green-bright);}
+.cart-item__right{flex:none;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;}
+.cart-item__pricewrap{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+.cart-item__pricerow{display:flex;align-items:baseline;gap:7px;}
+.cart-item__compare{font-weight:300;font-size:12.5px;color:var(--muted-2);text-decoration:line-through;}
+.cart-item__price{font-weight:400;font-size:13.5px;color:var(--green-deep);}
+.cart-item__save{font-weight:400;font-size:13px;color:var(--green-bright);background:var(--green-bright-soft);padding:2px 8px;border-radius:4px;white-space:nowrap;}
+.cart-item__remove{font-weight:300;font-size:15px;color:var(--green-deep);text-decoration:underline;line-height:1;}
+/* footer — fills remaining height so payment icons pin to the very bottom */
+.cart-drawer__footer{border-top:1px solid var(--line);padding:16px 20px 22px;flex:none;}
+.cart-drawer__footer > *{flex:none;}
+.cart-drawer__totalrow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 0 15px;}
+.cart-drawer__total-label{font-size:14.5px;font-weight:400;letter-spacing:.05em;text-transform:uppercase;color:var(--green-deep);}
+.cart-drawer__total-right{display:flex;align-items:center;gap:7px;}
+.cart-drawer__total-amount{font-size:14.5px;font-weight:400;color:var(--green-deep);white-space:nowrap;}
+/* checkout — original font, more rounded */
+.btn-cart-checkout{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--green-deep);color:#fff;font-family:var(--font-body);font-weight:700;font-size:13px;
+  letter-spacing:.09em;text-transform:uppercase;padding:16px;border-radius:4px;transition:background .2s;
+}
+.btn-cart-checkout:hover{background:#063e2f;}
+.cart-drawer__continue{display:block;width:100%;text-align:center;margin-top:13px;font-family:var(--font-body);
+  font-weight:600;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--green-deep);text-decoration:underline;text-underline-offset:3px;}
+/* upsell — sits lower, badge is a rectangular label, card matches the real cart item */
+.cart-upsell{flex:none;padding:10px 20px 18px;}
+.cart-upsell__banner{background:var(--green-deep);color:#fff;font-family:var(--font-body);font-weight:600;font-size:12.5px;
+  letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:6.5px 10px;border-radius:4px;}
+.cart-item--upsell{border-bottom:0;padding:12px 0 0;align-items:flex-start;gap:11px;}
+.cart-item--upsell .cart-item__title{font-size:14px;margin-bottom:6px;}
+.cart-item--upsell .cart-item__left{gap:5px;}
+.cart-item--upsell .cart-item__freeship{font-size:12.5px;}
+.cart-item--upsell .cart-item__freeship svg{width:14px;height:14px;}
+.cart-item--upsell .cart-item__compare{font-size:11.5px;}
+.cart-item--upsell .cart-item__price{font-size:13.5px;}
+.cart-item--upsell .cart-item__save{font-size:12px;padding:2px 7px;}
+.cart-item--upsell .cart-item__img{width:74px;height:74px;}
+.cart-item--upsell .cart-item__variant{font-size:14.5px;}
+.cart-item__title--wrap{white-space:normal;}
+.cart-item__title-nowrap{white-space:nowrap;}
+.cart-upsell__btn{background:var(--green-deep);color:#fff;font-family:var(--font-body);font-weight:600;font-size:12px;
+  letter-spacing:.02em;padding:8px 15px;border-radius:50px;transition:background .2s;white-space:nowrap;margin-top:7px;}
+.cart-upsell__btn:hover{background:#063e2f;}
+/* dynamic payment icons — pinned to the very bottom of the drawer */
+.cart-drawer__pay{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:5px;margin-top:14px;}
+.cart-pay-icon{height:22px;width:auto;border-radius:3px;}
+/* ============================================================
+   FOOTER  (Get ahead of tick season)
+   ============================================================ */
+.site-footer{background:#10281C;color:#C8DCCE;padding:64px 22px 30px;}
+.site-footer__inner{max-width:var(--wrap);margin:0 auto;}
+.footer-newsletter{text-align:center;max-width:560px;margin:0 auto 42px;}
+.footer-newsletter h3{font-family:var(--font-head);font-weight:500;
+  font-size:clamp(28px,6vw,40px);letter-spacing:normal;color:#C8DCCE;margin-bottom:12px;line-height:1.14;}
+.footer-newsletter p{font-size:17px;opacity:.85;margin-bottom:20px;color:#C8DCCE;}
+.footer-newsletter__form{display:flex;gap:0;max-width:450px;margin:0 auto;border:1px solid rgba(247,236,222,.4);border-radius:8px;overflow:hidden;}
+.footer-newsletter__input{flex:1;padding:15px 17px;border-radius:0;border:none;font-family:var(--font-body);font-size:15px;}
+.footer-newsletter__btn{background:var(--gold);color:var(--ink);font-family:var(--font-body);font-weight:700;
+  padding:0 26px;border-radius:0;font-size:15px;letter-spacing:.08em;text-transform:uppercase;}
+.footer-links{display:flex;flex-wrap:wrap;gap:38px 72px;justify-content:center;text-align:left;
+  border-top:1px solid rgba(247,236,222,.15);padding-top:36px;}
+.footer-col h4{font-family:var(--font-head);font-weight:500;font-size:clamp(26px,4vw,34px);
+  letter-spacing:normal;line-height:1.14;color:var(--cream);
+  opacity:.6;margin-bottom:15px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px;}
+.footer-col a{font-size:19px;opacity:1;color:#C8DCCE;}
+.footer-col a:hover{opacity:1;text-decoration:underline;}
+.footer-logo-area{text-align:center;margin-top:44px;}
+.footer-logo{font-family:var(--font-logo);font-size:30px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;}
+.footer-tagline{font-size:14px;opacity:.68;margin-top:7px;}
+.footer-bottom{max-width:var(--wrap);margin:26px auto 0;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;text-align:center;}
+.footer-bottom p{font-size:11.5px;opacity:.6;margin-bottom:8px;line-height:1.6;}
+.footer-disclaimer{max-width:760px;margin:0 auto;}
+
+
+/* ==========================================================================
+   ADDED SECTIONS — Benefits Of Daily Use · Results Felt By · Key Nutrients
+   Ported from the Wildroot design, remapped onto this theme's tokens.
+   ========================================================================== */
+
+/* --- shared helpers for the three added sections --- */
+:root{--tick-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path fill='%23000' d='m8.2 11.8-2.4 2.4 7.5 7.5L30 5l-2.3-2.3-14.4 14.2Zm18.5 14.9H3.3V3.3H20V0H3.3A3.3 3.3 0 0 0 0 3.3v23.4A3.3 3.3 0 0 0 3.3 30h23.4a3.3 3.3 0 0 0 3.3-3.3V13.3h-3.3Z'/></svg>");}
+
+/* ==========================================================================
+   PDP SECTIONS — metrics measured off the Heart & Soil product page.
+   Reference values (desktop): display h2 70px / weight 400 / tracking -6px,
+   body 24px / weight 600 / line-height 1.15, tick 30px on #994E0E,
+   dark sections #15251C with #1D1712 cards and #5C9470 nutrient names.
+   Everything below is mobile-first; desktop is the min-width override.
+   ========================================================================== */
+
+/* --- shared H&S display + section scale --- */
+.hs-h{font-family:var(--font-head);font-weight:500;
+  font-size:clamp(28px,6.6vw,40px);letter-spacing:normal;line-height:1.14;color:var(--ink);}
+.hs-sub{font-size:19px;line-height:1.28;color:var(--ink);}
+.hs-sec{padding:42px 0;}
+.hs-btn{display:inline-flex;align-items:center;justify-content:center;width:100%;
+  background:var(--green);color:#fff;font-family:var(--font-body);
+  font-weight:500;font-size:14.5px;letter-spacing:.8px;text-transform:uppercase;line-height:1.15;
+  padding:19px 28px;border-radius:8px;text-align:center;
+  box-shadow:0 5px 0 var(--green-deep), 0 8px 14px rgba(16,40,28,.30);
+  transition:transform .12s ease, background .2s ease, box-shadow .12s ease;}
+.hs-btn:hover{background:var(--green-deep);}
+.hs-btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--green-deep), 0 2px 6px rgba(16,40,28,.28);}
+.hs-tick{flex:none;width:17px;height:17px;margin-top:1px;background:var(--green);
+  -webkit-mask:var(--tick-mask) center/contain no-repeat;mask:var(--tick-mask) center/contain no-repeat;}
+@media (min-width:900px){
+  .hs-sec{padding:80px 0 92px;}
+  .hs-sub{font-size:26px;line-height:1.2;}
+  .hs-btn{font-size:16px;padding:21px 40px;width:auto;min-width:330px;}
+  .hs-tick{width:22px;height:22px;}
+}
+/* --- Benefits Of Daily Use --- */
+.bdu{background-color:var(--white);background-image:none;}
+.bdu__head{text-align:center;max-width:820px;margin:0 auto 30px;}
+.bdu__head .hs-sub{margin-top:14px;}
+.bdu__grid{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;width:100%;margin:0 auto;}
+.bdu__media img{width:100%;border-radius:var(--radius);aspect-ratio:16/11;max-height:300px;object-fit:cover;background:var(--white);}
+.bdu__list{list-style:none;}
+.bdu__list li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;
+  border-bottom:1px solid rgba(16,40,28,.15);}
+.bdu__list li:first-child{padding-top:0;}
+.bdu__list span{font-size:14px;line-height:1.25;font-weight:600;color:var(--ink);}
+.bdu__cta{margin-top:30px;text-align:center;}
+.bdu__proof{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:15px;
+  font-size:14.5px;color:var(--muted);}
+@media (min-width:900px){
+  .bdu__head{margin-bottom:52px;}
+  .bdu__grid{grid-template-columns:1fr 1fr;gap:64px;}
+  .bdu__media img{aspect-ratio:1/1;max-height:none;}
+  .bdu__list li{padding:12px 0;gap:10px;}
+  .bdu__list span{font-size:15.5px;line-height:1.25;}
+  .bdu__cta{text-align:left;}
+}
+/* --- Key Nutrients (dark card rail) --- */
+.kn{background-color:#18382A;color:var(--tint);
+  background-image:radial-gradient(rgba(245,231,212,.05) 1px,transparent 1px),radial-gradient(rgba(245,231,212,.035) 1px,transparent 1px);
+  background-size:24px 24px,40px 40px;background-position:0 0,12px 20px;}
+.kn__head{text-align:center;max-width:820px;margin:0 auto 32px;}
+.kn__head .hs-h{color:var(--tint);}
+.kn__head p{font-size:18px;line-height:1.4;color:var(--tint);margin-top:14px;}
+.kn__rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:2px 22px 4px;margin:0 -22px;}
+.kn__rail::-webkit-scrollbar{display:none;}
+.kn__card{scroll-snap-align:center;flex:0 0 82%;max-width:340px;background:#2A2019;
+  border-radius:12px;padding:26px 20px 28px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:11px;}
+.kn__pic{width:132px;height:132px;border-radius:50%;object-fit:cover;background:#241C16;margin-bottom:4px;}
+.kn__name{font-family:var(--font-head);font-weight:500;letter-spacing:normal;font-size:24px;line-height:1.1;color:#5C9470;}
+.kn__dose{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(245,231,212,.62);}
+.kn__card p{font-size:18px;line-height:1.4;color:var(--tint);}
+.kn__dots{display:flex;justify-content:center;gap:2px;margin-top:20px;}
+/* 26px hit area (WCAG 2.5.8) with a 9px visual dot drawn inside it. */
+.kn__dot{width:26px;height:26px;border-radius:50%;background:none;border:0;padding:0;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.kn__dot::before{content:"";width:9px;height:9px;border-radius:50%;
+  background:rgba(245,231,212,.3);transition:background .18s ease,transform .18s ease;}
+.kn__dot.on::before{background:#5C9470;transform:scale(1.15);}
+.kn__dot:focus-visible{outline:2px solid #5C9470;outline-offset:1px;}
+@media (min-width:900px){
+  .kn__head{margin-bottom:46px;}
+  .kn__head p{font-size:24px;line-height:1.4;}
+  .kn__card{flex:0 0 31%;padding:40px 24px;}
+  .kn__pic{width:150px;height:150px;}
+  .kn__name{font-size:24px;}
+  .kn__card p{font-size:20px;}
+}
+.nb__head .hs-h{color:var(--tint);text-shadow:0 2px 18px rgba(20,14,9,.55);}
+.nb__cta .hs-btn{background:var(--tint);color:var(--ink);box-shadow:0 5px 0 #B9CCC0, 0 8px 14px rgba(20,14,10,.34);}
+.nb__cta .hs-btn:hover{background:#EAF3EC;}
+/* --- Results felt by (Alevia structure: photo card, stats left, image right) --- */
+.rsf{background:var(--bg);}
+.rsf__card{position:relative;max-width:var(--wrap);margin:0 auto;border-radius:var(--radius);overflow:hidden;
+  background:var(--dark);color:var(--tint);}
+.rsf__bg{position:absolute;inset:-4%;z-index:0;background-size:cover;background-position:center;
+  transform-origin:center;animation:rsfDrift 34s ease-in-out infinite alternate;}
+@keyframes rsfDrift{from{transform:scale(1) translate3d(0,0,0);}to{transform:scale(1.09) translate3d(-1.5%,-1%,0);}}
+/* the wash has to stay light enough that the photograph still reads through it */
+.rsf__card::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(16,40,28,.78) 0%,rgba(16,40,28,.62) 45%,rgba(16,40,28,.80) 100%);}
+.rsf__in{position:relative;z-index:2;}
+.rsf__h,.rsf__d,.rsf__t,.rsf__b{text-shadow:0 1px 12px rgba(20,14,10,.55);}
+@media (prefers-reduced-motion:reduce){ .rsf__bg{animation:none;} }
+.rsf__in{display:flex;flex-direction:column;gap:20px;padding:34px 22px 32px;}
+.rsf__head{min-width:0;}
+.rsf__info{flex:1;min-width:0;}
+.rsf__h{font-family:var(--font-head);font-weight:500;
+  font-size:clamp(27px,6.6vw,38px);letter-spacing:normal;line-height:1.14;color:var(--tint);margin:0 0 8px;}
+.rsf__d{font-size:16px;line-height:1.3;color:rgba(245,231,212,.88);}
+.rsf__stats{display:grid;grid-template-columns:1fr;gap:18px;margin-top:0;}
+.rsf__item{}
+.rsf__pct{display:block;font-family:var(--font-head);font-weight:500;font-size:49px;line-height:1;
+  color:var(--gold);margin-bottom:8px;}
+.rsf__t{display:block;font-size:19px;line-height:1.3;font-weight:600;color:var(--tint);margin-bottom:6px;}
+.rsf__b{font-size:16px;line-height:1.3;color:rgba(245,231,212,.82);}
+@media (min-width:900px){
+  .rsf__in{display:grid;grid-template-columns:0.92fr 1.08fr;
+    grid-template-areas:"head stats";align-items:center;gap:26px 44px;padding:56px 50px 50px;}
+  .rsf__head{grid-area:head;}
+  .rsf__stats{grid-area:stats;grid-template-columns:1fr;gap:20px;margin-top:0;}
+  .rsf__head{align-self:center;}
+  .rsf__d{font-size:18px;}
+  .rsf__t{font-size:21px;}
+  .rsf__b{font-size:17px;}
+}
+.tr__body .hs-h{margin-bottom:16px;}
+.bdu,.kn,.tr{position:relative;overflow:hidden;}
+.bdu>.wrap,.kn>.wrap,.tr>.wrap{position:relative;z-index:1;}
+@media (max-width:640px){
+  /* section rhythm */
+  .hs-sec{padding:32px 0;}
+  .hs-h{font-size:clamp(26px,6.4vw,32px);letter-spacing:-.02em;}
+  .hs-sub{font-size:16.5px;line-height:1.3;}
+  .bdu__head,.kn__head,.stg__head,.fbc__head,.rs__head{margin-bottom:18px;}
+  /* cap oversized full-width imagery */
+  .bdu__media img{aspect-ratio:16/10;max-height:240px;}
+  /* key nutrients cards */
+  .kn__card{padding:22px 18px 24px;}
+  .kn__pic{width:86px;height:86px;}
+  .kn__name{font-size:20px;}
+  .kn__card p{font-size:16px;line-height:1.35;}
+  .rsf__in{padding:30px 20px 28px;gap:18px;}
+  .rsf__pct{font-size:40px;}
+  .rsf__t{font-size:17.5px;}
+  .rsf__b{font-size:15px;line-height:1.3;}
+  .rsf__stats{gap:16px;margin-top:22px;}
+}

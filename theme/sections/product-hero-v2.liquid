@@ -1,0 +1,569 @@
+{%- liquid
+  assign variant_1 = section.settings.variant_id_1 | default: '52514698887349'
+  assign variant_2 = section.settings.variant_id_2 | default: '52515952001205'
+  assign variant_3 = section.settings.variant_id_3 | default: '52579196403893'
+  assign selling_plan_1 = section.settings.selling_plan_id_1 | default: '2686976181'
+  assign selling_plan_2 = section.settings.selling_plan_id_2 | default: '2687074485'
+  assign selling_plan_3 = section.settings.selling_plan_id_3 | default: '2687107253'
+  assign gift_variant_6 = section.settings.gift_variant_6 | default: '52748083724469'
+  assign hero_product = all_products[section.settings.product]
+  assign use_product_images = false
+  if hero_product and hero_product.images.size > 0
+    assign use_product_images = true
+  endif
+  assign fb1 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoorproduct1_1highquality.png?v=1780285911&width=1100'
+  assign fb2 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/lone_star_tick_drops.png?v=1779163464&width=1100'
+  assign fb3 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoor_3_bottles_no_droppers.png?v=1780325112&width=1100'
+  assign fb4 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/pinemoor_6_bottles_lined_up.png?v=1780325063&width=1100'
+  assign btn_img_1 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260713_233510_2fd30a75-bcc7-4fe8-a2b9-d92c9085bdba.png?v=1783998610&width=240'
+  assign btn_img_2 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260708_005146_a373486f-5728-4345-bef3-e9921f2ba859.png?v=1783998646&width=240'
+  assign btn_img_3 = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260714_025548_3e90ab15-b2fa-44f2-9aff-b461f6071bc9.png?v=1783998595&width=240'
+  assign ship_icon = 'https://cdn.shopify.com/s/files/1/1009/5601/2725/files/Image_21.png?v=1783475744&width=288'
+  assign mystery_icon = 'pm-mystery-gift-box-icon-featuring-wr-1a901.webp' | asset_url
+  assign insurance_icon = 'pm-shipping-insurance-00043-175249626-01b81.webp' | asset_url
+-%}
+
+{%- comment -%}pm-lcp-preload: start the hero image download in the document head
+  scan, before CSS or fonts resolve. This is the LCP element.{%- endcomment -%}
+{%- if use_product_images -%}
+  {%- assign lcp_img = hero_product.images[0] -%}
+<link rel="preload" as="image" fetchpriority="high"
+      href="{{ lcp_img | image_url: width: 1000 }}"
+      imagesrcset="{{ lcp_img | image_url: width: 420 }} 420w, {{ lcp_img | image_url: width: 620 }} 620w, {{ lcp_img | image_url: width: 860 }} 860w, {{ lcp_img | image_url: width: 1100 }} 1100w"
+      imagesizes="(min-width:760px) 560px, 100vw">
+{%- else -%}
+<link rel="preload" as="image" fetchpriority="high"
+      href="{{ fb1 }}"
+      imagesrcset="{{ fb1 | replace: 'width=1100', 'width=420' }} 420w, {{ fb1 | replace: 'width=1100', 'width=620' }} 620w, {{ fb1 | replace: 'width=1100', 'width=860' }} 860w, {{ fb1 }} 1100w"
+      imagesizes="(min-width:760px) 560px, 100vw">
+{%- endif -%}
+
+<section class="ph" id="product-hero">
+  <div class="ph-wrap">
+
+    <!-- GALLERY -->
+    <div class="ph-gallery">
+      <div class="ph-stage" id="phStage">
+        <div class="ph-track" id="phTrack">
+          {%- if use_product_images -%}
+            {%- for img in hero_product.images limit: 8 -%}
+            <div class="ph-slide{% if forloop.first %} active{% endif %}"><img src="{{ img | image_url: width: 1000 }}" srcset="{{ img | image_url: width: 420 }} 420w, {{ img | image_url: width: 620 }} 620w, {{ img | image_url: width: 860 }} 860w, {{ img | image_url: width: 1100 }} 1100w" sizes="(min-width:760px) 560px, 100vw" decoding="async" alt="{{ img.alt | escape | default: 'Pinemoor Tick Protection Drops' }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% if forloop.first %} fetchpriority="high"{% endif %} width="{{ img.width }}" height="{{ img.height }}"></div>
+            {%- endfor -%}
+          {%- else -%}
+            <div class="ph-slide active"><img src="{{ fb1 }}" srcset="{{ fb1 | replace: 'width=1100', 'width=420' }} 420w, {{ fb1 | replace: 'width=1100', 'width=620' }} 620w, {{ fb1 | replace: 'width=1100', 'width=860' }} 860w, {{ fb1 }} 1100w" sizes="(min-width:760px) 560px, 100vw" alt="Pinemoor Tick Protection Drops bottle" loading="eager" fetchpriority="high" decoding="async" width="1100" height="1100"></div>
+            <div class="ph-slide"><img src="{{ fb2 }}" srcset="{{ fb2 | replace: 'width=1100', 'width=420' }} 420w, {{ fb2 | replace: 'width=1100', 'width=620' }} 620w, {{ fb2 | replace: 'width=1100', 'width=860' }} 860w, {{ fb2 }} 1100w" sizes="(min-width:760px) 560px, 100vw" alt="Pinemoor Organic Herbal Tick Protection Drops" loading="lazy" decoding="async" width="1100" height="1100"></div>
+            <div class="ph-slide"><img src="{{ fb3 }}" srcset="{{ fb3 | replace: 'width=1100', 'width=420' }} 420w, {{ fb3 | replace: 'width=1100', 'width=620' }} 620w, {{ fb3 | replace: 'width=1100', 'width=860' }} 860w, {{ fb3 }} 1100w" sizes="(min-width:760px) 560px, 100vw" alt="Pinemoor 3-bottle pack" loading="lazy" decoding="async" width="1100" height="1100"></div>
+            <div class="ph-slide"><img src="{{ fb4 }}" srcset="{{ fb4 | replace: 'width=1100', 'width=420' }} 420w, {{ fb4 | replace: 'width=1100', 'width=620' }} 620w, {{ fb4 | replace: 'width=1100', 'width=860' }} 860w, {{ fb4 }} 1100w" sizes="(min-width:760px) 560px, 100vw" alt="Pinemoor 6-bottle family bundle" loading="lazy" decoding="async" width="1100" height="1100"></div>
+          {%- endif -%}
+        </div>
+        <button class="ph-arrow ph-arrow--prev" onclick="phMove(-1)" aria-label="Previous image">&#8249;</button>
+        <button class="ph-arrow ph-arrow--next" onclick="phMove(1)" aria-label="Next image">&#8250;</button>
+      </div>
+      <div class="ph-thumbs" id="phThumbs">
+        {%- if use_product_images -%}
+          {%- for img in hero_product.images limit: 8 -%}
+          <button class="ph-thumb{% if forloop.first %} active{% endif %}" onclick="phGo({{ forloop.index0 }})" aria-label="View image {{ forloop.index }}"><img src="{{ img | image_url: width: 160 }}" alt="" loading="{% if forloop.index <= 4 %}eager{% else %}lazy{% endif %}" fetchpriority="low" decoding="async" width="52" height="52"></button>
+          {%- endfor -%}
+        {%- else -%}
+          <button class="ph-thumb active" onclick="phGo(0)" aria-label="Image 1"><img src="{{ fb1 | replace: 'width=1100', 'width=140' }}" alt="" loading="eager" fetchpriority="low" decoding="async" width="52" height="52"></button>
+          <button class="ph-thumb" onclick="phGo(1)" aria-label="Image 2"><img src="{{ fb2 | replace: 'width=1100', 'width=140' }}" alt="" loading="eager" fetchpriority="low" decoding="async" width="52" height="52"></button>
+          <button class="ph-thumb" onclick="phGo(2)" aria-label="Image 3"><img src="{{ fb3 | replace: 'width=1100', 'width=140' }}" alt="" loading="eager" fetchpriority="low" decoding="async" width="52" height="52"></button>
+          <button class="ph-thumb" onclick="phGo(3)" aria-label="Image 4"><img src="{{ fb4 | replace: 'width=1100', 'width=140' }}" alt="" loading="eager" fetchpriority="low" decoding="async" width="52" height="52"></button>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="ph-info">
+
+      <!-- Trustpilot-style rating (one thin line) -->
+      <div class="ph-trust" aria-label="Rated 4.8 out of 5 on Trustpilot, 1,206 reviews">
+        <span class="tp-logo"><svg class="tp-logo-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg>Trustpilot</span>
+        <span class="tp-stars" aria-hidden="true">
+          <span class="tp-sq"><svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg></span>
+          <span class="tp-sq"><svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg></span>
+          <span class="tp-sq"><svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg></span>
+          <span class="tp-sq"><svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg></span>
+          <span class="tp-sq tp-sq--p"><svg viewBox="0 0 24 24"><path d="M12 2l2.94 6.26 6.86.62-5.18 4.56 1.54 6.7L12 17.9 5.84 20.7l1.54-6.7L2.2 8.88l6.86-.62z"/></svg></span>
+        </span>
+        <span class="tp-rating">Excellent</span>
+        <span class="tp-meta"><strong>4.8</strong>&nbsp;&middot;&nbsp;1,206 reviews</span>
+      </div>
+
+      <h1 class="ph-title">Pinemoor&reg; Tick Protection Drops</h1>
+      <p class="ph-subtitle">The only tick repellent clinically proven to prevent all tick-borne diseases &mdash; including alpha-gal and Lyme.</p>
+
+      <!-- Benefit grid -->
+      <div class="ph-benefits">
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>24-Hour Tick Protection</span>
+        </div>
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          <span>Changes The Scent Ticks Hunt By</span>
+        </div>
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M9 5.5A3.5 3.5 0 0 1 15 8c0 1-.3 1.8-.8 2.5M6 12c-1 1.5-1.5 3.2-1.5 5h11"/></svg>
+          <span>No DEET, No Harsh Chemicals</span>
+        </div>
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/></svg>
+          <span>8 Drops Every Morning,<br>No Spray, No Grease</span>
+        </div>
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2"/><circle cx="9" cy="10" r=".6" fill="currentColor"/><circle cx="15" cy="10" r=".6" fill="currentColor"/></svg>
+          <span>Made With Pure Maple Syrup</span>
+        </div>
+        <div class="ph-benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5L8 22l4-2 4 2-1-7.5"/></svg>
+          <span>Lifetime Guarantee</span>
+        </div>
+      </div>
+
+      <div class="ph-divider"></div>
+
+      <!-- Dynamic price row -->
+      <div class="ph-pricerow">
+        <span class="ph-price" id="phPrice">$33.33<span class="ph-price-unit">/bottle</span></span>
+        <span class="ph-strike" id="phStrike">$44.99</span>
+        <span class="ph-sale" id="phSale">Summer Sale - Save 26%</span>
+      </div>
+
+      {%- capture buy_options -%}
+      <div class="ph-options" id="phOptions">
+
+        <label class="ph-opt" data-tier="1" data-variant="{{ variant_1 }}" data-selling-plan="{{ selling_plan_1 }}" data-sub="34.99" data-onetime="44.99" data-strike-otp="49.99" data-save-otp="10" data-save-sub="22" data-amt-otp="5" data-amt-sub="10">
+          <div class="ph-opt-row">
+            <span class="ph-opt-radio"></span>
+            <span class="ph-opt-imgs"><img class="ph-opt-img" src="{{ btn_img_1 }}" alt="Pinemoor single bottle" loading="lazy" decoding="async" width="53" height="53"></span>
+            <div class="ph-opt-main">
+              <span class="ph-opt-title">Buy One</span>
+              <span class="ph-opt-save">1 Bottle &middot; You save $5</span>
+            </div>
+            <div class="ph-opt-right">
+              <span class="ph-opt-price">$44.99<span class="ph-opt-unit">/bottle</span></span>
+              <span class="ph-opt-strike">$49.99</span>
+            </div>
+          </div>
+        </label>
+
+        <label class="ph-opt is-active" data-tier="3" data-variant="{{ variant_2 }}" data-selling-plan="{{ selling_plan_2 }}" data-sub="19.99" data-onetime="33.33" data-strike-otp="44.99" data-save-otp="26" data-save-sub="40" data-amt-otp="35" data-amt-sub="40">
+          <span class="ph-opt-badge">Free Shipping</span>
+          <div class="ph-opt-row">
+            <span class="ph-opt-radio"></span>
+            <span class="ph-opt-imgs"><img class="ph-opt-img" src="{{ btn_img_2 }}" alt="Pinemoor 3 bottles" loading="lazy" decoding="async" width="53" height="53"></span>
+            <div class="ph-opt-main">
+              <span class="ph-opt-title">Buy 2 Get 1 FREE</span>
+              <span class="ph-opt-save">3 Bottles &middot; You save $35</span>
+            </div>
+            <div class="ph-opt-right">
+              <span class="ph-opt-price">$33.33<span class="ph-opt-unit">/bottle</span></span>
+              <span class="ph-opt-strike">$44.99</span>
+            </div>
+          </div>
+          <div class="ph-opt-gifts"><div class="ph-opt-gifts-inner">
+            <div class="ph-giftline">
+              <svg class="ph-giftline-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="ph-giftline-ic"><img src="{{ ship_icon }}" alt="" loading="lazy" decoding="async" width="26" height="26"></span>
+              <div class="ph-giftline-txt">
+                <span class="ph-giftline-title">FREE Express Shipping ($9.99 Value)</span>
+                <span class="ph-giftline-sub">Fast, Tracked Delivery To Your Door</span>
+              </div>
+            </div>
+          </div></div>
+        </label>
+
+        <label class="ph-opt" data-tier="6" data-variant="{{ variant_3 }}" data-selling-plan="{{ selling_plan_3 }}" data-sub="12.99" data-onetime="21.66" data-strike-otp="44.99" data-save-otp="52" data-save-sub="40" data-amt-otp="140" data-amt-sub="52">
+          <span class="ph-opt-badge">Free $39 Mystery Gift</span>
+          <div class="ph-opt-row">
+            <span class="ph-opt-radio"></span>
+            <span class="ph-opt-imgs"><img class="ph-opt-img" src="{{ btn_img_3 }}" alt="Pinemoor family bundle, 6 bottles" loading="lazy" decoding="async" width="53" height="53"></span>
+            <div class="ph-opt-main">
+              <span class="ph-opt-title">Buy 3 Get 3 FREE</span>
+              <span class="ph-opt-save">6 Bottles &middot; You save $140</span>
+            </div>
+            <div class="ph-opt-right">
+              <span class="ph-opt-price">$21.66<span class="ph-opt-unit">/bottle</span></span>
+              <span class="ph-opt-strike">$44.99</span>
+            </div>
+          </div>
+          <div class="ph-opt-gifts"><div class="ph-opt-gifts-inner">
+            <div class="ph-giftline">
+              <svg class="ph-giftline-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="ph-giftline-ic"><img src="{{ ship_icon }}" alt="" loading="lazy" decoding="async" width="26" height="26"></span>
+              <div class="ph-giftline-txt">
+                <span class="ph-giftline-title">FREE Express Shipping ($9.99 Value)</span>
+                <span class="ph-giftline-sub">Fast, Tracked Delivery To Your Door</span>
+              </div>
+            </div>
+            <div class="ph-giftsep"><span class="ph-giftsep-line"></span>Plus Free Gifts<span class="ph-giftsep-line"></span></div>
+            <div class="ph-giftline">
+              <svg class="ph-giftline-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="ph-giftline-ic"><img class="ph-giftline-ic--zoom" src="{{ mystery_icon }}" alt="" loading="lazy" decoding="async" width="26" height="26"></span>
+              <div class="ph-giftline-txt">
+                <span class="ph-giftline-title">FREE Mystery Gift ($39.99 Value)</span>
+                <span class="ph-giftline-sub">A Surprise Pinemoor Favorite</span>
+              </div>
+            </div>
+            <div class="ph-giftline">
+              <svg class="ph-giftline-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="ph-giftline-ic"><img src="{{ insurance_icon }}" alt="" loading="lazy" decoding="async" width="26" height="26"></span>
+              <div class="ph-giftline-txt">
+                <span class="ph-giftline-title">FREE Shipping Insurance ($6.99 Value)</span>
+                <span class="ph-giftline-sub">Your Order Protected, Guaranteed</span>
+              </div>
+            </div>
+          </div></div>
+        </label>
+
+      </div>
+
+
+      {%- endcapture -%}
+
+      {%- capture buy_footer -%}
+        <div class="ph-delivery"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Order now for delivery by: <strong id="phDelivery">&mdash;</strong></div>
+        <button type="button" class="ph-atc" id="phAtc" onclick="phAddToCart()">
+          <span class="ph-atc-main">Add To Cart <span class="ph-atc-sep">|</span> <span id="phAtcPrice">$33.33/bottle</span></span>
+          <span class="ph-atc-sub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime Money-Back Guarantee</span>
+        </button>
+        <div class="ph-atc-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Lifetime Guarantee</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg> 100% Organic</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg> 3rd Party Tested</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="15.5" rx="3.5"/><line x1="15.5" y1="3" x2="15.5" y2="8"/><line x1="8.5" y1="3" x2="8.5" y2="8"/><line x1="3.5" y1="11" x2="20.5" y2="11"/><circle cx="8" cy="15" r=".7" fill="currentColor"/><circle cx="12" cy="15" r=".7" fill="currentColor"/><circle cx="16" cy="15" r=".7" fill="currentColor"/><circle cx="8" cy="18" r=".7" fill="currentColor"/><circle cx="12" cy="18" r=".7" fill="currentColor"/></svg> <span id="phFreqTxt">Monthly</span></span>
+        </div>
+
+      {%- endcapture -%}
+
+      {%- if hero_product -%}
+        {% form 'product', hero_product, id: 'pm-product-form' %}
+          <input type="hidden" name="id" id="pm-variant-input" value="{{ variant_2 }}">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="selling_plan" id="pm-selling-plan" value="">
+          {{ buy_options }}
+          {{ buy_footer }}
+        {% endform %}
+      {%- else -%}
+        {{ buy_options }}
+        {{ buy_footer }}
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ph{background:#fff;padding:14px 0 8px;}
+  .ph-wrap{max-width:560px;margin:0 auto;padding:0 16px;}
+
+  /* gallery — images fill, no off-colour border */
+  .ph-gallery{margin-bottom:13px;}
+  .ph-stage{position:relative;background:#f3f3ef;border-radius:0;overflow:hidden;margin:0 -16px;}
+  .ph-track{display:flex;}
+  .ph-slide{flex:0 0 100%;aspect-ratio:1/1;display:none;}
+  .ph-slide.active{display:block;}
+  .ph-slide img{width:100%;height:100%;object-fit:contain;}
+  /* older Safari has no aspect-ratio — reserve the square by hand so the
+     gallery never collapses and reflows the page once the image lands */
+  @supports not (aspect-ratio: 1 / 1){
+    .ph-slide{position:relative;padding-top:100%;}
+    .ph-slide img{position:absolute;top:0;left:0;}
+  }
+  /* fade is only armed by JS (.ph-fade) — with JS off the images just show */
+  .ph-stage.ph-fade .ph-slide img{opacity:0;transition:opacity .25s ease;}
+  .ph-stage.ph-fade .ph-slide img.pm-in{opacity:1;}
+  .ph-thumb img{transition:opacity .2s ease;}
+  .ph-arrow{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;
+    background:rgba(255,255,255,.85);color:var(--green-deep);font-size:20px;line-height:1;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:2;}
+  .ph-arrow--prev{left:8px;}.ph-arrow--next{right:8px;}
+  .ph-thumbs{display:flex;gap:7px;margin-top:9px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;}
+  .ph-thumbs::-webkit-scrollbar{display:none;}
+  .ph-thumb{flex:0 0 52px;width:52px;height:52px;border-radius:7px;overflow:hidden;background:#fff;border:1.5px solid var(--line);}
+  .ph-thumb img{width:100%;height:100%;object-fit:contain;}
+  .ph-thumb.active{border-color:var(--green-bright);}
+
+  /* trustpilot-style rating (one thin line) */
+  .ph-trust{display:flex;align-items:center;gap:7px;margin-bottom:12px;flex-wrap:nowrap;white-space:nowrap;}
+  .ph-trust .tp-logo{display:inline-flex;align-items:center;gap:3px;font-family:var(--font-body);font-weight:700;font-size:13px;color:#191919;}
+  .ph-trust .tp-logo-star{width:15px;height:15px;fill:#00b67a;}
+  .ph-trust .tp-stars{display:inline-flex;gap:2px;}
+  .ph-trust .tp-sq{width:16px;height:16px;background:#00b67a;display:inline-flex;align-items:center;justify-content:center;}
+  .ph-trust .tp-sq svg{width:12px;height:12px;fill:#fff;}
+  .ph-trust .tp-sq--p{background:linear-gradient(90deg,#00b67a 80%,#dcdce6 80%);}
+  .ph-trust .tp-rating{font-family:var(--font-body);font-weight:700;font-size:12.5px;color:#191919;}
+  .ph-trust .tp-meta{font-family:var(--font-body);font-size:12.5px;color:#191919;}
+  .ph-trust .tp-meta strong{font-weight:700;}
+
+  /* title */
+  .ph-title{font-family:var(--font-head);font-weight:500;font-size:22px;line-height:1.2;color:#000;letter-spacing:normal;margin-bottom:8px;}
+  .ph-subtitle{font-family:var(--font-body);font-size:15.5px;font-weight:400;color:#111;line-height:1.5;margin-bottom:15px;}
+
+  /* benefits */
+  .ph-benefits{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px;margin-bottom:15px;}
+  .ph-benefit{display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13.5px;font-weight:500;color:#000;line-height:1.2;}
+  .ph-benefit svg{flex:none;width:19px;height:19px;color:var(--green-bright);}
+
+  .ph-divider{height:1px;background:var(--line);margin:2px 0 14px;}
+
+  /* price row */
+  .ph-pricerow{display:flex;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap;}
+  .ph-price{font-family:var(--font-body);font-weight:700;font-size:16px;color:var(--green-bright);}
+  .ph-price-unit{font-size:13px;font-weight:500;color:var(--green-bright);}
+  .ph-strike{font-family:var(--font-body);font-size:16px;color:var(--muted-2);text-decoration:line-through;}
+  .ph-sale{font-family:var(--font-body);background:var(--green-bright);color:#fff;font-weight:700;font-size:12.5px;padding:5px 10px;border-radius:5px;}
+
+  /* buy options — original card formatting with radio selection */
+  .ph-options{display:flex;flex-direction:column;gap:12px;margin-bottom:15px;}
+  .ph-opt{position:relative;display:flex;flex-direction:column;align-items:stretch;background:#fff;border:1.4px solid var(--line);
+    border-radius:10px;padding:13px 14px;cursor:pointer;transition:border-color .15s,background .15s;}
+  .ph-opt-row{display:flex;align-items:center;gap:12px;}
+  .ph-opt:hover{border-color:#bcd0c4;}
+  .ph-opt.is-active{border-color:var(--green-bright);background:rgba(0,147,112,0.08);}
+  .ph-opt-radio{flex:none;width:20px;height:20px;border-radius:50%;border:1.6px solid #c2c9ba;display:flex;align-items:center;justify-content:center;}
+  .ph-opt.is-active .ph-opt-radio{border-color:var(--green-bright);}
+  .ph-opt-radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--green-bright);transform:scale(0);transition:transform .15s;}
+  .ph-opt.is-active .ph-opt-radio::after{transform:scale(1);}
+  .ph-opt-imgs{flex:none;display:flex;align-items:center;}
+  .ph-opt-img{flex:none;width:53px;height:53px;object-fit:contain;background:transparent;mix-blend-mode:multiply;}
+  .ph-opt-main{flex:1;min-width:0;}
+  .ph-opt-title{display:block;font-family:var(--font-body);font-weight:600;font-size:14.5px;color:#000;line-height:1.15;white-space:nowrap;}
+  .ph-opt-save{display:block;font-family:var(--font-body);font-size:13.5px;font-weight:400;color:var(--muted);margin-top:2px;white-space:nowrap;}
+  .ph-opt-right{flex:none;text-align:right;display:flex;flex-direction:column;align-items:flex-end;}
+  .ph-opt-price{font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--green);line-height:1.1;}
+  .ph-opt-unit{font-size:11.5px;font-weight:500;color:var(--muted);}
+  .ph-opt-strike{font-family:var(--font-body);font-size:13px;color:var(--muted-2);text-decoration:line-through;margin-top:2px;}
+  .ph-opt-badge{position:absolute;top:0;right:13px;transform:translateY(-50%);font-family:var(--font-body);font-weight:600;
+    font-size:10.5px;letter-spacing:.01em;color:#fff;background:var(--green-deep);padding:2px 10px;border-radius:11px;z-index:2;white-space:nowrap;}
+
+  /* gift dropdown inside selected card (Resilia style) */
+  .ph-opt-gifts{max-height:0;overflow:hidden;transition:max-height .3s ease,margin-top .3s ease;}
+  .ph-opt.is-active .ph-opt-gifts{max-height:260px;margin-top:11px;}
+  .ph-opt-gifts-inner{border-top:1px solid rgba(9,89,70,.28);padding-top:11px;display:flex;flex-direction:column;gap:9px;}
+  .ph-giftline{display:flex;align-items:flex-start;gap:8px;}
+  .ph-giftline-check{flex:none;width:16px;height:16px;color:var(--green-bright);margin-top:1px;}
+  .ph-giftline-ic{flex:none;width:26px;height:26px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:-1px;}
+  .ph-giftline-ic img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;}
+  .ph-giftline-ic img.ph-giftline-ic--zoom{transform:scale(1.3);}
+  .ph-giftline-txt{min-width:0;display:flex;flex-direction:column;gap:2px;}
+  .ph-giftline-title{font-family:var(--font-body);font-weight:700;font-size:13px;color:#000;line-height:1.25;}
+  .ph-giftline-sub{font-family:var(--font-body);font-weight:400;font-size:12px;color:#5c5c5c;line-height:1.25;}
+  .ph-giftsep{display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-weight:600;font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin:1px 0;}
+  .ph-giftsep-line{flex:1;height:1px;background:rgba(9,89,70,.28);}
+
+  /* subscribe & save toggle */
+  .ph-subtog{display:flex;align-items:flex-start;gap:11px;background:#fff;border:1.4px dashed var(--green-bright);
+    border-radius:10px;padding:12px 14px;cursor:pointer;margin:-3px 0 15px;transition:background .15s,border-color .15s;}
+  .ph-subtog:hover{background:rgba(0,147,112,0.04);}
+  .ph-subtog input{position:absolute;opacity:0;pointer-events:none;}
+  .ph-subtog-box{flex:none;width:21px;height:21px;border-radius:5px;border:1.6px solid #c2c9ba;background:#fff;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .15s,border-color .15s;}
+  .ph-subtog-box svg{width:13px;height:13px;color:#fff;opacity:0;transform:scale(.5);transition:opacity .15s,transform .15s;}
+  .ph-subtog.is-on{border-style:solid;background:rgba(0,147,112,0.08);}
+  .ph-subtog.is-on .ph-subtog-box{background:var(--green-bright);border-color:var(--green-bright);}
+  .ph-subtog.is-on .ph-subtog-box svg{opacity:1;transform:scale(1);}
+  .ph-subtog-txt{min-width:0;display:flex;flex-direction:column;gap:2px;}
+  .ph-subtog-title{font-family:var(--font-body);font-weight:700;font-size:14px;color:#000;line-height:1.2;}
+  .ph-subtog-pct{color:var(--green-bright);}
+  .ph-subtog-sub{font-family:var(--font-body);font-weight:400;font-size:12px;color:#5c5c5c;line-height:1.3;}
+
+  /* delivery */
+  .ph-delivery{display:flex;align-items:center;justify-content:center;gap:7px;background:#eaf6ec;color:var(--green-deep);
+    font-family:var(--font-body);font-size:13px;padding:10px;border-radius:6px;margin:16px 0 12px;}
+  .ph-delivery svg{flex:none;color:var(--green-bright);}
+  .ph-delivery strong{font-weight:700;}
+
+  /* atc — 3D button (heritage style) */
+  .ph-atc{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:100%;background:var(--green-bar);color:#fff;
+    border-radius:8px;padding:20px 18px;margin-bottom:10px;box-shadow:0 5px 0 #0b1c12, 0 8px 14px rgba(11,28,18,.34);transition:transform .12s ease, background .2s;}
+  .ph-atc:hover{background:#234836;}
+  .ph-atc:active{transform:translateY(4px);box-shadow:0 1px 0 #0b1c12, 0 2px 6px rgba(11,28,18,.3);}
+  .ph-atc-main{font-family:var(--font-head);font-weight:500;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px;}
+  .ph-atc-sep{opacity:.5;font-weight:400;}
+  .ph-atc-sub{display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font-body);font-weight:400;font-size:12px;opacity:.92;}
+  .ph-atc-sub svg{flex:none;width:14px;height:14px;}
+  .ph-atc-trust{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:8px;margin-top:7px;margin-bottom:12px;font-family:var(--font-body);font-size:10px;font-weight:400;color:#111;white-space:nowrap;}
+
+  .ph-atc-trust span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+  .ph-atc-trust svg{flex:none;width:14px;height:14px;color:#111;}
+
+  @media (min-width:760px){
+    .ph-wrap{max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:14px 24px;}
+    .ph-gallery{position:sticky;top:20px;}
+    .ph-stage{margin:0;border-radius:10px;}
+    .ph-title{font-size:27px;}
+  }
+</style>
+
+<script>
+(function(){
+  /* ---------- gallery ---------- */
+  var slides=[].slice.call(document.querySelectorAll('#phTrack .ph-slide'));
+  var thumbs=[].slice.call(document.querySelectorAll('#phThumbs .ph-thumb'));
+  var cur=0;
+  var stage=document.getElementById('phStage');
+  var thumbRail=document.getElementById('phThumbs');
+
+  /* Slide 1 is the LCP and loads eager; the rest are lazy so they never
+     compete with it. Hidden lazy images are never fetched by the browser, so
+     without help the second slide would be blank on the first swipe. Two
+     things fix that: neighbours are promoted the moment you move, and the
+     whole strip is promoted once the page has finished loading. */
+  function phEager(im){
+    if(!im)return;
+    if(im.getAttribute('loading')==='lazy'){im.setAttribute('loading','eager');try{im.loading='eager';}catch(e){}}
+  }
+  function phPrime(i){
+    if(!slides.length)return;
+    var sl=slides[((i%slides.length)+slides.length)%slides.length];
+    if(sl)phEager(sl.querySelector('img'));
+  }
+  function phWarmAll(){
+    slides.forEach(function(sl){phEager(sl.querySelector('img'));});
+    if(thumbRail)[].slice.call(thumbRail.querySelectorAll('img')).forEach(phEager);
+  }
+  if(document.readyState==='complete'){setTimeout(phWarmAll,200);}
+  else{window.addEventListener('load',function(){setTimeout(phWarmAll,200);});}
+
+  /* Cross-fade each frame in as it decodes instead of letting it snap in. */
+  if(stage){
+    stage.classList.add('ph-fade');
+    slides.forEach(function(sl){
+      var im=sl.querySelector('img'); if(!im)return;
+      if(im.complete&&im.naturalWidth>0){im.classList.add('pm-in');return;}
+      var show=function(){im.classList.add('pm-in');};
+      im.addEventListener('load',show,{once:true});
+      im.addEventListener('error',show,{once:true});
+    });
+    /* belt and braces: never leave a frame invisible */
+    setTimeout(function(){slides.forEach(function(sl){var im=sl.querySelector('img');if(im)im.classList.add('pm-in');});},3000);
+  }
+
+  /* Scroll the thumb rail itself rather than scrollIntoView, which can drag
+     the whole page around on iOS. */
+  function phCenterThumb(el){
+    if(!thumbRail||!el)return;
+    var target=el.offsetLeft-(thumbRail.clientWidth-el.offsetWidth)/2;
+    var max=thumbRail.scrollWidth-thumbRail.clientWidth;
+    target=Math.max(0,Math.min(target,max));
+    if(thumbRail.scrollTo)thumbRail.scrollTo({left:target,behavior:'smooth'});
+    else thumbRail.scrollLeft=target;
+  }
+
+  window.phGo=function(n){
+    if(!slides.length)return;
+    slides[cur].classList.remove('active'); if(thumbs[cur])thumbs[cur].classList.remove('active');
+    cur=((n%slides.length)+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    if(thumbs[cur]){thumbs[cur].classList.add('active');phCenterThumb(thumbs[cur]);}
+    phPrime(cur+1);phPrime(cur-1);
+  };
+  window.phMove=function(d){phGo(cur+d);};
+  phPrime(1);phPrime(-1);
+
+  if(stage){var sx=0;
+    stage.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)phMove(dx<0?1:-1);},{passive:true});
+  }
+
+  /* ---------- delivery date (+5 days) ---------- */
+  (function(){
+    var d=new Date();d.setDate(d.getDate()+5);
+    var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var day=d.getDate();
+    var suf=(day%10===1&&day!==11)?'st':(day%10===2&&day!==12)?'nd':(day%10===3&&day!==13)?'rd':'th';
+    var el=document.getElementById('phDelivery'); if(el) el.textContent=months[d.getMonth()]+' '+day+suf;
+  })();
+
+  /* ---------- bundle + subscribe & save toggle pricing ---------- */
+  /* Unchecked (default) = one-time purchase. Checked = subscription. */
+  var SUB_ON=true;   /* subscription-only page: no opt-out */
+  var opts=[].slice.call(document.querySelectorAll('.ph-opt'));
+  var subTog=document.getElementById('phSubTog');
+  var subCheck=document.getElementById('phSubCheck');
+
+  function fmt(n){return '$'+Number(n).toFixed(2);}
+
+  function renderOpt(o){
+    var sub=parseFloat(o.getAttribute('data-sub'));
+    var one=parseFloat(o.getAttribute('data-onetime'));
+    var main=SUB_ON?sub:one;
+    var strike=SUB_ON?one:parseFloat(o.getAttribute('data-strike-otp')||one);
+    var priceEl=o.querySelector('.ph-opt-price');
+    if(priceEl)priceEl.innerHTML=fmt(main)+'<span class="ph-opt-unit">/bottle</span>';
+    var strikeEl=o.querySelector('.ph-opt-strike');
+    if(strikeEl){strikeEl.textContent=fmt(strike);strikeEl.style.display='block';}
+    var amt=SUB_ON?o.getAttribute('data-amt-sub'):o.getAttribute('data-amt-otp');
+    var tier=o.getAttribute('data-tier');
+    var saveEl=o.querySelector('.ph-opt-save');
+    if(saveEl&&amt&&tier)saveEl.innerHTML=(tier==='1'?'1 Bottle':tier+' Bottles')+' &middot; You save $'+amt;
+  }
+
+  function renderSelected(){
+    var sel=document.querySelector('.ph-opt.is-active'); if(!sel)return;
+    var sub=parseFloat(sel.getAttribute('data-sub'));
+    var one=parseFloat(sel.getAttribute('data-onetime'));
+    var main=SUB_ON?sub:one;
+    var strikeVal=SUB_ON?one:parseFloat(sel.getAttribute('data-strike-otp')||one);
+    var pr=document.getElementById('phPrice'); if(pr)pr.innerHTML=fmt(main)+'<span class="ph-price-unit">/bottle</span>';
+    var strike=document.getElementById('phStrike'); if(strike){strike.textContent=fmt(strikeVal);strike.style.display='inline';}
+    var atc=document.getElementById('phAtcPrice'); if(atc)atc.textContent=fmt(main)+'/bottle';
+    var saveVal=SUB_ON?sel.getAttribute('data-save-sub'):sel.getAttribute('data-save-otp');
+    var sale=document.getElementById('phSale'); if(sale&&saveVal)sale.textContent='Summer Sale - Save '+saveVal+'%';
+    var freq=document.getElementById('phFreqTxt'); if(freq)freq.textContent='Monthly';
+    var vinput=document.getElementById('pm-variant-input'); if(vinput)vinput.value=sel.getAttribute('data-variant');
+    var spInput=document.getElementById('pm-selling-plan'); if(spInput)spInput.value=SUB_ON?(sel.getAttribute('data-selling-plan')||''):'';
+  }
+
+  function renderAll(){opts.forEach(renderOpt);renderSelected();}
+
+  function selectOpt(o){
+    opts.forEach(function(x){x.classList.remove('is-active');});
+    o.classList.add('is-active');
+    renderAll();
+  }
+  opts.forEach(function(o){o.addEventListener('click',function(e){e.preventDefault();selectOpt(o);});});
+
+  if(subCheck){
+    subCheck.checked=false;
+    subCheck.addEventListener('change',function(){
+      SUB_ON=subCheck.checked;
+      if(subTog)subTog.classList.toggle('is-on',SUB_ON);
+      renderAll();
+    });
+  }
+
+  if(!document.querySelector('.ph-opt.is-active')&&opts.length)opts[0].classList.add('is-active');
+  renderAll();
+
+  /* only the main bundle product is added to cart — gifts are display-only */
+  window.phAddToCart=function(){
+    var sel=document.querySelector('.ph-opt.is-active'); if(!sel)return;
+    var vid=sel.getAttribute('data-variant');
+    if(!vid||vid.indexOf('REPLACE')!==-1){alert('Set your Shopify variant IDs in the section settings before going live.');return;}
+    var sp=SUB_ON?(sel.getAttribute('data-selling-plan')||''):'';
+    /* subscription checked but no plan configured: never fall through silently */
+    if(SUB_ON&&!sp){alert('This bundle is missing its Selling Plan ID. Add it in the Product Hero section settings.');return;}
+    addToCart(parseInt(vid),1,document.getElementById('phAtc'),sp);
+  };
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Product Hero V2",
+  "settings": [
+    {"type":"product","id":"product","label":"Product (gallery images + checkout)"},
+    {"type":"text","id":"variant_id_1","label":"Variant ID — Buy One","default":"52514698887349"},
+    {"type":"text","id":"variant_id_2","label":"Variant ID — Buy Three","default":"52515952001205"},
+    {"type":"text","id":"variant_id_3","label":"Variant ID — Family Bundle","default":"52579196403893"},
+    {"type":"text","id":"selling_plan_id_1","label":"Selling Plan ID — Buy One","default":"2686976181"},
+    {"type":"text","id":"selling_plan_id_2","label":"Selling Plan ID — Buy Three","default":"2687074485"},
+    {"type":"text","id":"selling_plan_id_3","label":"Selling Plan ID — Family Bundle","default":"2687107253"},
+    {"type":"text","id":"gift_variant_6","label":"Free Gift Variant ID — 6 Bottle (Pinemoor For Dogs)","default":"52748083724469"}
+  ]
+}
+{% endschema %}

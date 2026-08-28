@@ -1,0 +1,85 @@
+{%- comment -%}
+  Deep-green footer: wordmark, hairline, Menu + Policies columns, newsletter
+  block with pill input + white Submit button, address block, hairline,
+  FDA/testimonial disclaimers, copyright.
+{%- endcomment -%}
+
+<footer class="lft">
+  <div class="v3-wrap">
+    <a class="lft-logo" href="/">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L5 12h3.2L4.6 18h5.9V22h3v-4h5.9l-3.6-6H19L12 2z"/></svg>
+      PINEMOOR
+    </a>
+    <div class="lft-hr"></div>
+    <div class="lft-cols">
+      <div class="lft-col">
+        <h3>Menu</h3>
+        <a href="/pages/contact">Track Order</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="/#the-six-herbs">The Six Herbs</a>
+      </div>
+      <div class="lft-col">
+        <h3>Policies</h3>
+        <a href="/policies/refund-policy">Refund Policy</a>
+        <a href="/policies/shipping-policy">Shipping Policy</a>
+        <a href="/policies/privacy-policy">Privacy Policy</a>
+        <a href="/policies/terms-of-service">Terms of Service</a>
+        <a href="/policies/subscription-policy">Cancellation Policy</a>
+      </div>
+    </div>
+
+    <h3 class="lft-newsh">Let&rsquo;s Stay Connected</h3>
+    <p class="lft-newsp">Get ahead of tick season &mdash; seasonal tick alerts, early restock access, and special savings.</p>
+    {% form 'customer', class: 'lft-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="lft-inputwrap">
+        <input type="email" name="contact[email]" placeholder="Your Email" required aria-label="Email">
+        <button type="submit">Submit</button>
+      </div>
+    {% endform %}
+
+    <address class="lft-addr">
+      Pinemoor<br>
+      United States
+    </address>
+
+    <div class="lft-hr"></div>
+    <div class="lft-legal">
+      <p>* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p>
+      <p>-</p>
+      <p>* Individual results may vary. Testimonials and reviews reflect individual experiences and are not guaranteed outcomes. Tick exposure cannot be eliminated entirely; always perform tick checks after time outdoors.</p>
+      <p>-</p>
+      <p>Consult your healthcare provider before starting any supplement regimen, especially if you are pregnant, nursing, taking medication, or have a medical condition.</p>
+    </div>
+    <p class="lft-copy">&copy; {{ 'now' | date: '%Y' }} Pinemoor | All Rights Reserved</p>
+  </div>
+</footer>
+
+<style>
+  .lft{background:var(--v3-forest-2);color:#fff;padding:34px 0 90px;position:relative;overflow:hidden;}
+  .lft::before{content:"";position:absolute;right:-70px;bottom:-40px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(95,255,185,.06),transparent 70%);}
+  .lft-logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--v3-head);font-weight:700;
+    font-size:20px;letter-spacing:.2em;color:#fff;margin-bottom:20px;}
+  .lft-logo svg{width:24px;height:24px;color:var(--v3-mint);}
+  .lft-hr{height:1px;background:rgba(255,255,255,.25);margin:0 0 24px;}
+  .lft-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
+  .lft-col h3{font-family:var(--v3-head);font-weight:600;font-size:19px;margin-bottom:14px;}
+  .lft-col a{display:block;font-size:14px;color:rgba(255,255,255,.9);margin-bottom:13px;}
+  .lft-newsh{font-family:var(--v3-head);font-weight:600;font-size:19px;margin-bottom:10px;}
+  .lft-newsp{font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.5;margin-bottom:14px;}
+  .lft-inputwrap{display:flex;align-items:center;background:transparent;border:1.4px solid rgba(255,255,255,.7);
+    border-radius:10px;padding:5px 5px 5px 14px;margin-bottom:22px;}
+  .lft-inputwrap input{flex:1;min-width:0;background:none;border:none;outline:none;color:#fff;font-size:13.5px;
+    font-family:inherit;}
+  .lft-inputwrap input::placeholder{color:rgba(255,255,255,.55);}
+  .lft-inputwrap button{flex:none;background:#fff;color:var(--v3-ink);border-radius:8px;padding:10px 22px;
+    font-size:13.5px;font-weight:600;}
+  .lft-addr{font-style:normal;font-size:14px;line-height:1.5;color:rgba(255,255,255,.92);margin-bottom:24px;}
+  .lft-legal p{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.8);margin-bottom:4px;}
+  .lft-copy{font-size:12.5px;color:rgba(255,255,255,.85);margin-top:20px;}
+</style>
+
+{% schema %}
+{ "name": "LP Footer", "settings": [] }
+{% endschema %}

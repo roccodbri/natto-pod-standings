@@ -1,0 +1,73 @@
+{%- comment -%}
+  Closing buy section: centered heading + subline, the same three offer cards
+  as the hero (kept in sync through the shared lhr-opt classes/JS hooks),
+  ready-to-ship line, ATC, and the two-part trust line.
+{%- endcomment -%}
+
+<section class="lsu" id="lp-stockup">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 lsu-h">Stock up. Save more</h2>
+    <p class="lsu-sub">Your season matters &mdash; the daily ritual your family, your dogs, and your tick checks have been waiting for.</p>
+
+    <div class="lhr-offers" id="lsuOffers">
+      <label class="lhr-opt" data-variant="{{ section.settings.variant_id_1 | default: '52810262577333' }}" data-total="44.99" data-strike="49.99">
+        <img class="lhr-opt-img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260713_233510_2fd30a75-bcc7-4fe8-a2b9-d92c9085bdba.png?v=1783998610&width=240" alt="Pinemoor single bottle" loading="lazy" decoding="async" width="52" height="52">
+        <div class="lhr-opt-main"><b>Buy One</b><i>$44.99 per Bottle</i></div>
+        <div class="lhr-opt-right"><b>$44.99</b><s>$49.99</s></div>
+      </label>
+      <label class="lhr-opt is-active" data-variant="{{ section.settings.variant_id_2 | default: '52810262610101' }}" data-total="99.99" data-strike="134.97">
+        <span class="lhr-opt-badge">Most Popular</span>
+        <img class="lhr-opt-img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260708_005146_a373486f-5728-4345-bef3-e9921f2ba859.png?v=1783998646&width=240" alt="Pinemoor 3 bottles" loading="lazy" decoding="async" width="52" height="52">
+        <div class="lhr-opt-main"><b>Buy 2, Get 1 FREE</b><i>$33.33 per Bottle</i></div>
+        <div class="lhr-opt-right"><b>$99.99</b><s>$134.97</s></div>
+      </label>
+      <label class="lhr-opt" data-variant="{{ section.settings.variant_id_3 | default: '52810262642869' }}" data-total="129.99" data-strike="269.94">
+        <span class="lhr-opt-badge">Free Shipping</span>
+        <img class="lhr-opt-img" src="https://cdn.shopify.com/s/files/1/1009/5601/2725/files/hf_20260714_025548_3e90ab15-b2fa-44f2-9aff-b461f6071bc9.png?v=1783998595&width=240" alt="Pinemoor 6 bottle bundle" loading="lazy" decoding="async" width="52" height="52">
+        <div class="lhr-opt-main"><b>Buy 3, Get 3 FREE</b><i>$21.66 per Bottle</i></div>
+        <div class="lhr-opt-right"><b>$129.99</b><s>$269.94</s></div>
+      </label>
+    </div>
+
+    <div class="lhr-ship"><span class="lhr-ship-dot"></span> Ready to ship - arrives by <u data-lhr-date>&mdash;</u></div>
+    <button type="button" class="v3-atc" onclick="lsuAtc()">
+      <span class="v3-atc-main">Add To Cart</span>
+      <span class="v3-atc-sub"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.5 15.5l-3.8-3.8 1.4-1.4 2.4 2.4 5.4-5.4 1.4 1.4-6.8 6.8z"/></svg> Lifetime Money-Back Guarantee</span>
+    </button>
+    <div class="lhr-refill lsu-refill">
+      <span>Ships Free From The USA</span><em>|</em><span>Lifetime Guarantee</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lsu{background:#fff;padding:30px 0 34px;}
+  .lsu-h{text-align:center;margin-bottom:10px;}
+  .lsu-sub{text-align:center;font-size:13.5px;line-height:1.5;color:var(--v3-ink);margin-bottom:22px;}
+  .lsu-refill{margin-bottom:0;}
+</style>
+
+<script>
+(function(){
+  var opts=[].slice.call(document.querySelectorAll('#lsuOffers .lhr-opt'));
+  opts.forEach(function(o){o.addEventListener('click',function(e){e.preventDefault();
+    opts.forEach(function(x){x.classList.remove('is-active');});o.classList.add('is-active');});});
+  window.lsuAtc=function(){
+    var sel=document.querySelector('#lsuOffers .lhr-opt.is-active'); if(!sel)return;
+    var vid=sel.getAttribute('data-variant');
+    if(!vid||vid.indexOf('REPLACE')!==-1){alert('Set your Shopify variant IDs in the section settings before going live.');return;}
+    addToCart(parseInt(vid),1,null,'');
+  };
+})();
+</script>
+
+{% schema %}
+{
+  "name": "LP Stock Up CTA",
+  "settings": [
+    {"type":"text","id":"variant_id_1","label":"Variant ID — Buy One","default":"52810262577333"},
+    {"type":"text","id":"variant_id_2","label":"Variant ID — Buy 2 Get 1 Free","default":"52810262610101"},
+    {"type":"text","id":"variant_id_3","label":"Variant ID — Buy 3 Get 3 Free","default":"52810262642869"}
+  ]
+}
+{% endschema %}

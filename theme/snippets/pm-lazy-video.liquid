@@ -1,0 +1,22 @@
+{%- comment -%}
+  Defers every [data-pm-video] element until it is about to enter the
+  viewport, then swaps data-src -> src and plays. Videos ship with
+  preload="none" + a poster, so nothing downloads on initial page load.
+  Falls back to loading immediately if IntersectionObserver is missing.
+{%- endcomment -%}
+<script>
+(function(){
+  var v=document.querySelectorAll('video[data-pm-video]');
+  if(!v.length)return;
+  function load(el){
+    if(el.dataset.pmLoaded)return; el.dataset.pmLoaded='1';
+    el.src=el.dataset.src; el.load();
+    var p=el.play(); if(p&&p.catch)p.catch(function(){});
+  }
+  if(!('IntersectionObserver'in window)){[].forEach.call(v,load);return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } });
+  },{rootMargin:'300px 0px'});
+  [].forEach.call(v,function(el){io.observe(el);});
+})();
+</script>

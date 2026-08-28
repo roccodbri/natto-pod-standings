@@ -1,0 +1,65 @@
+{%- comment -%}
+  Pale-mint section: heading, body line, large rounded comparison image with
+  a red pill label bottom-left and green pill bottom-right, then four rows of
+  red outline pill → curved arrow → green outline pill.
+{%- endcomment -%}
+
+<section class="lba">
+  <div class="v3-wrap">
+    <h2 class="v3-h2">Sprayed On vs.<br>Protected From Within</h2>
+    <p class="lba-body">Sprays sit on the skin they touch &mdash; they wash off, wear off, and miss spots. Pinemoor works from the inside, so the difference shows up everywhere ticks hunt.</p>
+    <div class="lba-imgwrap">
+      <img src="{{ 'lp-compare.webp' | asset_url }}" alt="Spray coverage compared with Pinemoor working from within" loading="lazy" decoding="async">
+      <span class="lba-pill lba-pill--red">Sprayed On</span>
+      <span class="lba-pill lba-pill--green">From Within</span>
+    </div>
+    <div class="lba-rows">
+      <div class="lba-row">
+        <span class="lba-tag lba-tag--bad"><i>&#10005;</i> Washes Off</span>
+        <svg class="lba-arrow" viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 18c14 6 38 6 50-8"/><path d="M48 8l6 2-2 6"/></svg>
+        <span class="lba-tag lba-tag--good"><i>&#10004;</i> 24-Hour Cover</span>
+      </div>
+      <div class="lba-row">
+        <span class="lba-tag lba-tag--bad"><i>&#10005;</i> Greasy Skin</span>
+        <svg class="lba-arrow" viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 18c14 6 38 6 50-8"/><path d="M48 8l6 2-2 6"/></svg>
+        <span class="lba-tag lba-tag--good"><i>&#10004;</i> No Residue</span>
+      </div>
+      <div class="lba-row">
+        <span class="lba-tag lba-tag--bad"><i>&#10005;</i> Missed Spots</span>
+        <svg class="lba-arrow" viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 18c14 6 38 6 50-8"/><path d="M48 8l6 2-2 6"/></svg>
+        <span class="lba-tag lba-tag--good"><i>&#10004;</i> Whole-Body</span>
+      </div>
+      <div class="lba-row">
+        <span class="lba-tag lba-tag--bad"><i>&#10005;</i> Harsh Chemicals</span>
+        <svg class="lba-arrow" viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 18c14 6 38 6 50-8"/><path d="M48 8l6 2-2 6"/></svg>
+        <span class="lba-tag lba-tag--good"><i>&#10004;</i> Six Botanicals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lba{background:var(--v3-tint);padding:32px 0 36px;}
+  .lba .v3-h2{margin-bottom:14px;}
+  .lba-body{font-size:14px;line-height:1.55;color:var(--v3-ink);margin-bottom:18px;}
+  .lba-imgwrap{position:relative;border-radius:14px;overflow:hidden;margin-bottom:20px;}
+  .lba-imgwrap img{width:100%;aspect-ratio:1/0.62;object-fit:cover;}
+  .lba-pill{position:absolute;bottom:14px;border-radius:50px;padding:6px 16px;font-size:12.5px;font-weight:600;color:#fff;}
+  .lba-pill--red{left:14px;background:#C0392B;}
+  .lba-pill--green{right:14px;background:var(--v3-green);}
+  .lba-rows{display:flex;flex-direction:column;gap:14px;}
+  .lba-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .lba-tag{display:inline-flex;align-items:center;gap:7px;border-radius:50px;padding:8px 14px;font-size:12.5px;
+    font-weight:600;flex:none;min-width:128px;justify-content:center;}
+  .lba-tag--bad{border:1.3px solid #C0392B;color:var(--v3-ink);background:#fff;}
+  .lba-tag--bad i{font-style:normal;width:15px;height:15px;border-radius:50%;background:#C0392B;color:#fff;font-size:8.5px;
+    display:flex;align-items:center;justify-content:center;}
+  .lba-tag--good{border:1.3px solid var(--v3-green);color:var(--v3-ink);background:#fff;}
+  .lba-tag--good i{font-style:normal;width:15px;height:15px;border-radius:50%;background:var(--v3-green);color:#fff;font-size:8.5px;
+    display:flex;align-items:center;justify-content:center;}
+  .lba-arrow{flex:1;max-width:58px;height:22px;color:var(--v3-ink);opacity:.7;}
+</style>
+
+{% schema %}
+{ "name": "LP Before After", "settings": [] }
+{% endschema %}

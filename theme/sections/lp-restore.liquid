@@ -1,0 +1,77 @@
+{%- comment -%}
+  Pale-mint section: centered heading with a leaf sprig top-right, then four
+  white accordion cards, each with a square photo on the left, bold title +
+  green subtitle, and a "+" that expands the description.
+{%- endcomment -%}
+
+<section class="lrb">
+  <div class="v3-wrap">
+    <svg class="lrb-sprig" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 34C14 28 18 20 32 8"/><path d="M14 26c4 1 7 0 9-3M20 20c3 1 6 0 8-3M26 14c2 1 4 0 6-2"/></svg>
+    <h2 class="v3-h2 lrb-h">The Natural Way to Stay Bite-Free</h2>
+
+    <div class="lrb-item" onclick="lrbTog(this)">
+      <img src="{{ 'lp-step-1.webp' | asset_url }}" alt="Pinemoor drops absorbing" loading="lazy" decoding="async" width="88" height="88">
+      <div class="lrb-txt">
+        <b>Absorb</b>
+        <span>One Dropper, Every Morning</span>
+        <p>Your daily dropper absorbs within the hour and goes to work from the inside &mdash; no spray, no grease, no missed spots.</p>
+      </div>
+      <span class="lrb-plus">+</span>
+    </div>
+
+    <div class="lrb-item" onclick="lrbTog(this)">
+      <img src="{{ 'pm-oregano-oil-88832.webp' | asset_url }}" alt="Botanical extracts" loading="lazy" decoding="async" width="88" height="88">
+      <div class="lrb-txt">
+        <b>Shift</b>
+        <span>Change What Ticks Smell</span>
+        <p>Six botanicals exit through your skin and quiet the scent signals ticks track &mdash; so you stop reading as food.</p>
+      </div>
+      <span class="lrb-plus">+</span>
+    </div>
+
+    <div class="lrb-item" onclick="lrbTog(this)">
+      <img src="{{ 'lp-problem-tick.webp' | asset_url }}" alt="Tick turned away" loading="lazy" decoding="async" width="88" height="88">
+      <div class="lrb-txt">
+        <b>Repel</b>
+        <span>Ticks Climb On, Then Climb Off</span>
+        <p>Without a clear read on you, ticks get confused and move on before they ever bite. That&rsquo;s the window most customers report by days 3&ndash;5.</p>
+      </div>
+      <span class="lrb-plus">+</span>
+    </div>
+
+    <div class="lrb-item" onclick="lrbTog(this)">
+      <img src="{{ 'pm-camping2-1-62a88.webp' | asset_url }}" alt="Family outdoors protected" loading="lazy" decoding="async" width="88" height="88">
+      <div class="lrb-txt">
+        <b>Protect &amp; Repeat</b>
+        <span>All-Day, Whole-Family Cover</span>
+        <p>One morning dose covers up to 24 hours. Coffee, drops, out the door &mdash; the whole family protected all season.</p>
+      </div>
+      <span class="lrb-plus">+</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .lrb{background:var(--v3-tint);padding:34px 0 30px;position:relative;}
+  .lrb-sprig{position:absolute;top:16px;right:18px;width:34px;height:34px;color:var(--v3-green);opacity:.7;}
+  .lrb-h{text-align:center;margin-bottom:22px;}
+  .lrb-item{display:flex;align-items:center;gap:0;background:#fff;border:1px solid var(--v3-green);border-radius:12px;
+    margin-bottom:13px;overflow:hidden;cursor:pointer;box-shadow:0 2px 6px rgba(7,82,48,.08);}
+  .lrb-item img{flex:none;width:88px;height:88px;object-fit:cover;align-self:stretch;}
+  .lrb-txt{flex:1;min-width:0;padding:14px 4px 14px 16px;}
+  .lrb-txt b{display:block;font-size:16.5px;font-weight:700;color:var(--v3-ink);}
+  .lrb-txt span{display:block;font-size:12.5px;font-weight:600;color:var(--v3-green);margin-top:3px;}
+  .lrb-txt p{display:none;font-size:12.5px;line-height:1.5;color:var(--v3-body);margin-top:8px;padding-right:8px;}
+  .lrb-item.open .lrb-txt p{display:block;}
+  .lrb-plus{flex:none;width:40px;text-align:center;font-size:22px;font-weight:400;color:var(--v3-ink);}
+  .lrb-item.open .lrb-plus{color:var(--v3-green);}
+</style>
+
+<script>
+  window.lrbTog=function(el){el.classList.toggle('open');};
+</script>
+
+{% schema %}
+{ "name": "LP Restore Accordions", "settings": [] }
+{% endschema %}

@@ -1,0 +1,21 @@
+{%- comment -%}
+  Full-width lifestyle photo of the bottles, edge-to-edge, with a soft green
+  gradient fading in at the bottom.
+{%- endcomment -%}
+
+<section class="lls">
+  <div class="lls-img">
+    <img src="{{ 'lp-lifestyle-bottles.webp' | asset_url }}" alt="Pinemoor Tick Protection Drops bottles at home" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<style>
+  .lls-img{position:relative;}
+  .lls-img img{width:100%;height:auto;display:block;}
+  .lls-img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;
+    background:linear-gradient(180deg,rgba(7,82,48,0) 0%,rgba(7,82,48,.55) 100%);}
+</style>
+
+{% schema %}
+{ "name": "LP Lifestyle Image", "settings": [] }
+{% endschema %}

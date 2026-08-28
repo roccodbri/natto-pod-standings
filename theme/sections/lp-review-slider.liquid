@@ -1,0 +1,84 @@
+{%- comment -%}
+  Quote-card review slider directly under the buy box: pale-mint rounded cards,
+  4.9 + stars header, quote, initials avatar, name/age, two outline tag chips.
+  Swipes horizontally; side arrows sit at mid-height.
+{%- endcomment -%}
+
+<section class="lrs">
+  <div class="v3-wrap">
+    <div class="lrs-shell">
+      <button type="button" class="lrs-nav lrs-nav--prev" onclick="lrsMove(-1)" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="lrs-nav lrs-nav--next" onclick="lrsMove(1)" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="lrs-track" id="lrsTrack">
+
+        <div class="lrs-card">
+          <div class="lrs-head"><b>4.8</b><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+          <p class="lrs-quote">&ldquo;Three weekends in the stand so far and not one tick. Honestly bought it half expecting a gimmick &mdash; I&rsquo;m sold!&rdquo;</p>
+          <div class="lrs-who"><span class="lrs-ava">WK</span><span>Wade K., 46 years</span></div>
+          <div class="lrs-tags"><span>Zero Ticks</span><span>Works as Advertised</span></div>
+        </div>
+
+        <div class="lrs-card">
+          <div class="lrs-head"><b>4.8</b><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+          <p class="lrs-quote">Did a full week at the lake and didn&rsquo;t pull a single tick off anybody. The maple taste makes it easy and my kids don&rsquo;t fight me on it.</p>
+          <div class="lrs-who"><span class="lrs-ava">SB</span><span>Steph B., 38 years</span></div>
+          <div class="lrs-tags"><span>Kid-Approved</span><span>Whole Family</span></div>
+        </div>
+
+        <div class="lrs-card">
+          <div class="lrs-head"><b>4.8</b><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+          <p class="lrs-quote">No greasy mess, no smell, and the dog and I have been clean all season. Didn&rsquo;t think a few drops could replace bug spray but here we are.</p>
+          <div class="lrs-who"><span class="lrs-ava">JS</span><span>Jess S., 34 years</span></div>
+          <div class="lrs-tags"><span>No Greasy Mess</span><span>Clean All Season</span></div>
+        </div>
+
+        <div class="lrs-card">
+          <div class="lrs-head"><b>4.8</b><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+          <p class="lrs-quote">My neighbor got alpha-gal from a tick bite and can&rsquo;t eat meat anymore. Taking these daily since spring &mdash; zero problems.</p>
+          <div class="lrs-who"><span class="lrs-ava">RP</span><span>Robert P., 51 years</span></div>
+          <div class="lrs-tags"><span>Daily Protection</span><span>Peace of Mind</span></div>
+        </div>
+
+        <div class="lrs-card">
+          <div class="lrs-head"><b>4.8</b><span class="v3-stars v3-stars--green">{%- for i in (1..5) -%}<svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>{%- endfor -%}</span></div>
+          <p class="lrs-quote">Works. That&rsquo;s the review. Whole season in the timber and clean tick checks every single night.</p>
+          <div class="lrs-who"><span class="lrs-ava">TR</span><span>Tom R., 44 years</span></div>
+          <div class="lrs-tags"><span>It Just Works</span><span>Visible Results</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lrs{background:#fff;padding:8px 0 14px;}
+  .lrs-shell{position:relative;}
+  .lrs-track{display:flex;flex-direction:column;gap:14px;}
+  .lrs-card{background:var(--v3-tint);border-radius:16px;padding:18px 16px;}
+  .lrs-head{display:flex;align-items:center;gap:9px;margin-bottom:10px;}
+  .lrs-head b{font-size:15px;font-weight:700;}
+  .lrs-quote{font-size:14.5px;line-height:1.5;color:var(--v3-ink);margin-bottom:13px;}
+  .lrs-who{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;margin-bottom:12px;}
+  .lrs-ava{width:30px;height:30px;border-radius:50%;border:1.4px solid var(--v3-green);color:var(--v3-darker);
+    display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:#fff;}
+  .lrs-tags{display:flex;gap:9px;flex-wrap:wrap;}
+  .lrs-tags span{border:1px solid var(--v3-green);border-radius:8px;padding:6px 13px;font-size:12.5px;
+    font-weight:500;color:var(--v3-ink);background:transparent;}
+  .lrs-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:30px;height:30px;border-radius:50%;
+    border:1.4px solid var(--v3-green);color:var(--v3-green);background:#fff;display:flex;align-items:center;justify-content:center;}
+  .lrs-nav svg{width:14px;height:14px;}
+  .lrs-nav--prev{left:-9px;} .lrs-nav--next{right:-9px;}
+</style>
+
+<script>
+  /* the stacked feed pages by rotating card order, like the reference arrows */
+  window.lrsMove=function(d){
+    var t=document.getElementById('lrsTrack'); if(!t||t.children.length<2)return;
+    if(d>0){t.appendChild(t.firstElementChild);}else{t.insertBefore(t.lastElementChild,t.firstElementChild);}
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Review Slider", "settings": [] }
+{% endschema %}

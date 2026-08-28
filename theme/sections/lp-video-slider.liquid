@@ -1,0 +1,46 @@
+{%- comment -%}
+  Heading + portrait UGC video card with circular arrows beneath. Uses the
+  theme-hosted Pinemoor video with its poster; tap toggles play/pause.
+{%- endcomment -%}
+
+<section class="lvs">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 lvs-h">Their Season Says It All</h2>
+    <div class="lvs-track" id="lvsTrack">
+      <div class="lvs-card active">
+        <video id="lvsVideo" playsinline preload="none" poster="{{ 'pinemoor-video-poster.webp' | asset_url }}" src="{{ 'pinemoor-video.mp4' | asset_url }}"></video>
+        <button type="button" class="lvs-play" id="lvsPlay" onclick="lvsToggle()" aria-label="Play video">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5L8 5.5z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="v3-arrows lvs-arrows">
+      <button type="button" class="v3-arrow" onclick="lvsToggle()" aria-label="Previous video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="v3-arrow" onclick="lvsToggle()" aria-label="Next video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lvs{background:#fff;padding:14px 0 20px;}
+  .lvs-h{text-align:center;margin-bottom:18px;}
+  .lvs-card{position:relative;border-radius:14px;overflow:hidden;background:#000;max-width:352px;margin:0 auto;}
+  .lvs-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;}
+  .lvs-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;}
+  .lvs-play svg{width:44px;height:44px;padding:11px;background:rgba(0,0,0,.45);border-radius:50%;}
+  .lvs-play.is-hidden svg{opacity:0;}
+  .lvs-arrows{margin-top:16px;}
+</style>
+
+<script>
+  window.lvsToggle=function(){
+    var v=document.getElementById('lvsVideo'),p=document.getElementById('lvsPlay');
+    if(!v)return;
+    if(v.paused){v.play();p.classList.add('is-hidden');v.muted=false;}
+    else{v.pause();p.classList.remove('is-hidden');}
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Video Slider", "settings": [] }
+{% endschema %}

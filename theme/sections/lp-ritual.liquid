@@ -1,0 +1,83 @@
+{%- comment -%}
+  Deep-green panel: centered white heading + light subline, then a vertical
+  run of step photo cards, each photo topped with a pill "Step N" badge and
+  followed by a translucent text card. Circular light arrows at the bottom.
+{%- endcomment -%}
+
+<section class="lrl">
+  <div class="v3-wrap">
+    <h2 class="v3-h2 v3-h2--light lrl-h">The 10-Second Morning Ritual</h2>
+    <p class="lrl-sub">Simple, fast, and highly absorbent &mdash; no sprays to reapply or greasy lotions required.</p>
+
+    <div class="lrl-step">
+      <div class="lrl-img">
+        <span class="lrl-badge">Step 1</span>
+        <img src="{{ 'lp-step-1.webp' | asset_url }}" alt="Filling the Pinemoor dropper" loading="lazy" decoding="async">
+      </div>
+      <div class="lrl-card">
+        <h3>Fill the Dropper</h3>
+        <p>Squeeze the bulb to <b>draw one full dropper</b> of the concentrated herbal extract. That single daily dose carries all <b>six botanicals</b> your scent barrier is built from.</p>
+      </div>
+    </div>
+
+    <div class="lrl-step">
+      <div class="lrl-img">
+        <span class="lrl-badge">Step 2</span>
+        <img src="{{ 'lp-step-2.webp' | asset_url }}" alt="Stirring Pinemoor drops into water" loading="lazy" decoding="async">
+      </div>
+      <div class="lrl-card">
+        <h3>Take It With Any Drink</h3>
+        <p>Place the drops <b>under your tongue for 30 seconds</b>, or <b>stir the</b> maple-flavored <b>drops into your morning water, coffee, or juice</b>. Kid-approved, no fighting.</p>
+      </div>
+    </div>
+
+    <div class="lrl-step">
+      <div class="lrl-img">
+        <span class="lrl-badge">Step 3</span>
+        <img src="{{ 'lp-step-3.webp' | asset_url }}" alt="Heading outside protected" loading="lazy" decoding="async">
+      </div>
+      <div class="lrl-card">
+        <h3>Head Out Protected</h3>
+        <p>Stay consistent every morning. The botanicals exit through your skin and <b>change the scent ticks hunt by</b> &mdash; covering you for <b>up to 24 hours</b>, head to toe.</p>
+      </div>
+    </div>
+
+    <div class="v3-arrows lrl-arrows">
+      <button type="button" class="v3-arrow v3-arrow--light" onclick="lrlMove(-1)" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="v3-arrow v3-arrow--light" onclick="lrlMove(1)" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lrl{background:var(--v3-forest);padding:36px 0 30px;position:relative;overflow:hidden;}
+  .lrl::before{content:"";position:absolute;right:-60px;top:120px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(95,255,185,.08),transparent 70%);}
+  .lrl-h{text-align:center;margin-bottom:12px;}
+  .lrl-sub{text-align:center;font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;margin-bottom:22px;}
+  .lrl-step{margin-bottom:8px;}
+  .lrl-img{position:relative;border-radius:14px;overflow:hidden;}
+  .lrl-img img{width:100%;aspect-ratio:1/0.78;object-fit:cover;}
+  .lrl-badge{position:absolute;top:14px;left:14px;background:var(--v3-green);color:#fff;border-radius:50px;
+    padding:7px 22px;font-size:14px;font-weight:600;z-index:2;}
+  .lrl-card{background:rgba(255,255,255,.13);border-radius:14px;padding:18px 16px;margin:14px 0 18px;}
+  .lrl-card h3{font-family:var(--v3-head);font-weight:500;font-size:21px;color:#fff;margin-bottom:9px;}
+  .lrl-card p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.82);}
+  .lrl-card b{color:#fff;font-weight:700;}
+  .lrl-arrows{margin-top:8px;}
+</style>
+
+<script>
+  window.lrlMove=function(d){
+    var steps=[].slice.call(document.querySelectorAll('.lrl-step'));
+    if(!steps.length)return;
+    var y=window.scrollY, target=null;
+    if(d>0){for(var i=0;i<steps.length;i++){var t=steps[i].getBoundingClientRect().top;if(t>60){target=steps[i];break;}}}
+    else{for(var j=steps.length-1;j>=0;j--){var t2=steps[j].getBoundingClientRect().top;if(t2<-60){target=steps[j];break;}}}
+    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+</script>
+
+{% schema %}
+{ "name": "LP Ritual Steps", "settings": [] }
+{% endschema %}

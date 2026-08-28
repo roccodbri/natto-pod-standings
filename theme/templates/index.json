@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "lp-hero": {
+      "type": "lp-hero",
+      "settings": {
+        "product": "pinemoor\u00ae-tick-protection-drops-tyler-copy",
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    },
+    "lp-review-slider": {
+      "type": "lp-review-slider",
+      "settings": {}
+    },
+    "lp-info-accordions": {
+      "type": "lp-info-accordions",
+      "settings": {}
+    },
+    "lp-video-slider": {
+      "type": "lp-video-slider",
+      "settings": {}
+    },
+    "lp-tabs-card": {
+      "type": "lp-tabs-card",
+      "settings": {}
+    },
+    "lp-lifestyle": {
+      "type": "lp-lifestyle",
+      "settings": {}
+    },
+    "lp-icon-ticker": {
+      "type": "lp-icon-ticker",
+      "settings": {}
+    },
+    "lp-restore": {
+      "type": "lp-restore",
+      "settings": {}
+    },
+    "lp-results-tabs": {
+      "type": "lp-results-tabs",
+      "settings": {}
+    },
+    "lp-ritual": {
+      "type": "lp-ritual",
+      "settings": {}
+    },
+    "lp-problems": {
+      "type": "lp-problems",
+      "settings": {}
+    },
+    "lp-why-trust": {
+      "type": "lp-why-trust",
+      "settings": {}
+    },
+    "lp-stats": {
+      "type": "lp-stats",
+      "settings": {}
+    },
+    "lp-before-after": {
+      "type": "lp-before-after",
+      "settings": {}
+    },
+    "lp-journey": {
+      "type": "lp-journey",
+      "settings": {}
+    },
+    "lp-five-reasons": {
+      "type": "lp-five-reasons",
+      "settings": {}
+    },
+    "lp-compare-table": {
+      "type": "lp-compare-table",
+      "settings": {}
+    },
+    "lp-faq": {
+      "type": "lp-faq",
+      "settings": {}
+    },
+    "lp-guarantee": {
+      "type": "lp-guarantee",
+      "settings": {}
+    },
+    "lp-ugc-reviews": {
+      "type": "lp-ugc-reviews",
+      "settings": {}
+    },
+    "lp-stockup": {
+      "type": "lp-stockup",
+      "settings": {
+        "variant_id_1": "52810262577333",
+        "variant_id_2": "52810262610101",
+        "variant_id_3": "52810262642869"
+      }
+    },
+    "lp-sticky-atc": {
+      "type": "lp-sticky-atc",
+      "settings": {}
+    }
+  },
+  "order": [
+    "lp-hero",
+    "lp-review-slider",
+    "lp-info-accordions",
+    "lp-video-slider",
+    "lp-tabs-card",
+    "lp-lifestyle",
+    "lp-icon-ticker",
+    "lp-restore",
+    "lp-results-tabs",
+    "lp-ritual",
+    "lp-problems",
+    "lp-why-trust",
+    "lp-stats",
+    "lp-before-after",
+    "lp-journey",
+    "lp-five-reasons",
+    "lp-compare-table",
+    "lp-faq",
+    "lp-guarantee",
+    "lp-ugc-reviews",
+    "lp-stockup",
+    "lp-sticky-atc"
+  ]
+}
